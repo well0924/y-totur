@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="37deec85-24b5-417b-8261-ad17e5fbcf73" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/application/category/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/application/member/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/common/exception/CustomExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/common/exception/ErrorMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/common/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/common/util/constant/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/common/util/constant/SearchType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/domain/category/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/domain/category/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/domain/order/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/domain/order/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/domain/product/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/domain/review/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/domain/review/ReviewRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/infrastructure/redis/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/infrastructure/redis/RedisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/infrastructure/security/jwt/JwtAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/infrastructure/security/jwt/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/infrastructure/security/jwt/JwtSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/presentation/category/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/presentation/category/CategoryDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/presentation/login/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DDD_Practice/src/main/java/com/java/practice/presentation/login/TokenDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JpaPractice/src/main/java/com/example/jpapractice/domain/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JpaPractice/src/main/java/com/example/jpapractice/domain/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JpaPractice/src/main/java/com/example/jpapractice/domain/Poster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JpaPractice/src/main/java/com/example/jpapractice/repository/MovieRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JpaPractice/src/main/java/com/example/jpapractice/repository/PosterRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JpaPractice/src/test/java/com/example/jpapractice/repository/MovieRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docker-compose-practice/ docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docker-compose-practice/DockerFile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docker-compose-practice/src/main/java/com/example/dockercomposepractice/config/CacheKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docker-compose-practice/src/main/java/com/example/dockercomposepractice/config/redisCacheConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docker-compose-practice/src/main/java/com/example/dockercomposepractice/config/redisSessionConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docker-compose-practice/src/main/java/com/example/dockercomposepractice/test/testController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docker-compose-practice/src/main/java/com/example/dockercomposepractice/test/testDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docker-compose-practice/src/main/java/com/example/dockercomposepractice/test/testEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docker-compose-practice/src/main/java/com/example/dockercomposepractice/test/testEntityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../docker-compose-practice/src/main/java/com/example/dockercomposepractice/test/testService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/config/EmailConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/config/ThreadPoolConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/controller/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/controller/NotifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/domain/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/domain/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/domain/NotificationContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/domain/NotificationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/domain/RelatedUrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/domain/dto/MemberRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/domain/dto/MemberResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/domain/dto/NoticeResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/event/MemberEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/event/MemberEventPublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/repository/MemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/repository/NotificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/service/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../event_driven_practice/src/main/java/com/example/event_driven_practice/service/NoticeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/controller/BoardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/domain/Attach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/domain/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/domain/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/domain/dto/BoardRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/domain/dto/BoardResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/repository/BoardRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/repository/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/service/BoardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../githubaction_practice/src/main/java/com/example/githubaction_practice/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kotlin-board/src/main/kotlin/com/example/kotlinboard/Config/JpaQueryFactoryConfig.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kotlin-board/src/main/kotlin/com/example/kotlinboard/Member/Application/MemberController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kotlin-board/src/main/kotlin/com/example/kotlinboard/Member/Application/MemberService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kotlin-board/src/main/kotlin/com/example/kotlinboard/Member/Domain/Member.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kotlin-board/src/main/kotlin/com/example/kotlinboard/Member/Infrastructure/MemberRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kotlin-board/src/main/kotlin/com/example/kotlinboard/Member/Presentation/MemberRequest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kotlin-board/src/main/kotlin/com/example/kotlinboard/Member/Presentation/MemberResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice1/src/main/java/com/example/practice1/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rate_limit_practice/src/main/java/com/example/rate_limit_practice/aop/AppPointCuts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rate_limit_practice/src/main/java/com/example/rate_limit_practice/aop/ControllerAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rate_limit_practice/src/main/java/com/example/rate_limit_practice/config/RateLimiterConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rate_limit_practice/src/main/java/com/example/rate_limit_practice/exception/AdviceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rate_limit_practice/src/main/java/com/example/rate_limit_practice/exception/RateLimiterException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rate_limit_practice/src/main/java/com/example/rate_limit_practice/tokenbucket/TokenBucketResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/generated/com/example/redissessionclusteringindexpractice/domain/QBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/generated/com/example/redissessionclusteringindexpractice/domain/QMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/generated/com/example/redissessionclusteringindexpractice/domain/dto/QBoardResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/generated/com/example/redissessionclusteringindexpractice/domain/dto/QMemberResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/config/aop/AuthAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/config/aop/CheckedLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/config/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/config/redis/CacheKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/config/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/controller/BoardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/domain/dto/BoardRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/domain/dto/BoardResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/domain/dto/LoginDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/domain/dto/MemberRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/domain/dto/MemberResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/repository/BoardRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/repository/MemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/repository/queryDsl/CustomBoardRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/repository/queryDsl/CustomBoardRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/service/BoardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis-session-clustering-index-practice/src/main/java/com/example/redissessionclusteringindexpractice/service/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../redis_pubsub_practice/src/main/java/com/example/redis_pubsub_practice/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springboot_next_practice/src/main/java/com/example/springboot_next_practice/config/jwt/JwtAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springboot_next_practice/src/main/java/com/example/springboot_next_practice/config/jwt/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springboot_next_practice/src/main/java/com/example/springboot_next_practice/config/jwt/JwtSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springboot_next_practice/src/main/java/com/example/springboot_next_practice/config/security/SecurityUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springboot_next_practice/src/main/java/com/example/springboot_next_practice/domain/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../springboot_next_practice/src/main/java/com/example/springboot_next_practice/domain/dto/TokenDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/java/com/example/unlock_test/config/CustomAuthenticationSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/java/com/example/unlock_test/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/java/com/example/unlock_test/config/UnlockAccountScheduler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/java/com/example/unlock_test/controller/authController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/java/com/example/unlock_test/domain/CustomUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/java/com/example/unlock_test/domain/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/java/com/example/unlock_test/domain/MemberStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/java/com/example/unlock_test/domain/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/java/com/example/unlock_test/service/CustomUserDetailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/java/com/example/unlock_test/service/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unlock_test/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FastCampusPractice" beforeDir="false" afterPath="$PROJECT_DIR$/../FastCampusPractice" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FastCampusPractice/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../FastCampusPractice/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FastCampusPractice/src/main/java/co/jpa/practice/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FastCampusPractice/src/main/java/co/jpa/practice/domain/Review.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/auth">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/boot-strap">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/connector">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/connector/in-connector">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/connector/interfaces">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/connector/out-connector">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/core">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/core/enums">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/core/eunm">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/core/model">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/core/service">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/infra">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/infra/JPA">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/member-core">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/member-core/model">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/member-core/service">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member/presentation">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/boot-strap">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/common">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/connector">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/entity">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/infra">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/member">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/member/presentation">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/bootstrap">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/auth">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2rAgqe8CLR0gpYr9pWGgKbCyb2H" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.Build ScheduleManagementProject.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build boot-strap.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build member.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [assemble].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [bootJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [compileJava].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [resolveMainClassName].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:auth [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:bootstrap [bootJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:bootstrap [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:bootstrap [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:common [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:common [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:connector [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:entity [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:entity [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:entity [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:member [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:member [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.boot-strap [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.member [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.member [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.member [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.presentation [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.presentation [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.presentation::spring_work:workspace:ScheduleManagementProject [:member:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.presentation::spring_work:workspace:ScheduleManagementProject [jar].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BootStrapApplication.executor&quot;: &quot;Run&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/spring_work/workspace/ScheduleManagementProject/auth/src/main/java/com/example/auth/jwt&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\auth\src\main\java\com\example\auth\jwt" />
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\member" />
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\member\core" />
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\out-connector\src\main\java\com\example\outconnector\config" />
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\infra\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\infra\src\main\resources" />
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\infra\src\main\resources\mariadb" />
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\entity\src\main\resources" />
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\entity\src\main\resources\mariadb" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.ScheduleManagementProject [build]">
+    <configuration name="ScheduleManagementProject [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScheduleManagementProject [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScheduleManagementProject:auth [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/auth" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="presentation [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/member/presentation" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="presentation::spring_work:workspace:ScheduleManagementProject [:member:clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":member:clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="BootStrapApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="application.yml" />
+      <module name="ScheduleManagementProject.bootstrap.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.bootstrap.BootStrapApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.ScheduleManagementProject:auth [build]" />
+      <item itemvalue="Gradle.presentation::spring_work:workspace:ScheduleManagementProject [:member:clean]" />
+      <item itemvalue="Gradle.presentation [build]" />
+      <item itemvalue="Gradle.ScheduleManagementProject [build]" />
+      <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
+      <item itemvalue="Spring Boot.BootStrapApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ScheduleManagementProject [build]" />
+        <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
+        <item itemvalue="Gradle.ScheduleManagementProject:auth [build]" />
+        <item itemvalue="Gradle.presentation::spring_work:workspace:ScheduleManagementProject [:member:clean]" />
+        <item itemvalue="Gradle.presentation [build]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="37deec85-24b5-417b-8261-ad17e5fbcf73" name="Changes" comment="" />
+      <created>1736007491468</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1736007491468</updated>
+      <workItem from="1736007496916" duration="8138000" />
+      <workItem from="1736046088060" duration="22612000" />
+      <workItem from="1736089302981" duration="2808000" />
+      <workItem from="1736158909450" duration="5338000" />
+      <workItem from="1736166485304" duration="1426000" />
+      <workItem from="1736167966522" duration="15134000" />
+      <workItem from="1736241839609" duration="755000" />
+      <workItem from="1736242670282" duration="518000" />
+      <workItem from="1736243478065" duration="24023000" />
+      <workItem from="1736292447166" duration="1725000" />
+      <workItem from="1736315539750" duration="1672000" />
+      <workItem from="1736317738325" duration="25584000" />
+      <workItem from="1736401590216" duration="5139000" />
+      <workItem from="1736418007726" duration="3504000" />
+      <workItem from="1736422147014" duration="6869000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

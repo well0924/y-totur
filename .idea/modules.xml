@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth/ScheduleManagementProject.auth.main.iml" filepath="$PROJECT_DIR$/.idea/modules/auth/ScheduleManagementProject.auth.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth/ScheduleManagementProject.auth.test.iml" filepath="$PROJECT_DIR$/.idea/modules/auth/ScheduleManagementProject.auth.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bootstrap/ScheduleManagementProject.bootstrap.main.iml" filepath="$PROJECT_DIR$/.idea/modules/bootstrap/ScheduleManagementProject.bootstrap.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bootstrap/ScheduleManagementProject.bootstrap.test.iml" filepath="$PROJECT_DIR$/.idea/modules/bootstrap/ScheduleManagementProject.bootstrap.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/ScheduleManagementProject.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/ScheduleManagementProject.common.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/ScheduleManagementProject.common.test.iml" filepath="$PROJECT_DIR$/.idea/modules/common/ScheduleManagementProject.common.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/connector/in-connector/ScheduleManagementProject.domain.connector.in-connector.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/connector/in-connector/ScheduleManagementProject.domain.connector.in-connector.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/connector/in-connector/ScheduleManagementProject.domain.connector.in-connector.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/connector/in-connector/ScheduleManagementProject.domain.connector.in-connector.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/connector/interfaces/ScheduleManagementProject.domain.connector.interfaces.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/connector/interfaces/ScheduleManagementProject.domain.connector.interfaces.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/connector/interfaces/ScheduleManagementProject.domain.connector.interfaces.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/connector/interfaces/ScheduleManagementProject.domain.connector.interfaces.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/connector/out-connector/ScheduleManagementProject.domain.connector.out-connector.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/connector/out-connector/ScheduleManagementProject.domain.connector.out-connector.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/core/enums/ScheduleManagementProject.domain.core.enums.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/core/enums/ScheduleManagementProject.domain.core.enums.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/core/enums/ScheduleManagementProject.domain.core.enums.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/core/enums/ScheduleManagementProject.domain.core.enums.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/core/model/ScheduleManagementProject.domain.core.model.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/core/model/ScheduleManagementProject.domain.core.model.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/core/model/ScheduleManagementProject.domain.core.model.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/core/model/ScheduleManagementProject.domain.core.model.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/core/service/ScheduleManagementProject.domain.core.service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/core/service/ScheduleManagementProject.domain.core.service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/core/service/ScheduleManagementProject.domain.core.service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/core/service/ScheduleManagementProject.domain.core.service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/infra/JPA/ScheduleManagementProject.domain.infra.JPA.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/infra/JPA/ScheduleManagementProject.domain.infra.JPA.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/infra/JPA/ScheduleManagementProject.domain.infra.JPA.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/infra/JPA/ScheduleManagementProject.domain.infra.JPA.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/infra/ScheduleManagementProject.domain.infra.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/infra/ScheduleManagementProject.domain.infra.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/presentation/ScheduleManagementProject.domain.presentation.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/presentation/ScheduleManagementProject.domain.presentation.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/presentation/ScheduleManagementProject.domain.presentation.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/presentation/ScheduleManagementProject.domain.presentation.test.iml" />
+    </modules>
+  </component>
+</project>
