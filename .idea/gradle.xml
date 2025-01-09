@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/auth" />
+            <option value="$PROJECT_DIR$/bootstrap" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/domain/connector" />
+            <option value="$PROJECT_DIR$/domain/connector/in-connector" />
+            <option value="$PROJECT_DIR$/domain/connector/interfaces" />
+            <option value="$PROJECT_DIR$/domain/connector/out-connector" />
+            <option value="$PROJECT_DIR$/domain/core" />
+            <option value="$PROJECT_DIR$/domain/core/enums" />
+            <option value="$PROJECT_DIR$/domain/core/model" />
+            <option value="$PROJECT_DIR$/domain/core/service" />
+            <option value="$PROJECT_DIR$/domain/infra" />
+            <option value="$PROJECT_DIR$/domain/infra/JPA" />
+            <option value="$PROJECT_DIR$/domain/presentation" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

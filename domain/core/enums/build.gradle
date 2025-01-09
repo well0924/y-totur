@@ -1,0 +1,13 @@
+project(':domain:core:enums') {
+    dependencies {
+
+    }
+    tasks.bootJar {
+        enabled =false
+    }
+
+    tasks.jar {
+        enabled =true
+    }
+}
+

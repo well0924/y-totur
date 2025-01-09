@@ -1,0 +1,30 @@
+project(':domain') {
+	dependencies {
+		implementation project(':domain:connector')
+		implementation project(':domain:connector:interfaces')
+	}
+}
+project(':domain:connector') {
+	dependencies {
+	}
+	tasks.bootJar {
+		enabled = false
+	}
+
+	tasks.jar {
+		enabled = true
+	}
+}
+project(':domain:connector:interfaces') {
+	dependencies {
+		implementation project(':domain:core:model')
+		implementation project(':domain:core:enums')
+	}
+	tasks.bootJar {
+		enabled = false
+	}
+
+	tasks.jar {
+		enabled = true
+	}
+}
