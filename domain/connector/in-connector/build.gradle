@@ -1,0 +1,28 @@
+project(':domain') {
+    dependencies {
+        implementation project(':domain:connector')
+        implementation project(':domain:connector:in-connector')
+    }
+}
+
+project(':domain:connector') {
+    dependencies {
+    }
+}
+
+project(':domain:connector:in-connector') {
+    dependencies {
+        implementation project(':domain:core:service')
+        implementation project(':domain:core:model')
+        implementation project(':domain:connector:interfaces')
+        implementation project(':domain:core:enums')
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    }
+    tasks.bootJar {
+        enabled = false
+    }
+
+    tasks.jar {
+        enabled = true
+    }
+}

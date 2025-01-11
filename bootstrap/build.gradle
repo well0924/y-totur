@@ -1,0 +1,17 @@
+project(':bootstrap'){
+	dependencies {
+		implementation project(':domain:presentation')
+		implementation project(':domain:infra')
+		implementation project(':domain:infra:JPA')
+		implementation project(':domain:core:model')
+		implementation project(':domain:core:enums')
+		implementation project(':domain:core:service')
+		implementation project(':domain:connector:in-connector')
+		implementation project(':domain:connector:out-connector')
+		implementation project(':auth')
+		implementation 'org.springframework.boot:spring-boot-starter'
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		compileOnly 'org.projectlombok:lombok'
+		annotationProcessor 'org.projectlombok:lombok'
+	}
+}
