@@ -241,12 +241,6 @@
                 <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -525,7 +519,7 @@
       <workItem from="1736317738325" duration="25584000" />
       <workItem from="1736401590216" duration="5139000" />
       <workItem from="1736418007726" duration="3504000" />
-      <workItem from="1736422147014" duration="6869000" />
+      <workItem from="1736422147014" duration="18343000" />
     </task>
     <servers />
   </component>
