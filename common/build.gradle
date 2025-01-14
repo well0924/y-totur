@@ -1,17 +1,14 @@
-project(':common') {
-    dependencies {
-        //aop
-        implementation 'org.springframework:spring-aop'
-        //redis
-        implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-        implementation 'it.ozimov:embedded-redis:0.7.2'
-    }
+dependencies {
+        implementation project(':common:Exception')
+        implementation project(':common:Logging')
+        implementation project(':common:Jpa')
+        implementation project(':common:Security')
+}
 
-    tasks.bootJar {
-        enabled = false
-    }
+tasks.bootJar {
+    enabled = false
+}
 
-    tasks.jar {
-        enabled = true
-    }
+tasks.jar {
+    enabled = true
 }

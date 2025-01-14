@@ -3,6 +3,6 @@ server:
   port: 8082
 spring:
   profiles:
-    include: member-JPA,common,auth
+    include: jpa, security
 
 

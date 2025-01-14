@@ -1,0 +1,22 @@
+project(':common') {
+	dependencies {
+		implementation project(':common:Exception')
+	}
+}
+
+project(':common:Exception') {
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter'
+		compileOnly 'org.projectlombok:lombok'
+		annotationProcessor 'org.projectlombok:lombok'
+	}
+}
+tasks.bootJar {
+	enabled = false
+}
+
+tasks.jar {
+	enabled = true
+}
+
+tasks.register("prepareKotlinBuildScriptModel"){}
