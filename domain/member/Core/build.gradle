@@ -1,0 +1,21 @@
+project(':domain:member:Core') {
+    dependencies {
+        implementation project(':domain:member:Core:Service')
+        implementation project(':domain:member:Core:Enumerate')
+        implementation project(':domain:member:Core:Model')
+        implementation project(':domain:member:Core:Exception')
+        implementation 'org.springframework.boot:spring-boot-starter'
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+    }
+    tasks.bootJar {
+        enabled = false
+    }
+
+    tasks.jar {
+        enabled = false
+    }
+    tasks.register("prepareKotlinBuildScriptModel"){}
+}
+
+

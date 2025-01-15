@@ -1,0 +1,27 @@
+rootProject.name = 'ScheduleManagementProject'
+
+include 'bootstrap'
+include 'common'
+include 'common:Jpa'
+include 'common:Security'
+include 'common:Exception'
+include 'common:Logging'
+
+include 'domain'
+//member 관련
+include 'domain:member'
+include 'domain:member:Api'
+include 'domain:member:Connector'
+include 'domain:member:Connector:Api-Model'
+include 'domain:member:Connector:In-Connector'
+include 'domain:member:Connector:Interfaces'
+include 'domain:member:Connector:Out-Connector'
+include 'domain:member:Core'
+include 'domain:member:Core:Service'
+include 'domain:member:Core:Enumerate'
+include 'domain:member:Core:Model'
+include 'domain:member:Core:Exception'
+include 'domain:member:Infrastructure'
+include 'domain:member:Infrastructure:Rdb-repository'
+include 'domain:member:Infrastructure:Api-Client'
+

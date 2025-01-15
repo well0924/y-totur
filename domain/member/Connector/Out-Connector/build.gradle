@@ -1,0 +1,20 @@
+project(':domain:member:Connector:Out-Connector') {
+    dependencies {
+        implementation project(':domain:member:Core:Model')
+        implementation project(':domain:member:Core:Enumerate')
+        implementation project(':domain:member:Infrastructure:Rdb-repository')
+        implementation project(':domain:member:Infrastructure:Api-Client')
+        implementation 'org.springframework.boot:spring-boot-starter'
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+    }
+    tasks.bootJar {
+        enabled = false
+    }
+
+    tasks.jar {
+        enabled = true
+    }
+
+    tasks.register("prepareKotlinBuildScriptModel"){}
+}
