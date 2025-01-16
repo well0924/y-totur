@@ -1,12 +1,14 @@
 package com.example.exception.global;
 
 import com.example.exception.dto.ErrorDto;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+@Order(1)
 @RestControllerAdvice
 public class CustomGlobalExceptionHandler {
 
@@ -20,5 +22,6 @@ public class CustomGlobalExceptionHandler {
         return new ResponseEntity<>(
                 new ErrorDto(ex.getErrorCode().getStatus(), ex.getErrorCode().getMessage()), HttpStatus.valueOf(ex.getErrorCode().getStatus()));
     }
+
 
 }

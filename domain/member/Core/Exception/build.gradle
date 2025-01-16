@@ -3,8 +3,6 @@ project(':domain:member:Core:Exception') {
 		implementation 'org.springframework.boot:spring-boot-starter'
 		compileOnly 'org.projectlombok:lombok'
 		annotationProcessor 'org.projectlombok:lombok'
-		testImplementation 'org.springframework.boot:spring-boot-starter-test'
-		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	}
 
 	tasks.bootJar {
@@ -15,5 +13,4 @@ project(':domain:member:Core:Exception') {
 		enabled = true
 	}
 
-	tasks.register("prepareKotlinBuildScriptModel"){}
 }

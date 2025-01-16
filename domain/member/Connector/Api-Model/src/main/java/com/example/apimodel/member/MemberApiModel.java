@@ -1,5 +1,6 @@
 package com.example.apimodel.member;
 
+import com.example.enumerate.member.Roles;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
@@ -12,7 +13,7 @@ public class MemberApiModel {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class Request  {
+    public static class Request {
         private String userId;
         private String password;
         private String userEmail;
@@ -31,7 +32,7 @@ public class MemberApiModel {
         private String userEmail;
         private String userPhone;
         private String userName;
-        private String roles;
+        private Roles roles;
         private String createdBy;
         private String updatedBy;
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm")

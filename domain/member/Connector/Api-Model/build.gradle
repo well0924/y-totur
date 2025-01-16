@@ -1,5 +1,6 @@
 project(':domain:member:Connector:Api-Model') {
     dependencies {
+        implementation project(':domain:member:Core:Enumerate')
         implementation 'org.springframework.boot:spring-boot-starter'
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'

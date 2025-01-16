@@ -4,527 +4,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/Exception/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/Exception/src/test/java/com/example/exception/ExceptionApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/Jpa/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/Logging/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/Logging/src/main/java/com/example/logging/MDC/MDCAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/Logging/src/main/java/com/example/logging/MDC/MDCFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/Logging/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Api/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Api/src/main/java/com/example/api/member/MemberController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Api/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Api-Model/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Api-Model/src/main/java/com/example/apimodel/member/MemberApiModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Api-Model/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/In-Connector/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/In-Connector/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Interfaces/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Interfaces/src/main/java/com/example/interfaces/in_connector/MemberInConnectors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Interfaces/src/main/java/com/example/interfaces/out_connector/MemberOutConnectors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Interfaces/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Connector/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Enumerate/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Enumerate/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Enumerate/src/test/java/com/example/enumerate/EnumerateApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Exception/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Exception/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Exception/src/test/java/com/example/exception/ExceptionApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Model/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Model/src/main/java/com/example/model/member/MemberModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Model/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Model/src/test/java/com/example/model/ModelApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Service/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Api-Client/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Api-Client/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Api-Client/src/test/java/com/example/apiclient/ApiClientApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/main/java/com/example/rdbrepository/member/MemberEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/main/java/com/example/rdbrepository/member/MemberRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/test/java/com/example/rdbrepository/RdbRepositoryApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Infrastructure/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" afterDir="false" />
+    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)">
+      <change afterPath="$PROJECT_DIR$/common/Security/src/main/java/com/example/security/jwt/JwtAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/Security/src/main/java/com/example/security/jwt/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/Security/src/main/java/com/example/security/jwt/JwtTokenProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Connector/In-Connector/src/main/java/com/example/inconnector/member/MemberInConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Interfaces/src/main/java/com/example/interfaces/in_connector/MemberInterfaces.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/src/main/java/com/example/outconnector/member/MemberOutConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/src/main/java/com/example/outconnector/member/MemberRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Core/Enumerate/src/main/java/com/example/enumerate/member/SearchType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Core/Exception/src/main/java/com/example/exception/CustomMemberExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Core/Exception/src/main/java/com/example/exception/CustomMemberGlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Core/Exception/src/main/java/com/example/exception/ErrorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Core/Exception/src/main/java/com/example/exception/MemberErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Core/Service/src/main/java/com/example/service/member/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/main/java/com/example/rdbrepository/member/custom/MemberRepositoryCustom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/auth/ScheduleManagementProject.auth.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/auth/ScheduleManagementProject.auth.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/bootstrap/ScheduleManagementProject.bootstrap.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/bootstrap/ScheduleManagementProject.bootstrap.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/common/ScheduleManagementProject.common.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/common/ScheduleManagementProject.common.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/connector/in-connector/ScheduleManagementProject.domain.connector.in-connector.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/connector/in-connector/ScheduleManagementProject.domain.connector.in-connector.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/connector/interfaces/ScheduleManagementProject.domain.connector.interfaces.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/connector/interfaces/ScheduleManagementProject.domain.connector.interfaces.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/connector/out-connector/ScheduleManagementProject.domain.connector.out-connector.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/core/enums/ScheduleManagementProject.domain.core.enums.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/core/enums/ScheduleManagementProject.domain.core.enums.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/core/model/ScheduleManagementProject.domain.core.model.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/core/model/ScheduleManagementProject.domain.core.model.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/core/service/ScheduleManagementProject.domain.core.service.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/core/service/ScheduleManagementProject.domain.core.service.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/infra/JPA/ScheduleManagementProject.domain.infra.JPA.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/infra/JPA/ScheduleManagementProject.domain.infra.JPA.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/infra/ScheduleManagementProject.domain.infra.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/presentation/ScheduleManagementProject.domain.presentation.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/domain/presentation/ScheduleManagementProject.domain.presentation.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/common/Security/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/example/auth/config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/example/auth/jwt/JwtAccessDeniedHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/example/auth/jwt/JwtAuthenticationEntryPoint.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/example/auth/jwt/JwtAuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/example/auth/jwt/JwtTokenProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/example/auth/model/CustomUserDetails.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/example/auth/service/AuthService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/main/com/example/auth/service/CustomUserDetailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/classes/java/test/com/example/auth/AuthApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/libs/auth-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/resources/main/application-auth.yml" beforeDir="false" afterPath="$PROJECT_DIR$/common/Security/src/main/resources/application-security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/example/auth/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Security/src/main/java/com/example/security/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/example/auth/jwt/JwtAccessDeniedHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/example/auth/jwt/JwtAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/example/auth/jwt/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/example/auth/jwt/JwtTokenProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/example/auth/model/CustomUserDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/example/auth/service/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/example/auth/service/CustomUserDetailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/main/resources/application-auth.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/src/test/java/com/example/auth/AuthApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Api/src/test/java/com/example/api/ApiApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/classes/java/main/com/example/bootstrap/BootStrapApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/classes/java/main/com/example/bootstrap/BootStrapApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/classes/java/test/com/example/bootstrap/BootStrapApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/classes/java/test/com/example/bootstrap/BootStrapApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build/libs/bootstrap-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/libs/bootstrap-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build/libs/bootstrap-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/libs/bootstrap-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/reports/tests/test/classes/com.example.bootstrap.BootStrapApplicationTests.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/reports/tests/test/packages/com.example.bootstrap.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/resources/main/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/test-results/test/TEST-com.example.bootstrap.BootStrapApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/java/com/example/bootstrap/BootStrapApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/java/com/example/bootstrap/BootStrapApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/test/java/com/example/bootstrap/BootStrapApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/test/java/com/example/bootstrap/BootStrapApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/ScheduleManagementProject-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/ScheduleManagementProject-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resolvedMainClassName" beforeDir="false" afterPath="$PROJECT_DIR$/build/resolvedMainClassName" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/common/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/com/example/common/dto/ErrorCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/com/example/common/dto/ErrorDto$ErrorDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/com/example/common/dto/ErrorDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/com/example/common/dto/TokenDto$TokenDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/com/example/common/dto/TokenDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/com/example/common/exception/CustomExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/com/example/common/exception/CustomGlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/com/example/common/redis/RedisConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/com/example/common/redis/RedisService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/test/com/example/common/CommonApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/Exception/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/common/Exception/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/Exception/src/main/java/com/example/exception/dto/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Exception/src/main/java/com/example/exception/dto/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/Exception/src/main/java/com/example/exception/global/CustomGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Exception/src/main/java/com/example/exception/global/CustomGlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/Jpa/src/main/resources/application-jpa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/common/Jpa/src/main/resources/application-jpa.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/build/libs/common-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/build/libs/common-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/resources/main/application-common.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/dto/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Exception/src/main/java/com/example/exception/dto/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/dto/ErrorDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Exception/src/main/java/com/example/exception/dto/ErrorDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/dto/TokenDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Security/src/main/java/com/example/security/jwt/TokenDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/exception/CustomExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Exception/src/main/java/com/example/exception/global/CustomExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/exception/CustomGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Exception/src/main/java/com/example/exception/global/CustomGlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/redis/RedisConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/redis/RedisService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/resources/application-common.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/test/java/com/example/common/CommonApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Security/src/test/java/com/example/security/SecurityApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/build/libs/domain-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/domain/build/libs/domain-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/build/libs/connector-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/classes/java/main/com/example/inconnector/member/MemberInConnector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/classes/java/test/com/example/inconnector/InConnectorApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/libs/in-connector-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/resources/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/src/main/java/com/example/inconnector/member/MemberInConnector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/in-connector/src/test/java/com/example/inconnector/InConnectorApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/In-Connector/src/test/java/com/example/inconnector/InConnectorApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/classes/java/main/com/example/interfaces/member/MemberConnectorInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/classes/java/test/com/example/interfaces/InterfacesApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/libs/interfaces-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/resources/main/application-member-interfaces.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/src/main/java/com/example/interfaces/member/MemberConnectorInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/src/main/resources/application-member-interfaces.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/interfaces/src/test/java/com/example/interfaces/InterfacesApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/Interfaces/src/test/java/com/example/interfaces/InterfacesApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/classes/java/main/com/example/outconnector/mapper/MemberOutConnector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/classes/java/main/com/example/outconnector/repository/CustomMemberRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/classes/java/main/com/example/outconnector/repository/CustomMemberRepositoryImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/classes/java/main/com/example/outconnector/repository/MemberRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/classes/java/test/com/example/outconnector/OutConnectorApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/libs/out-connector-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/resources/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/src/main/java/com/example/outconnector/mapper/MemberOutConnector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/src/main/java/com/example/outconnector/repository/CustomMemberRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/src/main/java/com/example/outconnector/repository/CustomMemberRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/src/main/java/com/example/outconnector/repository/MemberRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/connector/out-connector/src/test/java/com/example/outconnector/OutConnectorApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/src/test/java/com/example/outconnector/OutConnectorApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/build/libs/core-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/classes/java/main/com/example/enums/Roles.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/classes/java/main/com/example/enums/SearchType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/classes/java/test/com/example/enums/EnumsApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/libs/enums-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/resources/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/tmp/compileJava/compileTransaction/stash-dir/Roles.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/src/main/java/com/example/enums/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Core/Enumerate/src/main/java/com/example/enumerate/member/Roles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/src/main/java/com/example/enums/SearchType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/enums/src/test/java/com/example/enums/EnumsApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/Api-Model/src/test/java/com/example/apimodel/ApiModelApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/classes/java/main/com/example/model/dto/LoginDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/classes/java/main/com/example/model/dto/MemberDto$Request$RequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/classes/java/main/com/example/model/dto/MemberDto$Request.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/classes/java/main/com/example/model/dto/MemberDto$Response$ResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/classes/java/main/com/example/model/dto/MemberDto$Response.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/classes/java/main/com/example/model/dto/MemberDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/classes/java/main/com/example/model/member/MemberModel$MemberModelBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/classes/java/main/com/example/model/member/MemberModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/classes/java/test/com/example/model/ModelApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/classes/java/test/com/example/model/auth/CustomUserDetails.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/libs/model-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/resources/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/tmp/compileJava/compileTransaction/stash-dir/CustomUserDetails.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/src/main/java/com/example/model/dto/LoginDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/src/main/java/com/example/model/dto/MemberDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/src/main/java/com/example/model/member/MemberModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/src/test/java/com/example/model/ModelApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Logging/src/test/java/com/example/logging/LoggingApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/model/src/test/java/com/example/model/auth/CustomUserDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/classes/java/main/com/example/service/member/MemberService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/classes/java/test/com/example/service/ServiceApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/libs/service-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/resources/main/application-member-service.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/tmp/compileJava/compileTransaction/stash-dir/AuthService.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/src/main/java/com/example/service/member/MemberService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/src/main/resources/application-member-service.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/core/service/src/test/java/com/example/service/ServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Core/Service/src/test/java/com/example/service/ServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/classes/java/main/com/example/jpa/member/BaseEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/classes/java/main/com/example/jpa/member/MemberEntity$MemberEntityBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/classes/java/main/com/example/jpa/member/MemberEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/classes/java/main/com/example/jpa/member/QBaseEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/classes/java/main/com/example/jpa/member/QMemberEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/classes/java/test/com/example/jpa/JpaApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/generated/sources/annotationProcessor/java/main/com/example/jpa/member/QBaseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/generated/sources/annotationProcessor/java/main/com/example/jpa/member/QMemberEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/libs/JPA-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/resources/main/application-member-JPA.yml" beforeDir="false" afterPath="$PROJECT_DIR$/common/Jpa/src/main/resources/application-jpa.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/src/main/java/com/example/jpa/member/BaseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/src/main/java/com/example/jpa/member/MemberEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/src/main/resources/application-member-JPA.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/JPA/src/test/java/com/example/jpa/JpaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Jpa/src/test/java/com/example/jpa/JpaApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/classes/java/main/com/example/infra/config/JpaAuditingConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/classes/java/main/com/example/infra/config/JpaConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/classes/java/main/com/example/infra/config/QueryDslConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/classes/java/test/com/example/infra/InfraApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/libs/infra-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/resources/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/src/main/java/com/example/infra/config/JpaAuditingConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/src/main/java/com/example/infra/config/JpaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Jpa/src/main/java/com/example/jpa/config/jpa/JpaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/src/main/java/com/example/infra/config/QueryDslConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/Jpa/src/main/java/com/example/jpa/config/queryDsl/QueryDslConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/infra/src/test/java/com/example/infra/InfraApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/.gradle/8.11.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/.gradle/8.11.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/classes/java/main/com/example/presentation/member/AuthController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/classes/java/main/com/example/presentation/member/MemberController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/classes/java/test/com/example/presentation/PresentationApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/libs/presentation-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/resources/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/tmp/compileJava/compileTransaction/stash-dir/MemberController.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/src/main/java/com/example/presentation/member/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/src/main/java/com/example/presentation/member/MemberController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/presentation/src/test/java/com/example/presentation/PresentationApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Api/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Api/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Api/src/main/java/com/example/api/member/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Api/src/main/java/com/example/api/member/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Connector/Api-Model/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/Api-Model/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Connector/Api-Model/src/main/java/com/example/apimodel/member/MemberApiModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/Api-Model/src/main/java/com/example/apimodel/member/MemberApiModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Connector/In-Connector/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/In-Connector/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Connector/Interfaces/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/Interfaces/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Connector/Interfaces/src/main/java/com/example/interfaces/in_connector/MemberInConnectors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Connector/Interfaces/src/main/java/com/example/interfaces/out_connector/MemberOutConnectors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Connector/Interfaces/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Core/Exception/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Core/Exception/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Core/Model/src/main/java/com/example/model/member/MemberModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Core/Model/src/main/java/com/example/model/member/MemberModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Core/Service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Core/Service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/main/java/com/example/rdbrepository/member/MemberEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/main/java/com/example/rdbrepository/member/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/main/java/com/example/rdbrepository/member/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/main/java/com/example/rdbrepository/member/MemberRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -584,6 +115,12 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -620,36 +157,51 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build ScheduleManagementProject.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ScheduleManagementProject [buildDependents].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ScheduleManagementProject [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ScheduleManagementProject [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ScheduleManagementProject:bootstrap [build].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BootStrapApplication.executor&quot;: &quot;Run&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Gradle.Build ScheduleManagementProject.executor": "Run",
+    "Gradle.ScheduleManagementProject [./gradlew dependencies].executor": "Run",
+    "Gradle.ScheduleManagementProject [bootstrap:buildDependents].executor": "Run",
+    "Gradle.ScheduleManagementProject [buildDependents].executor": "Run",
+    "Gradle.ScheduleManagementProject [build].executor": "Run",
+    "Gradle.ScheduleManagementProject [clean].executor": "Run",
+    "Gradle.ScheduleManagementProject [components].executor": "Run",
+    "Gradle.ScheduleManagementProject [dependentComponents].executor": "Run",
+    "Gradle.ScheduleManagementProject [javadoc].executor": "Run",
+    "Gradle.ScheduleManagementProject:bootstrap [build].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.BootStrapApplication.executor": "Run",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "application.passwordSafe",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle ./gradlew dependencies" />
+      <command value="gradle bootstrap:buildDependents" />
+    </option>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -658,28 +210,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Gradle.ScheduleManagementProject [build]">
-    <configuration name="ScheduleManagementProject [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="buildDependents" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="ScheduleManagementProject [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -724,10 +254,10 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ScheduleManagementProject:bootstrap [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ScheduleManagementProject [components]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/bootstrap" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -735,7 +265,51 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value="components" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScheduleManagementProject [dependentComponents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependentComponents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScheduleManagementProject [javadoc]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="javadoc" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -755,18 +329,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.ScheduleManagementProject [components]" />
+      <item itemvalue="Gradle.ScheduleManagementProject [dependentComponents]" />
+      <item itemvalue="Gradle.ScheduleManagementProject [javadoc]" />
       <item itemvalue="Gradle.ScheduleManagementProject [build]" />
-      <item itemvalue="Gradle.ScheduleManagementProject [buildDependents]" />
       <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
-      <item itemvalue="Gradle.ScheduleManagementProject:bootstrap [build]" />
       <item itemvalue="Spring Boot.BootStrapApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.ScheduleManagementProject [build]" />
-        <item itemvalue="Gradle.ScheduleManagementProject [buildDependents]" />
         <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
-        <item itemvalue="Gradle.ScheduleManagementProject:bootstrap [build]" />
+        <item itemvalue="Gradle.ScheduleManagementProject [components]" />
+        <item itemvalue="Gradle.ScheduleManagementProject [dependentComponents]" />
+        <item itemvalue="Gradle.ScheduleManagementProject [javadoc]" />
       </list>
     </recent_temporary>
   </component>
@@ -781,11 +357,24 @@
       <workItem from="1736789934230" duration="1846000" />
       <workItem from="1736835404882" duration="7020000" />
       <workItem from="1736845440494" duration="11924000" />
-      <workItem from="1736859115172" duration="2137000" />
+      <workItem from="1736859115172" duration="42341000" />
     </task>
+    <task id="LOCAL-00001" summary="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)">
+      <option name="closed" value="true" />
+      <created>1736861593321</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736861593321</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)" />
   </component>
 </project>

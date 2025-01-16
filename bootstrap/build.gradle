@@ -2,6 +2,7 @@ dependencies {
 	implementation project(':common')
 	implementation project(':common:Security')
 	implementation project(':common:Jpa')
+	implementation project(':common:Exception')
 	implementation project(':domain')
 	implementation project(':domain:member')
 	implementation project(':domain:member:Api')

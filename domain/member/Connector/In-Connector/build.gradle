@@ -4,7 +4,9 @@ project(':domain:member:Connector:In-Connector') {
         implementation project(':domain:member:Core:Service')
         implementation project(':domain:member:Core:Enumerate')
         implementation project(':domain:member:Connector:Interfaces')
+        implementation project(':domain:member:Connector:Api-Model')
         implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
     }

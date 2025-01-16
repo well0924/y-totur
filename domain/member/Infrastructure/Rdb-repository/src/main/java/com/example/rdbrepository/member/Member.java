@@ -4,6 +4,7 @@ import com.example.enumerate.member.Roles;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
@@ -12,12 +13,12 @@ import org.springframework.data.annotation.LastModifiedBy;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Builder
-@Table(name = "member")
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberEntity {
+public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,4 +43,11 @@ public class MemberEntity {
     private LocalDateTime createdTime;
     @UpdateTimestamp
     private LocalDateTime updatedTime;
+
+    public void update(String userId,String userEmail, String userPhone, String updatedBy) {
+        this.userId = userId;
+        this.userEmail = userEmail;
+        this.userPhone = userPhone;
+        this.updatedBy = updatedBy;
+    }
 }
