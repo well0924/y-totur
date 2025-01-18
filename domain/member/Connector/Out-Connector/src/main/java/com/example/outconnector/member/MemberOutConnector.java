@@ -2,8 +2,6 @@ package com.example.outconnector.member;
 
 import com.example.enumerate.member.Roles;
 import com.example.enumerate.member.SearchType;
-import com.example.exception.CustomMemberExceptionHandler;
-import com.example.exception.MemberErrorCode;
 import com.example.model.member.MemberModel;
 import com.example.rdbrepository.member.Member;
 import com.example.rdbrepository.member.MemberRepository;
@@ -15,8 +13,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @Transactional
@@ -30,28 +26,13 @@ public class MemberOutConnector {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Transactional(readOnly = true)
-    public List<MemberModel> findAll() {
-        List<MemberModel> memberModelList = memberRepository
-                .findAll()
-                .stream()
-                .map(this::toEntity)
-                .collect(Collectors.toList());
-
-        if(memberModelList.isEmpty()) {
-            throw new CustomMemberExceptionHandler(MemberErrorCode.NOT_USER);
-        }
-
-        return memberModelList;
-    }
-
-    @Transactional(readOnly = true)
     public Page<MemberModel> findAll(Pageable pageable) {
         Page<MemberModel> memberModelPage = memberRepository
                 .findAll(pageable)
                 .map(this::toEntity);
 
         if(memberModelPage.isEmpty()) {
-            throw new CustomMemberExceptionHandler(MemberErrorCode.NOT_USER);
+            throw new RuntimeException("회원이 없습니다.");
         }
 
         return memberModelPage;
@@ -67,7 +48,7 @@ public class MemberOutConnector {
     public MemberModel findById(Long id) {
         Member memberEntity = memberRepository
                 .findById(id)
-                .orElseThrow(()-> new CustomMemberExceptionHandler(MemberErrorCode.NOT_USER));
+                .orElseThrow(()-> new RuntimeException("회원이 없습니다."));
 
         return toEntity(memberEntity);
     }
@@ -81,12 +62,7 @@ public class MemberOutConnector {
                 .userEmail(memberModel.getUserEmail())
                 .userPhone(memberModel.getUserPhone())
                 .userName(memberModel.getUserName())
-                .createdBy(memberModel.getUserId())
-                .createdBy(memberModel.getUserId())
-                .updatedBy(memberModel.getUserId())
                 .roles(Roles.ROLE_USER)
-                .updatedTime(LocalDateTime.now())
-                .createdTime(LocalDateTime.now())
                 .build();
 
         return toEntity(memberRepository.save(memberEntity));
@@ -94,12 +70,11 @@ public class MemberOutConnector {
 
     public MemberModel updateMember(Long id, MemberModel memberModel) {
         Member memberEntity = memberRepository.findById(id)
-                .orElseThrow(() -> new CustomMemberExceptionHandler(MemberErrorCode.NOT_USER));
+                .orElseThrow(() -> new RuntimeException("회원을 찾을 수 없습니다."));
 
         memberEntity.update(memberModel.getUserId(),
                 memberModel.getUserEmail(),
-                memberModel.getUserPhone(),
-                memberModel.getUpdatedBy());
+                memberModel.getUserPhone());
 
         return toEntity(memberRepository.save(memberEntity));
     }
@@ -120,8 +95,8 @@ public class MemberOutConnector {
                 .roles(memberEntity.getRoles())
                 .createdBy(memberEntity.getCreatedBy())
                 .updatedBy(memberEntity.getUpdatedBy())
-                .updatedTime(LocalDateTime.now())
-                .createdTime(LocalDateTime.now())
+                .updatedTime(memberEntity.getUpdatedTime())
+                .createdTime(memberEntity.getCreatedTime())
                 .build();
     }
 }

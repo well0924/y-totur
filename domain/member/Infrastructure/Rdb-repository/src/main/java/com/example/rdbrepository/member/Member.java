@@ -1,24 +1,27 @@
 package com.example.rdbrepository.member;
 
 import com.example.enumerate.member.Roles;
+import com.example.jpa.config.base.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Entity
 @Builder
+@EntityListeners(AuditingEntityListener.class) // Auditing 활성화
 @NoArgsConstructor
 @AllArgsConstructor
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,19 +38,11 @@ public class Member {
     private String userName;
     @Enumerated(EnumType.STRING)
     private Roles roles;
-    @CreatedBy
-    private String createdBy;
-    @LastModifiedBy
-    private String updatedBy;
-    @CreatedDate
-    private LocalDateTime createdTime;
-    @UpdateTimestamp
-    private LocalDateTime updatedTime;
 
-    public void update(String userId,String userEmail, String userPhone, String updatedBy) {
+    public void update(String userId,String userEmail, String userPhone) {
         this.userId = userId;
         this.userEmail = userEmail;
         this.userPhone = userPhone;
-        this.updatedBy = updatedBy;
+        this.getUpdatedBy();
     }
 }

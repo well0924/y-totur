@@ -9,11 +9,10 @@ import java.util.List;
 
 public interface MemberInterfaces {
 
-    List<MemberApiModel.Response> findAll();
-    Page<MemberApiModel.Response> findAll(Pageable pageable);
-    Page<MemberApiModel.Response> findAllMemberSearch(String keyword, SearchType searchType, Pageable pageable);
-    MemberApiModel.Response findById(Long id);
-    MemberApiModel.Response createMember(MemberApiModel.Request memberModel);
-    MemberApiModel.Response updateMember(Long id, MemberApiModel.Request memberModel);
+    Page<MemberApiModel.MemberResponse> findAll(Pageable pageable);
+    Page<MemberApiModel.MemberResponse> findAllMemberSearch(String keyword, SearchType searchType, Pageable pageable);
+    MemberApiModel.MemberResponse findById(Long id);
+    MemberApiModel.MemberResponse createMember(MemberApiModel.CreateRequest memberModel);
+    MemberApiModel.MemberResponse updateMember(Long id, MemberApiModel.UpdateRequest memberModel);
     void deleteMember(Long id);
 }

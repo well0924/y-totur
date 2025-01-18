@@ -1,6 +1,5 @@
 project(':common:Jpa') {
 	dependencies {
-		implementation project(':domain:member:Infrastructure:Rdb-repository')
 		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 		compileOnly 'org.projectlombok:lombok'
 		runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'

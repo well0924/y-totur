@@ -1,8 +1,6 @@
 package com.example.outconnector.member;
 
 import com.example.enumerate.member.SearchType;
-import com.example.exception.CustomMemberExceptionHandler;
-import com.example.exception.MemberErrorCode;
 import com.example.rdbrepository.member.custom.MemberRepositoryCustom;
 import com.example.rdbrepository.member.Member;
 import com.example.rdbrepository.member.QMember;
@@ -48,7 +46,7 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
             case MEMBER_NAME -> memberSearchList.where(userNameCt(keyword));
             case EMAIL -> memberSearchList.where(userEmailCt(keyword));
             case USERID -> memberSearchList.where(userIdCt(keyword));
-            default -> throw new CustomMemberExceptionHandler(MemberErrorCode.NOT_SEARCH_USER);
+            default -> throw new RuntimeException("검색 결과가 없습니다.");
         };
 
         return PageableExecutionUtils
