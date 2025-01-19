@@ -3,6 +3,6 @@ server:
   port: 8082
 spring:
   profiles:
-    include: jpa, security
+    include: jpa, security, redis
 
 

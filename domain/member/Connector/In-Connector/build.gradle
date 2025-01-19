@@ -1,5 +1,6 @@
 project(':domain:member:Connector:In-Connector') {
     dependencies {
+        implementation project(':common:Security')
         implementation project(':domain:member:Core:Model')
         implementation project(':domain:member:Core:Service')
         implementation project(':domain:member:Core:Enumerate')

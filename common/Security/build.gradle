@@ -1,5 +1,6 @@
 project(':common:Security') {
     dependencies {
+        implementation project(':domain:member:Connector:Out-Connector')
         implementation 'org.springframework.boot:spring-boot-starter-security'
         implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
         //jwt

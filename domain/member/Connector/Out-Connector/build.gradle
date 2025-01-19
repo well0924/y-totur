@@ -6,6 +6,7 @@ buildscript {
 
 project(':domain:member:Connector:Out-Connector') {
     dependencies {
+        implementation project(':common:Jpa')
         implementation project(':domain:member:Core:Model')
         implementation project(':domain:member:Core:Enumerate')
         implementation project(':domain:member:Core:Exception')

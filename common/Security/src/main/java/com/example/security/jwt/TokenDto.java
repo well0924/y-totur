@@ -12,6 +12,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TokenDto implements Serializable {
+    private String grantType;
     private String accessToken;
     private String refreshToken;
+    private Long refreshTokenExpiredTime;
 }

@@ -6,6 +6,7 @@ include 'common:Jpa'
 include 'common:Security'
 include 'common:Exception'
 include 'common:Logging'
+include 'common:Redis'
 
 include 'domain'
 //member 관련
@@ -24,4 +25,13 @@ include 'domain:member:Core:Exception'
 include 'domain:member:Infrastructure'
 include 'domain:member:Infrastructure:Rdb-repository'
 include 'domain:member:Infrastructure:Api-Client'
-
+//schedule관련
+include 'domain:schedules'
+include 'domain:schedules:Core'
+include ':domain:schedules:Core:Enumerate'
+include 'domain:schedules:Infrastructure'
+include 'domain:schedules:Infrastructure:Rdb-repository'
+//category 관련
+include ':domain:category'
+//attach 관련
+//tag 관련

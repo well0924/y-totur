@@ -12,8 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
-
 @Component
 @Transactional
 @RequiredArgsConstructor
@@ -93,10 +91,6 @@ public class MemberOutConnector {
                 .userPhone(memberEntity.getUserPhone())
                 .userName(memberEntity.getUserName())
                 .roles(memberEntity.getRoles())
-                .createdBy(memberEntity.getCreatedBy())
-                .updatedBy(memberEntity.getUpdatedBy())
-                .updatedTime(memberEntity.getUpdatedTime())
-                .createdTime(memberEntity.getCreatedTime())
                 .build();
     }
 }

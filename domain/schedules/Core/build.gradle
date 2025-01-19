@@ -1,0 +1,16 @@
+project(':domain:schedules:Core') {
+    dependencies {
+        implementation project(':domain:schedules:Core:Enumerate')
+        implementation 'org.springframework.boot:spring-boot-starter'
+    }
+}
+
+tasks.bootJar {
+    enabled = false
+}
+
+tasks.jar {
+    enabled = true
+}
+
+tasks.register("prepareKotlinBuildScriptModel"){}

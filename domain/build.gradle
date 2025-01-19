@@ -1,5 +1,7 @@
 dependencies {
     implementation project(':domain:member')
+    implementation project(':domain:category')
+    implementation project(':domain:schedules')
 }
 
 tasks.bootJar {
@@ -9,4 +11,5 @@ tasks.bootJar {
 tasks.jar {
     enabled = true
 }
+
 tasks.register("prepareKotlinBuildScriptModel"){}
