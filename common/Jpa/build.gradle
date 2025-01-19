@@ -1,25 +1,12 @@
 plugins {
-	id 'java-library'
+    id 'java-library'
 }
 
-project(':common:Jpa') {
-	dependencies {
-		implementation project(':domain:member:Infrastructure:Rdb-repository')
-		implementation project(':domain:schedules:Infrastructure:Rdb-repository')
-		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-		compileOnly 'org.projectlombok:lombok'
-		runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-		annotationProcessor 'org.projectlombok:lombok'
-	}
+dependencies {
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
 
-	tasks.bootJar {
-		enabled = false
-	}
-
-	tasks.jar {
-		enabled = true
-	}
-
-	tasks.register("prepareKotlinBuildScriptModel"){}
 }
+
 

@@ -1,6 +1,5 @@
 package com.example.enumerate.member;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -14,7 +13,6 @@ public enum SearchType {
 
     private final String value;
 
-    @JsonCreator
     public static SearchType toSearch(String value) {
         for (SearchType type : SearchType.values()) {
             if (type.value.equalsIgnoreCase(value)) {

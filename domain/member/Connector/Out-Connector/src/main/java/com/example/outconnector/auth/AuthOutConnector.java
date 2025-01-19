@@ -2,8 +2,8 @@ package com.example.outconnector.auth;
 
 import com.example.model.auth.CustomMemberDetails;
 import com.example.model.member.MemberModel;
-import com.example.rdbrepository.member.Member;
-import com.example.rdbrepository.member.MemberRepository;
+import com.example.rdb.member.Member;
+import com.example.rdb.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

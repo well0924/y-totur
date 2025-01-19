@@ -1,7 +1,7 @@
 package com.example.service.auth;
 
-import com.example.security.jwt.JwtTokenProvider;
-import com.example.security.jwt.TokenDto;
+import com.example.service.auth.jwt.JwtTokenProvider;
+import com.example.service.auth.jwt.TokenDto;
 import io.jsonwebtoken.Claims;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,6 +9,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 
 @Service
 @AllArgsConstructor

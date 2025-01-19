@@ -4,8 +4,8 @@ import com.example.apimodel.auth.LoginDto;
 import com.example.apimodel.auth.RequestRefreshTokenDto;
 import com.example.apimodel.auth.TokenResponse;
 import com.example.interfaces.auth.AuthInterface;
-import com.example.security.jwt.TokenDto;
 import com.example.service.auth.AuthService;
+import com.example.service.auth.jwt.TokenDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
