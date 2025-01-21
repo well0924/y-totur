@@ -16,8 +16,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
 }
 
 springBoot {

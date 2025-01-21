@@ -1,6 +1,4 @@
 dependencies {
-    implementation project(':domain:member:connector:out-connector')
-    implementation project(':domain:member:infrastructure:rdb')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     //jwt

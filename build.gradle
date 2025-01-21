@@ -3,10 +3,6 @@ plugins {
     id 'org.springframework.boot' version '3.3.7'
     id 'io.spring.dependency-management' version '1.1.7'
 }
-
-springBoot {
-    mainClass = 'com.example.BootStrapApplication'
-}
 //모든 프로젝트에 적용
 allprojects {
     group = 'com.example'
@@ -23,7 +19,6 @@ allprojects {
     }
 
 }
-//서브 모듈
 subprojects {
     apply {
         plugin 'java'
@@ -45,25 +40,20 @@ subprojects {
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
 
-    def type = project.findProperty('type') ?: ''
+    String type = project.findProperty('type') ?: ''
 
-    if (type == 'jpa') {
+    if (type.contains('jpa')) {
         dependencies {
             implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-            compileOnly 'org.projectlombok:lombok:1.18.30'
-            annotationProcessor 'org.projectlombok:lombok:1.18.30'
         }
-    } else if (type == 'mvc') {
+    } else if (type.contains('mvc')) {
         dependencies {
             implementation 'org.springframework.boot:spring-boot-starter-web'
-            compileOnly 'org.projectlombok:lombok:1.18.30'
-            annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
         }
-    } else if (type == 'core') {
+    } else if (type.contains('core')) {
         dependencies {
             implementation 'org.springframework.boot:spring-boot-starter'
-            compileOnly 'org.projectlombok:lombok:1.18.30'
-            annotationProcessor 'org.projectlombok:lombok:1.18.30'
         }
     }
 }
