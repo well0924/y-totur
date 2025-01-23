@@ -4,6 +4,13 @@ plugins{
 
 dependencies {
 
+	implementation project(':domain:schedules')
+	implementation project(':domain:schedules:Core')
+	implementation project(':domain:schedules:Core:Enumerate')
+	implementation project(':domain:schedules:Infrastructure')
+	implementation project(':domain:schedules:Infrastructure:Rdb-repository')
+	implementation project(':domain:category')
+
 	implementation 'mysql:mysql-connector-java:8.0.33'
 
 	implementation project(':common:security')

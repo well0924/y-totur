@@ -1,99 +1,39 @@
 rootProject.name = "ScheduleManagementProject"
 
-// 주요 모듈 등록
-include("bootstrap")
-include("common")
-project(":common").projectDir = file("common")
-include("domain")
-project(":domain").projectDir = file("domain")
+rootProject.name = 'ScheduleManagementProject'
 
-// Common 관련 모듈
-include("common:jpa")
-project(":common:jpa").projectDir = file("common/jpa")
-include("common:security")
-project(":common:security").projectDir = file("common/security")
-include("common:exception")
-project(":common:exception").projectDir = file("common/exception")
-include("common:logging")
-project(":common:logging").projectDir = file("common/logging")
-include("common:redis")
-project(":common:redis").projectDir = file("common/redis")
+include 'bootstrap'
+include 'common'
+include 'common:Jpa'
+include 'common:Security'
+include 'common:Exception'
+include 'common:Logging'
+include 'common:Redis'
 
-// Member 관련 모듈
-include("domain:member")
-project(":domain:member").projectDir = file("domain/member")
-include("domain:member:api")
-project(":domain:member:api").projectDir = file("domain/member/api")
-
-include("domain:member:connector")
-project(":domain:member:connector").projectDir = file("domain/member/connector")
-include("domain:member:connector:api-model")
-project(":domain:member:connector:api-model").projectDir = file("domain/member/connector/api-model")
-include("domain:member:connector:in-connector")
-project(":domain:member:connector:in-connector").projectDir = file("domain/member/connector/in-connector")
-include("domain:member:connector:interfaces")
-project(":domain:member:connector:interfaces").projectDir = file("domain/member/connector/interfaces")
-include("domain:member:connector:out-connector")
-project(":domain:member:connector:out-connector").projectDir = file("domain/member/connector/out-connector")
-
-include("domain:member:core")
-project(":domain:member:core").projectDir = file("domain/member/core")
-include("domain:member:core:service")
-project(":domain:member:core:service").projectDir = file("domain/member/core/service")
-include("domain:member:core:enumerate")
-project(":domain:member:core:enumerate").projectDir = file("domain/member/core/enumerate")
-include("domain:member:core:model")
-project(":domain:member:core:model").projectDir = file("domain/member/core/model")
-include("domain:member:core:exception")
-project(":domain:member:core:exception").projectDir = file("domain/member/core/exception")
-
-include("domain:member:infrastructure")
-project(":domain:member:infrastructure").projectDir = file("domain/member/infrastructure")
-include("domain:member:infrastructure:rdb")
-project(":domain:member:infrastructure:rdb").projectDir = file("domain/member/infrastructure/rdb")
-include("domain:member:infrastructure:api-client")
-project(":domain:member:infrastructure:api-client").projectDir = file("domain/member/infrastructure/api-client")
-
-// Schedule 관련 모듈
-include("domain:schedules")
-project(":domain:schedules").projectDir = file("domain/schedules")
-include("domain:schedules:api")
-project(":domain:schedules:api").projectDir = file("domain/schedules/api")
-
-include("domain:schedules:core")
-project(":domain:schedules:core").projectDir = file("domain/schedules/core")
-include("domain:schedules:core:model")
-project(":domain:schedules:core:model").projectDir = file("domain/schedules/core/model")
-include("domain:schedules:core:service")
-project(":domain:schedules:core:service").projectDir = file("domain/schedules/core/service")
-include("domain:schedules:core:enumerate")
-project(":domain:schedules:core:enumerate").projectDir = file("domain/schedules/core/enumerate")
-
-include("domain:schedules:connector")
-project(":domain:schedules:connector").projectDir = file("domain/schedules/connector")
-include("domain:schedules:connector:api-model")
-project(":domain:schedules:connector:api-model").projectDir = file("domain/schedules/connector/api-model")
-include("domain:schedules:connector:interface")
-project(":domain:schedules:connector:interface").projectDir = file("domain/schedules/connector/interface")
-include("domain:schedules:connector:out-connector")
-project(":domain:schedules:connector:out-connector").projectDir = file("domain/schedules/connector/out-connector")
-include("domain:schedules:connector:in-connector")
-project(":domain:schedules:connector:in-connector").projectDir = file("domain/schedules/connector/in-connector")
-
-include("domain:schedules:infrastructure")
-project(":domain:schedules:infrastructure").projectDir = file("domain/schedules/infrastructure")
-include("domain:schedules:infrastructure:rdb")
-project(":domain:schedules:infrastructure:rdb").projectDir = file("domain/schedules/infrastructure/rdb")
-
-// Category 관련 모듈
-include("domain:category")
-project(":domain:category").projectDir = file("domain/category")
-include("domain:category:infrastructure")
-project(":domain:category:infrastructure").projectDir = file("domain/category/infrastructure")
-include("domain:category:infrastructure:rdb")
-project(":domain:category:infrastructure:rdb").projectDir = file("domain/category/infrastructure/rdb")
-
-// Attach 관련 모듈 (추가 가능 시 설정)
-// include("domain:attach")
-// Tag 관련 모듈 (추가 가능 시 설정)
-// include("domain:tag")
+include 'domain'
+//member 관련
+include 'domain:member'
+include 'domain:member:Api'
+include 'domain:member:Connector'
+include 'domain:member:Connector:Api-Model'
+include 'domain:member:Connector:In-Connector'
+include 'domain:member:Connector:Interfaces'
+include 'domain:member:Connector:Out-Connector'
+include 'domain:member:Core'
+include 'domain:member:Core:Service'
+include 'domain:member:Core:Enumerate'
+include 'domain:member:Core:Model'
+include 'domain:member:Core:Exception'
+include 'domain:member:Infrastructure'
+include 'domain:member:Infrastructure:Rdb-repository'
+include 'domain:member:Infrastructure:Api-Client'
+//schedule관련
+include 'domain:schedules'
+include 'domain:schedules:Core'
+include ':domain:schedules:Core:Enumerate'
+include 'domain:schedules:Infrastructure'
+include 'domain:schedules:Infrastructure:Rdb-repository'
+//category 관련
+include ':domain:category'
+//attach 관련
+//tag 관련
