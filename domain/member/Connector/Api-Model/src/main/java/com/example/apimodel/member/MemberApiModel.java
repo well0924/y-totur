@@ -1,42 +1,41 @@
 package com.example.apimodel.member;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.example.enumerate.member.Roles;
 import lombok.*;
 
 import java.time.LocalDateTime;
 
 public class MemberApiModel {
 
-    @Setter
-    @Getter
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class Request  {
-        private String userId;
-        private String password;
-        private String userEmail;
-        private String userName;
-        private String userPhone;
-    }
+    public record CreateRequest(
+            String userId,
+            String password,
+            String userEmail,
+            String userName,
+            String userPhone
+    ) {}
 
-    @Getter
+    public record UpdateRequest(
+            String userId,
+            String userEmail,
+            String userName,
+            String userPhone
+    ) {}
+
     @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class Response {
-        private Long id;
-        private String userId;
-        private String password;
-        private String userEmail;
-        private String userPhone;
-        private String userName;
-        private String roles;
-        private String createdBy;
-        private String updatedBy;
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-        private LocalDateTime createdTime;
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-        private LocalDateTime updatedTime;
+    public record MemberResponse(
+            Long id,
+            String userId,
+            String password,
+            String userEmail,
+            String userPhone,
+            String userName,
+            Roles roles,
+            String createdBy,
+            String updatedBy,
+            LocalDateTime createdTime,
+            LocalDateTime updatedTime
+    ) {
+
     }
 }

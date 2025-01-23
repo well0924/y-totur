@@ -1,20 +1,18 @@
-project(':domain:member:Connector:Out-Connector') {
-    dependencies {
-        implementation project(':domain:member:Core:Model')
-        implementation project(':domain:member:Core:Enumerate')
-        implementation project(':domain:member:Infrastructure:Rdb-repository')
-        implementation project(':domain:member:Infrastructure:Api-Client')
-        implementation 'org.springframework.boot:spring-boot-starter'
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
+buildscript {
+    ext {
+        queryDslVersion = "5.0.0"
     }
-    tasks.bootJar {
-        enabled = false
-    }
+}
 
-    tasks.jar {
-        enabled = true
-    }
+dependencies {
+    implementation project(':domain:member:core:model')
+    implementation project(':domain:member:core:enumerate')
+    implementation project(':domain:member:core:exception')
+    implementation project(':domain:member:infrastructure:rdb')
 
-    tasks.register("prepareKotlinBuildScriptModel"){}
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }

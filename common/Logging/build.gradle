@@ -1,21 +1,12 @@
-project(':common:Logging') {
-	dependencies {
-		implementation project(':common:Security')
-		//aop
-		implementation 'org.springframework.boot:spring-boot-starter-aop'
-		implementation 'org.springframework.boot:spring-boot-starter-logging'
-		implementation 'org.springframework.boot:spring-boot-starter'
-		compileOnly 'org.projectlombok:lombok'
-		annotationProcessor 'org.projectlombok:lombok'
-	}
+dependencies {
+    //aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-logging'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
-	tasks.bootJar {
-		enabled = false
-	}
-
-	tasks.jar {
-		enabled = true
-	}
-
-	tasks.register("prepareKotlinBuildScriptModel"){}
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

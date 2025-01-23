@@ -20,12 +20,11 @@ public class MemberModel {
     private String password;
     private String userEmail;
     private String userPhone;
+    private String userName;
     private Roles roles;
     private String createdBy;
     private String updatedBy;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime createdTime;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime updatedTime;
 
     public boolean isAdmin() {
