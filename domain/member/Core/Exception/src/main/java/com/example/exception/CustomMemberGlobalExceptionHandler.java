@@ -1,5 +1,6 @@
 package com.example.exception;
 
+import com.example.exception.dto.MemberErrorDto;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class CustomMemberGlobalExceptionHandler {
 
     @ExceptionHandler({CustomMemberExceptionHandler.class})
-    protected ResponseEntity<ErrorDto> HandleCustomException(CustomMemberExceptionHandler ex) {
+    protected ResponseEntity<MemberErrorDto> HandleCustomException(CustomMemberExceptionHandler ex) {
         return new ResponseEntity<>(
-                new ErrorDto(ex.getMemberErrorCode().getStatus(), ex.getMemberErrorCode().getMessage()), HttpStatus.valueOf(ex.getMemberErrorCode().getStatus()));
+                new MemberErrorDto(ex.getMemberErrorCode().getStatus(), ex.getMemberErrorCode().getMessage()), HttpStatus.valueOf(ex.getMemberErrorCode().getStatus()));
     }
 }

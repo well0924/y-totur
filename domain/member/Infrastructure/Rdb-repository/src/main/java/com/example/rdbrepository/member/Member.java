@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class) // Auditing 활성화
 @NoArgsConstructor
 @AllArgsConstructor
-public class Member extends BaseEntity {
+public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +38,18 @@ public class Member extends BaseEntity {
     private String userName;
     @Enumerated(EnumType.STRING)
     private Roles roles;
+
+    @CreatedBy
+    private String createdBy; // 생성자
+
+    @LastModifiedBy
+    private String updatedBy; // 수정자
+
+    @CreatedDate
+    private LocalDateTime createdTime;
+
+    @LastModifiedDate
+    private LocalDateTime updatedTime;
 
     public void update(String userId,String userEmail, String userPhone) {
         this.userId = userId;

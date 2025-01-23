@@ -1,17 +1,3 @@
-project(':domain:member') {
-    dependencies {
-        implementation project(':domain:member:Api')
-        implementation project(':domain:member:Connector')
-        implementation project(':domain:member:Core')
-        implementation project(':domain:member:Infrastructure')
-    }
+subprojects {
+    group = "domain.member"
 }
-
-tasks.bootJar {
-    enabled = false
-}
-
-tasks.jar {
-    enabled = true
-}
-tasks.register("prepareKotlinBuildScriptModel"){}

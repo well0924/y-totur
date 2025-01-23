@@ -25,3 +25,13 @@ include 'domain:member:Infrastructure'
 include 'domain:member:Infrastructure:Rdb-repository'
 include 'domain:member:Infrastructure:Api-Client'
 
+//schedule관련
+include 'domain:schedules'
+include 'domain:schedules:Core'
+include ':domain:schedules:Core:Enumerate'
+include 'domain:schedules:Infrastructure'
+include 'domain:schedules:Infrastructure:Rdb-repository'
+//category 관련
+include ':domain:category'
+//attach 관련
+//tag 관련s

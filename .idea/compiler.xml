@@ -7,29 +7,35 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.36/5a30490a6e14977d97d9c73c924c1f1b5311ea95/lombok-1.18.36.jar" />
         </processorPath>
-        <module name="ScheduleManagementProject.domain.member.Core.Service.test" />
         <module name="ScheduleManagementProject.bootstrap.test" />
+        <module name="ScheduleManagementProject.domain.schedules.Core.test" />
+        <module name="ScheduleManagementProject.domain.member.Core.Exception.test" />
+        <module name="ScheduleManagementProject.domain.category.test" />
+        <module name="ScheduleManagementProject.domain.test" />
+        <module name="ScheduleManagementProject.common.Logging.test" />
+        <module name="ScheduleManagementProject.domain.member.Connector.test" />
+        <module name="ScheduleManagementProject.domain.member.Connector.In-Connector.test" />
+        <module name="ScheduleManagementProject.common.test" />
+        <module name="ScheduleManagementProject.domain.schedules.Infrastructure.Rdb-repository.test" />
+        <module name="ScheduleManagementProject.domain.member.Core.test" />
+        <module name="ScheduleManagementProject.domain.schedules.test" />
+        <module name="ScheduleManagementProject.domain.schedules.Core.Enumerate.test" />
+        <module name="ScheduleManagementProject.domain.member.test" />
+        <module name="ScheduleManagementProject.domain.member.Core.Service.test" />
         <module name="ScheduleManagementProject.domain.member.Connector.Interfaces.test" />
         <module name="ScheduleManagementProject.common.Jpa.test" />
         <module name="ScheduleManagementProject.domain.member.Infrastructure.test" />
+        <module name="ScheduleManagementProject.domain.schedules.Infrastructure.test" />
         <module name="ScheduleManagementProject.domain.member.Connector.Out-Connector.test" />
-        <module name="ScheduleManagementProject.domain.member.Core.Exception.test" />
-        <module name="ScheduleManagementProject.domain.test" />
         <module name="ScheduleManagementProject.domain.member.Infrastructure.Rdb-repository.test" />
         <module name="ScheduleManagementProject.common.Exception.test" />
-        <module name="ScheduleManagementProject.common.Logging.test" />
         <module name="ScheduleManagementProject.domain.member.Connector.Api-Model.test" />
-        <module name="ScheduleManagementProject.domain.member.Connector.test" />
         <module name="ScheduleManagementProject.domain.member.Api.test" />
-        <module name="ScheduleManagementProject.domain.member.Connector.In-Connector.test" />
-        <module name="ScheduleManagementProject.common.test" />
         <module name="ScheduleManagementProject.domain.member.Core.Model.test" />
         <module name="ScheduleManagementProject.domain.member.Infrastructure.Api-Client.test" />
-        <module name="ScheduleManagementProject.domain.member.Core.test" />
         <module name="ScheduleManagementProject.domain.member.Core.Enumerate.test" />
         <module name="ScheduleManagementProject.common.main" />
         <module name="ScheduleManagementProject.common.Security.test" />
-        <module name="ScheduleManagementProject.domain.member.test" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
@@ -47,25 +53,31 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jdt/ecj/3.26.0/4837be609a3368a0f7e7cf0dc1bdbc7fe94993de/ecj-3.26.0.jar" />
         </processorPath>
         <module name="ScheduleManagementProject.common.Security.main" />
-        <module name="ScheduleManagementProject.domain.member.main" />
         <module name="ScheduleManagementProject.domain.member.Connector.Api-Model.main" />
         <module name="ScheduleManagementProject.domain.member.Core.Model.main" />
-        <module name="ScheduleManagementProject.common.Logging.main" />
-        <module name="ScheduleManagementProject.domain.member.Connector.In-Connector.main" />
+        <module name="ScheduleManagementProject.domain.schedules.Infrastructure.main" />
+        <module name="ScheduleManagementProject.domain.schedules.main" />
         <module name="ScheduleManagementProject.domain.member.Infrastructure.Rdb-repository.main" />
+        <module name="ScheduleManagementProject.domain.schedules.Infrastructure.Rdb-repository.main" />
         <module name="ScheduleManagementProject.common.Exception.main" />
-        <module name="ScheduleManagementProject.domain.member.Connector.main" />
-        <module name="ScheduleManagementProject.domain.member.Api.main" />
         <module name="ScheduleManagementProject.domain.member.Infrastructure.Api-Client.main" />
+        <module name="ScheduleManagementProject.domain.category.main" />
         <module name="ScheduleManagementProject.domain.member.Core.Exception.main" />
-        <module name="ScheduleManagementProject.domain.member.Infrastructure.main" />
         <module name="ScheduleManagementProject.domain.member.Connector.Out-Connector.main" />
         <module name="ScheduleManagementProject.domain.member.Core.Enumerate.main" />
-        <module name="ScheduleManagementProject.domain.member.Core.Service.main" />
         <module name="ScheduleManagementProject.bootstrap.main" />
-        <module name="ScheduleManagementProject.domain.main" />
         <module name="ScheduleManagementProject.domain.member.Connector.Interfaces.main" />
+        <module name="ScheduleManagementProject.domain.member.main" />
+        <module name="ScheduleManagementProject.common.Logging.main" />
+        <module name="ScheduleManagementProject.domain.member.Connector.In-Connector.main" />
+        <module name="ScheduleManagementProject.domain.member.Connector.main" />
+        <module name="ScheduleManagementProject.domain.member.Api.main" />
+        <module name="ScheduleManagementProject.domain.member.Infrastructure.main" />
+        <module name="ScheduleManagementProject.domain.member.Core.Service.main" />
+        <module name="ScheduleManagementProject.domain.schedules.Core.main" />
+        <module name="ScheduleManagementProject.domain.main" />
         <module name="ScheduleManagementProject.common.Jpa.main" />
+        <module name="ScheduleManagementProject.domain.schedules.Core.Enumerate.main" />
         <module name="ScheduleManagementProject.domain.member.Core.main" />
       </profile>
     </annotationProcessing>
