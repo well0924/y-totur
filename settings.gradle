@@ -1,5 +1,6 @@
 rootProject.name = "ScheduleManagementProject"
 
+<<<<<<< HEAD
 rootProject.name = 'ScheduleManagementProject'
 
 include 'bootstrap'
@@ -37,3 +38,56 @@ include 'domain:schedules:Infrastructure:Rdb-repository'
 include ':domain:category'
 //attach 관련
 //tag 관련
+=======
+// 주요 모듈 등록
+include("bootstrap")
+include("common")
+include("domain")
+
+// Common 관련 모듈
+include("common:jpa")
+include("common:security")
+include("common:exception")
+include("common:logging")
+include("common:redis")
+
+// Member 관련 모듈
+include("domain:member")
+include("domain:member:api")
+
+include("domain:member:connector")
+include("domain:member:connector:api-model")
+include("domain:member:connector:in-connector")
+include("domain:member:connector:interfaces")
+include("domain:member:connector:out-connector")
+include("domain:member:core")
+include("domain:member:core:service")
+include("domain:member:core:enumerate")
+include("domain:member:core:model")
+include("domain:member:core:exception")
+include("domain:member:infrastructure")
+include("domain:member:infrastructure:rdb")
+include("domain:member:infrastructure:api-client")
+
+// Schedule 관련 모듈
+include("domain:schedules")
+include("domain:schedules:api")
+include("domain:schedules:core")
+include("domain:schedules:core:model")
+include("domain:schedules:core:service")
+include("domain:schedules:core:enumerate")
+
+include("domain:schedules:connector")
+include("domain:schedules:connector:api-model")
+include("domain:schedules:connector:interface")
+include("domain:schedules:connector:out-connector")
+include("domain:schedules:connector:in-connector")
+
+include("domain:schedules:infrastructure")
+include("domain:schedules:infrastructure:rdb")
+
+// Category 관련 모듈
+include("domain:category")
+include("domain:category:infrastructure")
+include("domain:category:infrastructure:rdb")
+>>>>>>> issue-test
