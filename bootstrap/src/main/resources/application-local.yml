@@ -2,9 +2,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/schedule?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://localhost:3309/schedule?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: root
-    password: otp19407312@!
+    password: roots
   jpa:
     properties:
       hibernate:
