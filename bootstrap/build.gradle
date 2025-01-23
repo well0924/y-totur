@@ -4,7 +4,7 @@ plugins{
 
 dependencies {
 
-	implementation 'mysql:mysql-connector-java:8.0.33'
+	//implementation 'mysql:mysql-connector-java:8.0.33'
 
 	implementation project(':common:security')
 	implementation project(':common:jpa')
@@ -15,7 +15,7 @@ dependencies {
 	implementation project(':domain:member:api')
 	implementation project(':domain:schedules:api')
 	implementation project(':domain:schedules:infrastructure:rdb')
-
+	implementation project(':domain:category:infrastructure:rdb')
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter'

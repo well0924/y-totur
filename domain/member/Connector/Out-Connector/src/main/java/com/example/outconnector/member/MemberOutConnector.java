@@ -92,6 +92,10 @@ public class MemberOutConnector {
                 .userPhone(memberEntity.getUserPhone())
                 .userName(memberEntity.getUserName())
                 .roles(memberEntity.getRoles())
+                .createdBy(memberEntity.getCreatedBy())
+                .createdTime(memberEntity.getCreatedTime())
+                .updatedBy(memberEntity.getUpdatedBy())
+                .updatedTime(memberEntity.getUpdatedTime())
                 .build();
     }
 }
