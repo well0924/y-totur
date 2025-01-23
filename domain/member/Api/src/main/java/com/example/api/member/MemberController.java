@@ -1,6 +1,5 @@
 package com.example.api.member;
 
-import com.example.apimodel.member.MemberApiModel;
 import com.example.enumerate.member.SearchType;
 import com.example.inconnector.member.MemberInConnector;
 import lombok.AllArgsConstructor;
@@ -13,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import static com.example.apimodel.member.MemberApiModel.*;
 
 @RestController
 @AllArgsConstructor
@@ -31,36 +32,36 @@ public class MemberController {
     }
 
     @GetMapping("/page")
-    public ResponseEntity<Page<MemberApiModel.MemberResponse>> findAllPage(@PageableDefault Pageable pageable) {
-        Page<MemberApiModel.MemberResponse> memberPageList = memberInConnector.findAll(pageable);
+    public ResponseEntity<Page<MemberResponse>> findAllPage(@PageableDefault Pageable pageable) {
+        Page<MemberResponse> memberPageList = memberInConnector.findAll(pageable);
         logger.info("memberList::" + memberPageList);
         return ResponseEntity.status(HttpStatus.OK).body(memberPageList);
     }
 
     @GetMapping("/search")
-    public ResponseEntity<Page<MemberApiModel.MemberResponse>> findAllMemberSearch(@RequestParam("keyword") String keyword,@RequestParam("searchType") SearchType searchType,@PageableDefault Pageable pageable) {
-        Page<MemberApiModel.MemberResponse> memberSearchResult = memberInConnector.findAllMemberSearch(keyword, searchType, pageable);
+    public ResponseEntity<Page<MemberResponse>> findAllMemberSearch(@RequestParam("keyword") String keyword, @RequestParam("searchType") SearchType searchType, @PageableDefault Pageable pageable) {
+        Page<MemberResponse> memberSearchResult = memberInConnector.findAllMemberSearch(keyword, searchType, pageable);
         logger.info("searchResult::"+memberSearchResult);
         return ResponseEntity.status(HttpStatus.OK).body(memberSearchResult);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MemberApiModel.MemberResponse> findById(@PathVariable("id") Long id) {
-        MemberApiModel.MemberResponse memberDetail = memberInConnector.findById(id);
+    public ResponseEntity<MemberResponse> findById(@PathVariable("id") Long id) {
+        MemberResponse memberDetail = memberInConnector.findById(id);
         logger.info("memberDetail::"+memberDetail);
         return ResponseEntity.status(HttpStatus.OK).body(memberDetail);
     }
 
     @PostMapping("/")
-    public ResponseEntity<MemberApiModel.MemberResponse> createMember(@RequestBody @Validated MemberApiModel.CreateRequest request) {
-        MemberApiModel.MemberResponse createResponse = memberInConnector.createMember(request);
+    public ResponseEntity<MemberResponse> createMember(@RequestBody @Validated CreateRequest request) {
+        MemberResponse createResponse = memberInConnector.createMember(request);
         logger.info("createdResult::"+createResponse);
         return ResponseEntity.status(HttpStatus.CREATED).body(createResponse);
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<MemberApiModel.MemberResponse> updateMember(@PathVariable("id")Long id, @RequestBody @Validated MemberApiModel.UpdateRequest request) {
-        MemberApiModel.MemberResponse updateResponse = memberInConnector.updateMember(id,request);
+    public ResponseEntity<MemberResponse> updateMember(@PathVariable("id")Long id, @RequestBody @Validated UpdateRequest request) {
+        MemberResponse updateResponse = memberInConnector.updateMember(id,request);
         logger.info("updatedResponse::"+updateResponse);
         return ResponseEntity.status(HttpStatus.OK).body(updateResponse);
     }

@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':domain:schedules:core:model')
+    implementation project(':domain:schedules:core:service')
+    implementation project(':domain:schedules:core:enumerate')
+    implementation project(':domain:schedules:connector:interface')
+    implementation project(':domain:schedules:connector:api-model')
+}

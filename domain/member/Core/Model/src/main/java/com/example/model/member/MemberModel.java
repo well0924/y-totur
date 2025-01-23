@@ -24,9 +24,7 @@ public class MemberModel {
     private Roles roles;
     private String createdBy;
     private String updatedBy;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime createdTime;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime updatedTime;
 
     public boolean isAdmin() {

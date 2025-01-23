@@ -3,16 +3,15 @@ package com.example.outconnector.member;
 import com.example.enumerate.member.Roles;
 import com.example.enumerate.member.SearchType;
 import com.example.model.member.MemberModel;
-import com.example.rdbrepository.member.Member;
-import com.example.rdbrepository.member.MemberRepository;
+import com.example.rdb.member.Member;
+import com.example.rdb.member.MemberRepository;
+import com.example.rdb.member.MemberRepositoryImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDateTime;
 
 @Component
 @Transactional
@@ -93,10 +92,6 @@ public class MemberOutConnector {
                 .userPhone(memberEntity.getUserPhone())
                 .userName(memberEntity.getUserName())
                 .roles(memberEntity.getRoles())
-                .createdBy(memberEntity.getCreatedBy())
-                .updatedBy(memberEntity.getUpdatedBy())
-                .updatedTime(memberEntity.getUpdatedTime())
-                .createdTime(memberEntity.getCreatedTime())
                 .build();
     }
 }

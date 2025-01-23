@@ -4,53 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)">
-      <change afterPath="$PROJECT_DIR$/domain/category/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/classes/java/main/com/example/bootstrap/BootStrapApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/classes/java/test/com/example/bootstrap/BootStrapApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/libs/bootstrap-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/libs/bootstrap-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/resources/main/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/bootJar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/ScheduleManagementProject-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/libs/common-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/build/libs/domain-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/build/resolvedMainClassName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/Core/Exception/src/main/java/com/example/exception/CustomMemberGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Core/Exception/src/main/java/com/example/exception/CustomMemberGlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/main/java/com/example/rdbrepository/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository/src/main/java/com/example/rdbrepository/member/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -197,7 +151,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ScheduleManagementProject [clean]">
+  <component name="RunManager" selected="Gradle.ScheduleManagementProject [build]">
     <configuration name="ScheduleManagementProject [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -326,8 +280,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
         <item itemvalue="Gradle.ScheduleManagementProject [build]" />
+        <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
         <item itemvalue="Gradle.ScheduleManagementProject [components]" />
         <item itemvalue="Gradle.ScheduleManagementProject [dependentComponents]" />
         <item itemvalue="Gradle.ScheduleManagementProject [javadoc]" />

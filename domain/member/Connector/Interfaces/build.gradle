@@ -1,19 +1,8 @@
-project(':domain:member:Connector:Interfaces') {
-    dependencies {
-        implementation project(':domain:member:Connector:Api-Model')
-        implementation project(':domain:member:Core:Enumerate')
-        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-        implementation 'org.springframework.boot:spring-boot-starter'
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
-    }
-    tasks.bootJar {
-        enabled = false
-    }
-
-    tasks.jar {
-        enabled = true
-    }
-
-    tasks.register("prepareKotlinBuildScriptModel"){}
+dependencies {
+    implementation project(':domain:member:connector:api-model')
+    implementation project(':domain:member:core:enumerate')
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }

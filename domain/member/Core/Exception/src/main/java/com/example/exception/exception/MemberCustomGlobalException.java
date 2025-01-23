@@ -15,4 +15,5 @@ public class MemberCustomGlobalException {
         return new ResponseEntity<>(
                 new MemberErrorDto(ex.getMemberErrorCode().getStatus(), ex.getMemberErrorCode().getMessage()), HttpStatus.valueOf(ex.getMemberErrorCode().getStatus()));
     }
+
 }

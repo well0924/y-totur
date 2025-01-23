@@ -1,8 +1,6 @@
 package com.example.apimodel.member;
 
 import com.example.enumerate.member.Roles;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jdk.jshell.Snippet;
 import lombok.*;
 
 import java.time.LocalDateTime;
