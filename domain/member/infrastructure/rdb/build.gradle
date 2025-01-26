@@ -5,6 +5,7 @@ buildscript {
 }
 
 dependencies {
+    implementation project(':common:jpa')
     implementation project(':domain:member:core:enumerate')
     implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
     annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"

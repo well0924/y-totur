@@ -60,6 +60,7 @@ public class JwtTokenProvider {
                 .grantType("Bearer")
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
+                .refreshTokenExpiredTime(refreshTokenExpiredTime.getTime())
                 .build();
     }
 
@@ -110,6 +111,16 @@ public class JwtTokenProvider {
                     .getBody();
         } catch (ExpiredJwtException e) {
             return e.getClaims();
+        }
+    }
+
+    public long getExpiration(String token) {
+        try {
+            Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
+            Date expiration = claims.getExpiration();
+            return expiration.getTime();
+        } catch (SignatureException | IllegalArgumentException e) {
+            throw new IllegalArgumentException("Invalid token", e);
         }
     }
 }

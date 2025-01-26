@@ -5,6 +5,8 @@ buildscript {
 }
 
 dependencies {
+    implementation project(':common:redis')
+    implementation project(':common:jpa')
     implementation project(':domain:member:core:model')
     implementation project(':domain:member:core:enumerate')
     implementation project(':domain:member:core:exception')

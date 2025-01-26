@@ -19,9 +19,13 @@ public class QMember extends EntityPathBase<Member> {
 
     public static final QMember member = new QMember("member1");
 
-    public final StringPath createdBy = createString("createdBy");
+    public final com.example.jpa.config.base.QBaseEntity _super = new com.example.jpa.config.base.QBaseEntity(this);
 
-    public final DateTimePath<java.time.LocalDateTime> createdTime = createDateTime("createdTime", java.time.LocalDateTime.class);
+    //inherited
+    public final StringPath createdBy = _super.createdBy;
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdTime = _super.createdTime;
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -29,9 +33,11 @@ public class QMember extends EntityPathBase<Member> {
 
     public final EnumPath<com.example.enumerate.member.Roles> roles = createEnum("roles", com.example.enumerate.member.Roles.class);
 
-    public final StringPath updatedBy = createString("updatedBy");
+    //inherited
+    public final StringPath updatedBy = _super.updatedBy;
 
-    public final DateTimePath<java.time.LocalDateTime> updatedTime = createDateTime("updatedTime", java.time.LocalDateTime.class);
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> updatedTime = _super.updatedTime;
 
     public final StringPath userEmail = createString("userEmail");
 

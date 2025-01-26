@@ -2,6 +2,8 @@ package com.example.outconnector.member;
 
 import com.example.enumerate.member.Roles;
 import com.example.enumerate.member.SearchType;
+import com.example.exception.dto.MemberErrorCode;
+import com.example.exception.exception.MemberCustomExceptionHandler;
 import com.example.model.member.MemberModel;
 import com.example.rdb.member.Member;
 import com.example.rdb.member.MemberRepository;
@@ -31,23 +33,29 @@ public class MemberOutConnector {
                 .map(this::toEntity);
 
         if(memberModelPage.isEmpty()) {
-            throw new RuntimeException("회원이 없습니다.");
+            throw new MemberCustomExceptionHandler(MemberErrorCode.NOT_USER);
         }
 
         return memberModelPage;
     }
 
     public Page<MemberModel> findAllMemberSearch(String keyword, SearchType searchType, Pageable pageable) {
-        return customMemberRepository
+        Page<MemberModel> memberSearchResult = customMemberRepository
                 .searchAll(keyword,searchType,pageable)
                 .map(this::toEntity);
+
+        if(memberSearchResult.isEmpty()) {
+            throw new MemberCustomExceptionHandler(MemberErrorCode.NOT_SEARCH_USER);
+        }
+
+        return memberSearchResult;
     }
 
     @Transactional(readOnly = true)
     public MemberModel findById(Long id) {
         Member memberEntity = memberRepository
                 .findById(id)
-                .orElseThrow(()-> new RuntimeException("회원이 없습니다."));
+                .orElseThrow(()-> new MemberCustomExceptionHandler(MemberErrorCode.NOT_USER));
 
         return toEntity(memberEntity);
     }
@@ -69,7 +77,7 @@ public class MemberOutConnector {
 
     public MemberModel updateMember(Long id, MemberModel memberModel) {
         Member memberEntity = memberRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("회원을 찾을 수 없습니다."));
+                .orElseThrow(() -> new MemberCustomExceptionHandler(MemberErrorCode.NOT_USER));
 
         memberEntity.update(memberModel.getUserId(),
                 memberModel.getUserEmail(),

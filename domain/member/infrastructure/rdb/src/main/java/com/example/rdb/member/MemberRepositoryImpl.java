@@ -44,7 +44,7 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
             case MEMBER_NAME -> memberSearchList.where(userNameCt(keyword));
             case EMAIL -> memberSearchList.where(userEmailCt(keyword));
             case USERID -> memberSearchList.where(userIdCt(keyword));
-            default -> throw new RuntimeException("검색 결과가 없습니다.");
+            default -> memberSearchList.where(userEmailCt(keyword).or(userNameCt(keyword)).or(userIdCt(keyword)));
         };
 
         return PageableExecutionUtils

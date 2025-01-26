@@ -1,20 +1,22 @@
 package com.example.model.auth;
 
 import com.example.model.member.MemberModel;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Builder
 @Getter
-public class CustomMemberDetails implements UserDetails {
+public class CustomMemberDetails implements UserDetails, Serializable {
 
-    MemberModel memberModel;
+    private static final long serialVersionUID = 1L;
+
+    private final MemberModel memberModel;
 
     public CustomMemberDetails(MemberModel memberModel) {
         this.memberModel = memberModel;
