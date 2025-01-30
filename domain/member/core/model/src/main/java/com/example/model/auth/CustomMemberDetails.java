@@ -3,6 +3,7 @@ package com.example.model.auth;
 import com.example.model.member.MemberModel;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,6 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Slf4j
 @Builder
 @Getter
 public class CustomMemberDetails implements UserDetails, Serializable {
@@ -46,6 +48,7 @@ public class CustomMemberDetails implements UserDetails, Serializable {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(() -> memberModel.getRoles().getValue());
+        log.info(authorities.toString());
         return authorities;
     }
 

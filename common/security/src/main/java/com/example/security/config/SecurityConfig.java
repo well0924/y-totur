@@ -1,5 +1,10 @@
 package com.example.security.config;
 
+import com.example.logging.MDC.MDCFilter;
+import com.example.service.auth.jwt.JwtAccessDeniedHandler;
+import com.example.service.auth.jwt.JwtAuthenticationEntryPoint;
+import com.example.service.auth.jwt.JwtAuthenticationFilter;
+import com.example.service.auth.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
 import org.springframework.web.cors.CorsConfiguration;
@@ -24,6 +30,12 @@ import java.util.List;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final JwtTokenProvider jwtTokenProvider;
+
+    private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+
+    private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -54,6 +66,8 @@ public class SecurityConfig {
                 .csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable())
                 .httpBasic(httpSecurityHttpBasicConfigurer -> httpSecurityHttpBasicConfigurer.disable())
                 .formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer.disable())
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class)
+                .addFilterAfter(new MDCFilter(), JwtAuthenticationFilter.class)
                 .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 //인증 전부 permitall로 해놓음.... 추후에 모듈이 만들어지면 분기 설정.
@@ -61,8 +75,14 @@ public class SecurityConfig {
                         -> authorizationManagerRequestMatcherRegistry
                         .requestMatchers("/api/auth/*").permitAll()
                         .requestMatchers("/api/member/*").permitAll()
+                        .requestMatchers("/api/category/*").hasRole("ADMIN")
+                        .requestMatchers("/api/attach/*").hasAnyRole("ADMIN","USER")
+                        .requestMatchers("/api/schedule/*").hasAnyRole("ADMIN","USER")
                         .anyRequest()
-                        .authenticated());
+                        .authenticated())
+                .exceptionHandling(httpSecurityExceptionHandlingConfigurer -> httpSecurityExceptionHandlingConfigurer
+                        .authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                        .accessDeniedHandler(jwtAccessDeniedHandler));
 
         return http.build();
     }

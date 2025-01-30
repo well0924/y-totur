@@ -1,4 +1,6 @@
 dependencies {
+    implementation project(':common:logging')
+    implementation project(':domain:member:core:service')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     //jwt
