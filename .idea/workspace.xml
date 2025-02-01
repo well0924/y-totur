@@ -4,16 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)">
-      <change afterPath="$PROJECT_DIR$/domain/category/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/category/CategoryRepository.java" afterDir="false" />
+    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="feat : 카테고리 기능 crud&#10;&#10;- 카테고리 관련 crud기능 구현">
+      <change afterPath="$PROJECT_DIR$/domain/attach/api/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/api/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/api/src/main/java/com/example/controller/attach/AttachController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/api-model/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/api-model/src/main/java/com/example/apimodel/attach/AttachApiModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/in-connector/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/in-connector/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/in-connector/src/main/java/com/example/inconnector/attach/AttachInConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/interfaces/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/interfaces/src/main/java/com/example/interfaces/attach/AttachInterfaces.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/out-connector/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/out-connector/src/main/java/com/example/outconnector/attach/AttachOutConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/enumerate/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/dto/AttachErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/dto/AttachErrorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/exception/AttachCustomExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/exception/AttachGlobalCustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/model/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/model/src/main/java/com/example/model/attach/AttachModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/service/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/service/src/main/java/com/example/service/attach/AttachService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/service/src/main/resources/application-upload.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/infrastructure/rdb/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/infrastructure/rdb/src/main/java/com/example/rdbrepository/Attach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/infrastructure/rdb/src/main/java/com/example/rdbrepository/AttachRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/notification/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/enumerate/src/main/java/com/example/enumerate/schedules/PROGRESSSTATUS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/model/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/model/src/main/java/com/example/model/schedules/SchedulesModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/java/com/example/BootStrapApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/java/com/example/BootStrapApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/src/main/java/com/example/outconnector/member/MemberOutConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/src/main/java/com/example/outconnector/member/MemberOutConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/category/connector/in-connector/src/main/java/com/example/outconnector/category/CategoryInConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/category/connector/in-connector/src/main/java/com/example/outconnector/category/CategoryInConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/out-connector/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/out-connector/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/out-connector/src/main/java/com/example/schedule/ScheduleOutConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/out-connector/src/main/java/com/example/schedule/ScheduleOutConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/Schedules.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/Schedules.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,12 +112,6 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -92,12 +124,16 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/3.3.7/74ce314034383548a84df323bf6c3dd2ab1648a/spring-data-commons-3.3.7-sources.jar!/org/springframework/data/domain/AuditorAware.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -120,6 +156,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Gradle.Build ScheduleManagementProject.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ScheduleManagementProject [./gradlew dependencies].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ScheduleManagementProject [bootstrap:buildDependents].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ScheduleManagementProject [buildDependents].executor&quot;: &quot;Run&quot;,
@@ -135,9 +172,11 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BootStrapApplication (1).executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.BootStrapApplication.executor&quot;: &quot;Run&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/spring_work/workspace/ScheduleManagementProject/domain/category/api&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -151,10 +190,19 @@
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+      &quot;mariadb&quot;,
+      &quot;mysql&quot;
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\domain\category\api" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\domain\category\connector\api-model\src\main\java" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle ./gradlew dependencies" />
@@ -279,6 +327,13 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="BootStrapApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ScheduleManagementProject.bootstrap.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.BootStrapApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BootStrapApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="application.yml" />
       <module name="ScheduleManagementProject.bootstrap.main" />
@@ -293,6 +348,7 @@
       <item itemvalue="Gradle.ScheduleManagementProject [javadoc]" />
       <item itemvalue="Gradle.ScheduleManagementProject [build]" />
       <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
+      <item itemvalue="Spring Boot.BootStrapApplication (1)" />
       <item itemvalue="Spring Boot.BootStrapApplication" />
     </list>
     <recent_temporary>
@@ -317,6 +373,9 @@
       <workItem from="1736835404882" duration="7020000" />
       <workItem from="1736845440494" duration="11924000" />
       <workItem from="1736859115172" duration="42341000" />
+      <workItem from="1737733983456" duration="67986000" />
+      <workItem from="1737981323060" duration="40427000" />
+      <workItem from="1738219748986" duration="36413000" />
     </task>
     <task id="LOCAL-00001" summary="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)">
       <option name="closed" value="true" />
@@ -326,7 +385,47 @@
       <option name="project" value="LOCAL" />
       <updated>1736861593321</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix : 의존성 마리아디비 사용&#10;&#10;- mysql에서 mariadb로 변경">
+      <option name="closed" value="true" />
+      <created>1737786536367</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737786536367</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix : 회원 모듈 수정 &#10;&#10;- 페이징 객체 직렬화 (bootstrap 모듈에 @EnableSpringDataWebSupport 적용)&#10;- MemberModel에 JsonFormat 삭제&#10;- api-model 부분에 요청 record에 유효성 검사 추가&#10;- jpa audit 기능 추가(최초 회원가입시는 작성자,수정자는 SYSTEM으로 작성 후 로그인 시에는 작성자는 회원 아이디,수정시에는 수정자로 변경하기)&#10;- jwt 로그인 기능 수정 (로그아웃시 at 블랙리스트 처리)&#10;- 캐시키 설정 변경&#10;- mariadb 에서 mysql로 변경">
+      <option name="closed" value="true" />
+      <created>1737882840722</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1737882840722</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feature : 디비 변경 및 audit 기능 추가&#10;&#10;- maria db -&gt; mysql로 변경&#10;- jpa audit기능 처음에는 SYSTEM으로 등록 추후 api 사용시에는 회원 아이디로 생성자와 수정자가 들어감.">
+      <option name="closed" value="true" />
+      <created>1738224886239</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738224886239</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix : mdc 로깅 인증 처리 및 인증 예외처리&#10;&#10;- jwt 토큰 사용시 사용자 아이디가 로깅에 나오게끔 처리.&#10;&#10;- security config에 jwt인증 예외처리 추가.">
+      <option name="closed" value="true" />
+      <created>1738225109436</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738225109436</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat : 카테고리 기능 crud&#10;&#10;- 카테고리 관련 crud기능 구현">
+      <option name="closed" value="true" />
+      <created>1738227902453</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738227902453</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +433,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)" />
+    <MESSAGE value="fix : 의존성 마리아디비 사용&#10;&#10;- mysql에서 mariadb로 변경" />
+    <MESSAGE value="fix : 회원 모듈 수정 &#10;&#10;- 페이징 객체 직렬화 (bootstrap 모듈에 @EnableSpringDataWebSupport 적용)&#10;- MemberModel에 JsonFormat 삭제&#10;- api-model 부분에 요청 record에 유효성 검사 추가&#10;- jpa audit 기능 추가(최초 회원가입시는 작성자,수정자는 SYSTEM으로 작성 후 로그인 시에는 작성자는 회원 아이디,수정시에는 수정자로 변경하기)&#10;- jwt 로그인 기능 수정 (로그아웃시 at 블랙리스트 처리)&#10;- 캐시키 설정 변경&#10;- mariadb 에서 mysql로 변경" />
+    <MESSAGE value="feature : 디비 변경 및 audit 기능 추가&#10;&#10;- maria db -&gt; mysql로 변경&#10;- jpa audit기능 처음에는 SYSTEM으로 등록 추후 api 사용시에는 회원 아이디로 생성자와 수정자가 들어감." />
+    <MESSAGE value="fix : mdc 로깅 인증 처리 및 인증 예외처리&#10;&#10;- jwt 토큰 사용시 사용자 아이디가 로깅에 나오게끔 처리.&#10;&#10;- security config에 jwt인증 예외처리 추가." />
+    <MESSAGE value="feat : 카테고리 기능 crud&#10;&#10;- 카테고리 관련 crud기능 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : 카테고리 기능 crud&#10;&#10;- 카테고리 관련 crud기능 구현" />
   </component>
 </project>
