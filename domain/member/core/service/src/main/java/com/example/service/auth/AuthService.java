@@ -1,0 +1,71 @@
+package com.example.service.auth;
+
+import com.example.service.auth.jwt.JwtTokenProvider;
+import com.example.service.auth.jwt.TokenDto;
+import io.jsonwebtoken.Claims;
+import lombok.AllArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class AuthService {
+
+    private final JwtTokenProvider jwtTokenProvider;
+    private final AuthenticationManager authenticationManager;
+    private final RedisService redisService;
+
+    //로그인
+    public TokenDto login(String userId, String password) {
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
+                new UsernamePasswordAuthenticationToken(userId,password);
+
+        Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+
+        TokenDto tokenDto = jwtTokenProvider.generateToken(authentication);
+        // Refresh Token 캐싱
+        redisService.saveRefreshToken(authentication.getName(), tokenDto.getRefreshToken());
+        return tokenDto;
+    }
+
+    //로그아웃
+    public void logout(String accessToken) {
+        if (jwtTokenProvider.validateToken(accessToken)) {
+            Claims claims = jwtTokenProvider.parseClaims(accessToken);
+            String userId = claims.getSubject();
+
+            // Access Token을 블랙리스트에 저장
+            long expiration = jwtTokenProvider.getExpiration(accessToken);
+            redisService.saveBlacklistToken(accessToken,"logged_out",expiration);
+            // Refresh Token 삭제
+            redisService.deleteRefreshToken(userId);
+            SecurityContextHolder.clearContext();
+        } else {
+            throw new IllegalArgumentException("유효하지 않은 Access Token입니다.");
+        }
+    }
+
+    //토큰 재발급
+    public TokenDto tokenReissue(String refreshToken){
+        if(jwtTokenProvider.validateToken(refreshToken)) {
+            throw new IllegalArgumentException("Invalid refresh token");
+        }
+
+        Claims claims = jwtTokenProvider.parseClaims(refreshToken);
+        String username = claims.getSubject();
+
+        String storedToken = redisService.findRefreshToken(username);
+        if (storedToken == null || !storedToken.equals(refreshToken)) {
+            throw new RuntimeException("일치하지 않는 Refresh Token입니다.");
+        }
+
+        Authentication authentication = jwtTokenProvider.getAuthentication(refreshToken);
+        TokenDto newToken = jwtTokenProvider.generateToken(authentication);
+        // 5. Redis에 새로운 Refresh Token 저장
+        redisService.saveRefreshToken(username,refreshToken);
+        return newToken;
+    }
+}
