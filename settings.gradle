@@ -1,0 +1,81 @@
+rootProject.name = "ScheduleManagementProject"
+// 주요 모듈 등록
+include("bootstrap")
+include("common")
+include("domain")
+
+// Common 관련 모듈
+include("common:jpa")
+include("common:security")
+include("common:exception")
+include("common:logging")
+include("common:redis")
+
+// Member 관련 모듈
+include("domain:member")
+include("domain:member:api")
+include("domain:member:connector")
+include("domain:member:connector:api-model")
+include("domain:member:connector:in-connector")
+include("domain:member:connector:interfaces")
+include("domain:member:connector:out-connector")
+include("domain:member:core")
+include("domain:member:core:service")
+include("domain:member:core:enumerate")
+include("domain:member:core:model")
+include("domain:member:core:exception")
+include("domain:member:infrastructure")
+include("domain:member:infrastructure:rdb")
+include("domain:member:infrastructure:api-client")
+
+// Schedule 관련 모듈
+include("domain:schedules")
+include("domain:schedules:api")
+include("domain:schedules:core")
+include("domain:schedules:core:model")
+include("domain:schedules:core:service")
+include("domain:schedules:core:enumerate")
+include("domain:schedules:connector")
+include("domain:schedules:connector:api-model")
+include("domain:schedules:connector:interface")
+include("domain:schedules:connector:out-connector")
+include("domain:schedules:connector:in-connector")
+include("domain:schedules:infrastructure")
+include("domain:schedules:infrastructure:rdb")
+
+// Category 관련 모듈
+include("domain:category")
+include("domain:category:api")
+include("domain:category:core")
+include("domain:category:core:model")
+include("domain:category:core:service")
+include("domain:category:core:enumerate")
+include("domain:category:core:exception")
+include("domain:category:connector")
+include("domain:category:connector:api-model")
+include("domain:category:connector:interface")
+include("domain:category:connector:out-connector")
+include("domain:category:connector:in-connector")
+include("domain:category:infrastructure")
+include("domain:category:infrastructure:rdb")
+
+//Attach 관련 모듈
+include("domain:attach")
+include("domain:attach:api")
+include("domain:attach:core")
+include("domain:attach:core:model")
+include("domain:attach:core:service")
+include("domain:attach:core:enumerate")
+include("domain:attach:core:exception")
+include("domain:attach:connector")
+include("domain:attach:connector:out-connector")
+include("domain:attach:connector:in-connector")
+include("domain:attach:connector:interfaces")
+include("domain:attach:connector:api-model")
+include("domain:attach:infrastructure")
+include("domain:attach:infrastructure:rdb")
+
+//tag 관련 모듈
+
+//notice 관련 모듈
+include("domain:notification")

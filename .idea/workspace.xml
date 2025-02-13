@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/common/web">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/domain/member/Core/Enumerate">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/domain/member/Core/Enumurate">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/domain/member/Core/Exception">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/domain/member/Core/Service">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/domain/member/Infrastructure/Api-Client">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/domain/member/Infrastructure/Rdb-repository">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/bootstrap">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/3.3.7/74ce314034383548a84df323bf6c3dd2ab1648a/spring-data-commons-3.3.7-sources.jar!/org/springframework/data/domain/AuditorAware.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2raGkxlqqeCavpcwfatRUgfKX5r" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Gradle.Build ScheduleManagementProject.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [./gradlew dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [bootstrap:buildDependents].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [buildDependents].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [components].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [dependentComponents].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject [javadoc].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScheduleManagementProject:bootstrap [build].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BootStrapApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.BootStrapApplication.executor&quot;: &quot;Run&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/spring_work/workspace/ScheduleManagementProject/domain/category/api&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;,
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\domain\category\api" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\domain\category\connector\api-model\src\main\java" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle ./gradlew dependencies" />
+      <command value="gradle bootstrap:buildDependents" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.ScheduleManagementProject [build]">
+    <configuration name="ScheduleManagementProject [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScheduleManagementProject [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScheduleManagementProject [components]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="components" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScheduleManagementProject [dependentComponents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependentComponents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScheduleManagementProject [javadoc]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="javadoc" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="BootStrapApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ScheduleManagementProject.bootstrap.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.BootStrapApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BootStrapApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="application.yml" />
+      <module name="ScheduleManagementProject.bootstrap.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.bootstrap.BootStrapApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.ScheduleManagementProject [components]" />
+      <item itemvalue="Gradle.ScheduleManagementProject [dependentComponents]" />
+      <item itemvalue="Gradle.ScheduleManagementProject [javadoc]" />
+      <item itemvalue="Gradle.ScheduleManagementProject [build]" />
+      <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
+      <item itemvalue="Spring Boot.BootStrapApplication (1)" />
+      <item itemvalue="Spring Boot.BootStrapApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ScheduleManagementProject [build]" />
+        <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
+        <item itemvalue="Gradle.ScheduleManagementProject [components]" />
+        <item itemvalue="Gradle.ScheduleManagementProject [dependentComponents]" />
+        <item itemvalue="Gradle.ScheduleManagementProject [javadoc]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="" />
+      <created>1736789924955</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1736789924955</updated>
+      <workItem from="1736789934230" duration="1846000" />
+      <workItem from="1736835404882" duration="7020000" />
+      <workItem from="1736845440494" duration="11924000" />
+      <workItem from="1736859115172" duration="42341000" />
+      <workItem from="1737733983456" duration="67986000" />
+      <workItem from="1737981323060" duration="40427000" />
+      <workItem from="1738219748986" duration="58697000" />
+      <workItem from="1738927261981" duration="615000" />
+      <workItem from="1739182605433" duration="1852000" />
+      <workItem from="1739278786260" duration="1176000" />
+      <workItem from="1739358375685" duration="10611000" />
+    </task>
+    <task id="LOCAL-00001" summary="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)">
+      <option name="closed" value="true" />
+      <created>1736861593321</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736861593321</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix : 의존성 마리아디비 사용&#10;&#10;- mysql에서 mariadb로 변경">
+      <option name="closed" value="true" />
+      <created>1737786536367</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737786536367</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix : 회원 모듈 수정 &#10;&#10;- 페이징 객체 직렬화 (bootstrap 모듈에 @EnableSpringDataWebSupport 적용)&#10;- MemberModel에 JsonFormat 삭제&#10;- api-model 부분에 요청 record에 유효성 검사 추가&#10;- jpa audit 기능 추가(최초 회원가입시는 작성자,수정자는 SYSTEM으로 작성 후 로그인 시에는 작성자는 회원 아이디,수정시에는 수정자로 변경하기)&#10;- jwt 로그인 기능 수정 (로그아웃시 at 블랙리스트 처리)&#10;- 캐시키 설정 변경&#10;- mariadb 에서 mysql로 변경">
+      <option name="closed" value="true" />
+      <created>1737882840722</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1737882840722</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feature : 디비 변경 및 audit 기능 추가&#10;&#10;- maria db -&gt; mysql로 변경&#10;- jpa audit기능 처음에는 SYSTEM으로 등록 추후 api 사용시에는 회원 아이디로 생성자와 수정자가 들어감.">
+      <option name="closed" value="true" />
+      <created>1738224886239</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738224886239</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix : mdc 로깅 인증 처리 및 인증 예외처리&#10;&#10;- jwt 토큰 사용시 사용자 아이디가 로깅에 나오게끔 처리.&#10;&#10;- security config에 jwt인증 예외처리 추가.">
+      <option name="closed" value="true" />
+      <created>1738225109436</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738225109436</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat : 카테고리 기능 crud&#10;&#10;- 카테고리 관련 crud기능 구현">
+      <option name="closed" value="true" />
+      <created>1738227902453</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738227902453</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat : 첨부파일 모듈 작성&#10;&#10;- 첨부파일 다운로드시 presigned-url을 적용&#10;- HMAC-SHA256 알고리즘을 사용하여 서명을 생성 및 검증&#10;- 파일 이름 + 만료 시간을 secretKey로 서명 후 Base64 인코딩&#10;- 추후 일정 모듈이 작성이 되면 컨트롤러 및 로직부분 수정 필요">
+      <option name="closed" value="true" />
+      <created>1738414252354</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738414252355</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)" />
+    <MESSAGE value="fix : 의존성 마리아디비 사용&#10;&#10;- mysql에서 mariadb로 변경" />
+    <MESSAGE value="fix : 회원 모듈 수정 &#10;&#10;- 페이징 객체 직렬화 (bootstrap 모듈에 @EnableSpringDataWebSupport 적용)&#10;- MemberModel에 JsonFormat 삭제&#10;- api-model 부분에 요청 record에 유효성 검사 추가&#10;- jpa audit 기능 추가(최초 회원가입시는 작성자,수정자는 SYSTEM으로 작성 후 로그인 시에는 작성자는 회원 아이디,수정시에는 수정자로 변경하기)&#10;- jwt 로그인 기능 수정 (로그아웃시 at 블랙리스트 처리)&#10;- 캐시키 설정 변경&#10;- mariadb 에서 mysql로 변경" />
+    <MESSAGE value="feature : 디비 변경 및 audit 기능 추가&#10;&#10;- maria db -&gt; mysql로 변경&#10;- jpa audit기능 처음에는 SYSTEM으로 등록 추후 api 사용시에는 회원 아이디로 생성자와 수정자가 들어감." />
+    <MESSAGE value="fix : mdc 로깅 인증 처리 및 인증 예외처리&#10;&#10;- jwt 토큰 사용시 사용자 아이디가 로깅에 나오게끔 처리.&#10;&#10;- security config에 jwt인증 예외처리 추가." />
+    <MESSAGE value="feat : 카테고리 기능 crud&#10;&#10;- 카테고리 관련 crud기능 구현" />
+    <MESSAGE value="feat : 첨부파일 모듈 작성&#10;&#10;- 첨부파일 다운로드시 presigned-url을 적용&#10;- HMAC-SHA256 알고리즘을 사용하여 서명을 생성 및 검증&#10;- 파일 이름 + 만료 시간을 secretKey로 서명 후 Base64 인코딩&#10;- 추후 일정 모듈이 작성이 되면 컨트롤러 및 로직부분 수정 필요" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+</project>

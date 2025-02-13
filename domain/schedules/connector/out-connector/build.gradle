@@ -1,0 +1,10 @@
+dependencies {
+    implementation project(':common:jpa')
+    implementation project(':domain:schedules:core:model')
+    implementation project(':domain:schedules:core:enumerate')
+    implementation project(':domain:schedules:infrastructure:rdb')
+    implementation project(':domain:attach:infrastructure:rdb')
+    implementation project(':domain:category:infrastructure:rdb')
+    implementation project(':domain:member:infrastructure:rdb')
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+}

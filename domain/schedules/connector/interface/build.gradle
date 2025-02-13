@@ -1,0 +1,4 @@
+dependencies {
+    implementation project(':domain:schedules:connector:api-model')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
