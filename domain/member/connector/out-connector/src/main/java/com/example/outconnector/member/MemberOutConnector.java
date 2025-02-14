@@ -3,7 +3,7 @@ package com.example.outconnector.member;
 import com.example.enumerate.member.Roles;
 import com.example.enumerate.member.SearchType;
 import com.example.exception.dto.MemberErrorCode;
-import com.example.exception.exception.MemberCustomExceptionHandler;
+import com.example.exception.exception.MemberCustomException;
 import com.example.model.member.MemberModel;
 import com.example.rdb.member.Member;
 import com.example.rdb.member.MemberRepository;
@@ -33,7 +33,7 @@ public class MemberOutConnector {
                 .map(this::toEntity);
 
         if(memberModelPage.isEmpty()) {
-            throw new MemberCustomExceptionHandler(MemberErrorCode.NOT_USER);
+            throw new MemberCustomException(MemberErrorCode.NOT_USER);
         }
 
         return memberModelPage;
@@ -45,7 +45,7 @@ public class MemberOutConnector {
                 .map(this::toEntity);
 
         if(memberSearchResult.isEmpty()) {
-            throw new MemberCustomExceptionHandler(MemberErrorCode.NOT_SEARCH_USER);
+            throw new MemberCustomException(MemberErrorCode.NOT_SEARCH_USER);
         }
 
         return memberSearchResult;
@@ -55,7 +55,7 @@ public class MemberOutConnector {
     public MemberModel findById(Long id) {
         Member memberEntity = memberRepository
                 .findById(id)
-                .orElseThrow(()-> new MemberCustomExceptionHandler(MemberErrorCode.NOT_USER,id));
+                .orElseThrow(()-> new MemberCustomException(MemberErrorCode.NOT_USER,id));
 
         return toEntity(memberEntity);
     }
@@ -77,7 +77,7 @@ public class MemberOutConnector {
 
     public MemberModel updateMember(Long id, MemberModel memberModel) {
         Member memberEntity = memberRepository.findById(id)
-                .orElseThrow(() -> new MemberCustomExceptionHandler(MemberErrorCode.NOT_USER,id));
+                .orElseThrow(() -> new MemberCustomException(MemberErrorCode.NOT_USER,id));
 
         memberEntity.update(memberModel.getUserId(),
                 memberModel.getUserEmail(),

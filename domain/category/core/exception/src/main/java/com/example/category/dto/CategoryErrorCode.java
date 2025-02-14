@@ -16,7 +16,7 @@ public enum CategoryErrorCode {
     private final int status;
 
     private final String message;
-
+    //동적 메시지 작성
     public String formatMessage(Object... args) {
         return String.format(this.message, args);
     }

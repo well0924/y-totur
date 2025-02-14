@@ -19,7 +19,7 @@ public enum MemberErrorCode {
 
     private final String message;
 
-    // 동적 메시지 생성을 위한 메서드 (String.format 사용)
+    // 동적 메시지 생성을 위한 메서드
     public String formatMessage(Object... args) {
         return String.format(this.message, args);
     }

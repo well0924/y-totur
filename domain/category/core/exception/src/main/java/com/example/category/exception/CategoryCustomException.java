@@ -4,16 +4,16 @@ import com.example.category.dto.CategoryErrorCode;
 import lombok.Getter;
 
 @Getter
-public class CategoryCustomExceptionHandler extends RuntimeException {
+public class CategoryCustomException extends RuntimeException {
 
     private final CategoryErrorCode categoryErrorCode;
 
-    public CategoryCustomExceptionHandler(CategoryErrorCode categoryErrorCode,Object ...args) {
+    public CategoryCustomException(CategoryErrorCode categoryErrorCode, Object ...args) {
         super(categoryErrorCode.formatMessage(args));
         this.categoryErrorCode = categoryErrorCode;
     }
 
-    public CategoryCustomExceptionHandler(CategoryErrorCode categoryErrorCode) {
+    public CategoryCustomException(CategoryErrorCode categoryErrorCode) {
         super(categoryErrorCode.getMessage());
         this.categoryErrorCode = categoryErrorCode;
     }

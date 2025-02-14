@@ -2,7 +2,7 @@ package com.example.service.category;
 
 import com.example.outconnector.category.CategoryOutConnector;
 import com.example.category.dto.CategoryErrorCode;
-import com.example.category.exception.CategoryCustomExceptionHandler;
+import com.example.category.exception.CategoryCustomException;
 import com.example.model.category.CategoryModel;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -35,7 +35,7 @@ public class CategoryService {
         // 카테고리 목록이 비어있지 않을 때만 중복 확인
         if (!existingCategories.isEmpty()) {
             if (categoryModel.isDuplicateName(existingCategories)) {
-                throw new CategoryCustomExceptionHandler(CategoryErrorCode.DUPLICATED_CATEGORY_NAME);
+                throw new CategoryCustomException(CategoryErrorCode.DUPLICATED_CATEGORY_NAME);
             }
         }
 
@@ -54,7 +54,7 @@ public class CategoryService {
         if (!existingCategory.getName().equals(categoryModel.getName())) {
             List<CategoryModel> existingCategories = categoryOutConnector.categoryList();
             if (categoryModel.isDuplicateName(existingCategories)) {
-                throw new CategoryCustomExceptionHandler(CategoryErrorCode.DUPLICATED_CATEGORY_NAME);
+                throw new CategoryCustomException(CategoryErrorCode.DUPLICATED_CATEGORY_NAME);
             }
         }
 

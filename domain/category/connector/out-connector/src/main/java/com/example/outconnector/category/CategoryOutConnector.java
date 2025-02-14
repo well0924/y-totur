@@ -1,13 +1,12 @@
 package com.example.outconnector.category;
 
 import com.example.category.dto.CategoryErrorCode;
-import com.example.category.exception.CategoryCustomExceptionHandler;
+import com.example.category.exception.CategoryCustomException;
 import com.example.model.category.CategoryModel;
 import com.example.rdbrepository.Category;
 import com.example.rdbrepository.CategoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,7 +27,7 @@ public class CategoryOutConnector {
 
     public void validateCategoryListNotEmpty() {
         if (categoryRepository.count() == 0) {  // 카테고리 테이블에 데이터가 하나도 없으면
-            throw new CategoryCustomExceptionHandler(CategoryErrorCode.NOT_FOUND_CATEGORY);  // 예외를 발생시킴
+            throw new CategoryCustomException(CategoryErrorCode.NOT_FOUND_CATEGORY);  // 예외를 발생시킴
         }
     }
 
@@ -59,7 +58,7 @@ public class CategoryOutConnector {
         Long depth = calculateCategoryDepth(parentId);
 
         if (categoryId.equals(parentId)) {
-            throw new CategoryCustomExceptionHandler(CategoryErrorCode.INVALID_PARENT_CATEGORY);
+            throw new CategoryCustomException(CategoryErrorCode.INVALID_PARENT_CATEGORY);
         }
 
         category.update(name,parentId,depth);
@@ -74,12 +73,12 @@ public class CategoryOutConnector {
 
     private Category getCategoryById(Long categoryId) {
         return categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new CategoryCustomExceptionHandler(CategoryErrorCode.NOT_FOUND_CATEGORY,categoryId));
+                .orElseThrow(() -> new CategoryCustomException(CategoryErrorCode.NOT_FOUND_CATEGORY,categoryId));
     }
 
     private void validateCategoryNameNotExists(String name) {
         if (categoryRepository.existsByName(name)) {
-            throw new CategoryCustomExceptionHandler(CategoryErrorCode.DUPLICATED_CATEGORY_NAME,name);
+            throw new CategoryCustomException(CategoryErrorCode.DUPLICATED_CATEGORY_NAME,name);
         }
     }
 
@@ -90,7 +89,7 @@ public class CategoryOutConnector {
 
         return categoryRepository.findById(parentId)
                 .map(Category::getDepth)
-                .orElseThrow(() -> new CategoryCustomExceptionHandler(CategoryErrorCode.NOT_FOUND_CATEGORY,parentId)) + 1;
+                .orElseThrow(() -> new CategoryCustomException(CategoryErrorCode.NOT_FOUND_CATEGORY,parentId)) + 1;
     }
 
     private Category buildCategory(CategoryModel categoryModel, Long depth) {

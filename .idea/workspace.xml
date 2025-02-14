@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="">
+    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="refactor : 카테고리 out-connector 부분 리팩토링&#10;&#10;-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/category/connector/out-connector/src/main/java/com/example/outconnector/category/CategoryOutConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/category/connector/out-connector/src/main/java/com/example/outconnector/category/CategoryOutConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/dto/CategoryErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/dto/CategoryErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/exception/CategoryCustomExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/exception/CategoryCustomException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/exception/CategoryGlobalCustomException.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/exception/CategoryGlobalCustomException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/category/core/service/src/main/java/com/example/service/category/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/category/core/service/src/main/java/com/example/service/category/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/connector/out-connector/src/main/java/com/example/outconnector/member/MemberOutConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/connector/out-connector/src/main/java/com/example/outconnector/member/MemberOutConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/dto/MemberErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/dto/MemberErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/exception/MemberCustomExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/exception/MemberCustomGlobalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/exception/MemberCustomGlobalException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class CategoryGlobalCustomException {
 
-    @ExceptionHandler(value = CategoryCustomExceptionHandler.class)
-    protected ResponseEntity<CategoryErrorDto> HandleCustomException(CategoryCustomExceptionHandler ex) {
+    @ExceptionHandler(value = CategoryCustomException.class)
+    protected ResponseEntity<CategoryErrorDto> HandleCustomException(CategoryCustomException ex) {
         return new ResponseEntity<>(
                 CategoryErrorDto
                         .builder()
