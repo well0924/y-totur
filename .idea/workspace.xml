@@ -4,16 +4,92 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)">
-      <change afterPath="$PROJECT_DIR$/domain/category/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/category/CategoryRepository.java" afterDir="false" />
+    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="- feat : 일정 관련 CRUD&#10;&#10;- 일정기능에 관련된 CRUD기능 &#10;&#10;- 일정 crud 기능 &#10;&#10;- 일정 목록 조회 및 단일 조회시 썸네일 이미지경로를 보여주기.&#10;&#10;- 주기적으로 일정삭제를 스케줄러를 사용해서 주기적으로 삭제.">
+      <change afterPath="$PROJECT_DIR$/domain/attach/api/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/api/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/api/src/main/java/com/example/controller/attach/AttachController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/api-model/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/api-model/src/main/java/com/example/apimodel/attach/AttachApiModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/in-connector/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/in-connector/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/in-connector/src/main/java/com/example/inconnector/attach/AttachInConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/interfaces/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/interfaces/src/main/java/com/example/interfaces/attach/AttachInterfaces.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/out-connector/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/connector/out-connector/src/main/java/com/example/outconnector/attach/AttachOutConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/enumerate/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/dto/AttachErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/dto/AttachErrorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/exception/AttachCustomExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/exception/AttachGlobalCustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/model/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/model/src/main/java/com/example/model/attach/AttachModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/service/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/service/src/main/java/com/example/service/attach/AttachService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/core/service/src/main/resources/application-upload.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/infrastructure/rdb/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/infrastructure/rdb/src/main/java/com/example/rdbrepository/Attach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/attach/infrastructure/rdb/src/main/java/com/example/rdbrepository/AttachRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/api/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/api/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/api/src/main/java/com/example/category/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/connector/api-model/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/connector/api-model/src/main/java/com/example/apimodel/cateogry/CategoryApiModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/connector/in-connector/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/connector/in-connector/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/connector/in-connector/src/main/java/com/example/outconnector/category/CategoryInConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/connector/interface/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/connector/interface/src/main/java/com/example/interfaces/category/CategoryInterfaces.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/connector/out-connector/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/connector/out-connector/src/main/java/com/example/outconnector/category/CategoryOutConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/core/enumerate/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/dto/CategoryErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/dto/CategoryErrorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/exception/CategoryCustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/exception/CategoryGlobalCustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/core/model/src/main/java/com/example/model/category/CategoryModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/core/service/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/core/service/src/main/java/com/example/service/category/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/src/main/java/com/example/BootStrapApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/java/com/example/BootStrapApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/src/main/java/com/example/outconnector/member/MemberOutConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/src/main/java/com/example/outconnector/member/MemberOutConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/jpa/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/common/jpa/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/jpa/src/main/java/com/example/jpa/config/base/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/jpa/src/main/java/com/example/jpa/config/base/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/jpa/src/main/java/com/example/jpa/config/jpa/JpaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/jpa/src/main/java/com/example/jpa/config/jpa/JpaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/redis/src/main/java/com/example/redis/config/CacheConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/redis/src/main/java/com/example/redis/config/CacheConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/category/infrastructure/rdb/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/category/infrastructure/rdb/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/category/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/category/CategoryRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/exception/MemberCustomExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Core/Exception/src/main/java/com/example/exception/exception/MemberCustomException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/exception/MemberCustomGlobalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/exception/MemberCustomGlobalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/api/src/main/java/com/example/api/schedule/ScheduleManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/api/src/main/java/com/example/api/schedule/ScheduleManageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/in-connector/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/in-connector/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/in-connector/src/main/java/com/example/schedules/ScheduleServiceConnectorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/in-connector/src/main/java/com/example/schedules/ScheduleServiceConnectorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/interface/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/interface/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/interface/src/main/java/com/example/schedules/ScheduleServiceConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/interface/src/main/java/com/example/schedules/ScheduleServiceConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/out-connector/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/out-connector/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/out-connector/src/main/java/com/example/schedule/ScheduleOutConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/out-connector/src/main/java/com/example/schedule/ScheduleOutConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/core/service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/core/service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/core/service/src/main/java/com/example/schedule/ScheduleDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/core/service/src/main/java/com/example/schedule/ScheduleDomainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/ScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/ScheduleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/Schedules.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/Schedules.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -279,6 +355,13 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="BootStrapApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ScheduleManagementProject.bootstrap.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.BootStrapApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BootStrapApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="application.yml" />
       <module name="ScheduleManagementProject.bootstrap.main" />
@@ -293,6 +376,7 @@
       <item itemvalue="Gradle.ScheduleManagementProject [javadoc]" />
       <item itemvalue="Gradle.ScheduleManagementProject [build]" />
       <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
+      <item itemvalue="Spring Boot.BootStrapApplication (1)" />
       <item itemvalue="Spring Boot.BootStrapApplication" />
     </list>
     <recent_temporary>
@@ -317,6 +401,11 @@
       <workItem from="1736835404882" duration="7020000" />
       <workItem from="1736845440494" duration="11924000" />
       <workItem from="1736859115172" duration="42341000" />
+      <workItem from="1741607793632" duration="97000" />
+      <workItem from="1741608235432" duration="344000" />
+      <workItem from="1741608639265" duration="350000" />
+      <workItem from="1741609131710" duration="142000" />
+      <workItem from="1741609416732" duration="2399000" />
     </task>
     <task id="LOCAL-00001" summary="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)">
       <option name="closed" value="true" />
@@ -331,6 +420,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)" />
