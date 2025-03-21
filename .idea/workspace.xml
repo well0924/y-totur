@@ -5,63 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="-refactor: 로그인 인증 및 인증 오딧 수정&#10;&#10;- Jpa audit을 시큐리티 인증으로 회원아이디로 작성자,수정자 등록&#10;&#10;- 로그인,로그아웃,재발급 로직 캐싱 수정&#10;&#10;- 회원">
-      <change afterPath="$PROJECT_DIR$/common/jpa/src/main/java/com/example/jpa/config/jpa/AuditorAwareImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/redis/src/main/java/com/example/redis/config/cachekey/CacheKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/member/Core/Enumerate/src/main/java/com/example/enumerate/member/cacheKey/MemberCacheKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/api-client/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/api-client/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/api-client/src/main/java/com/example/schedule/apiclient/config/WebSocketAuthInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/api-client/src/main/java/com/example/schedule/apiclient/config/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/rdb/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/rdb/src/main/java/com/example/rdbrepository/Notification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/rdb/src/main/java/com/example/rdbrepository/NotificationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/core/enumerate/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/core/enumerate/src/main/java/com/example/enumerate/schedules/PROGRESS_STATUS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/src/main/java/com/example/exception/schedules/dto/ScheduleErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/src/main/java/com/example/exception/schedules/dto/ScheduleErrorDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/src/main/java/com/example/exception/schedules/exception/ScheduleCustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/src/main/java/com/example/exception/schedules/exception/ScheduleCustomGlobalException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/core/model/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/core/model/src/main/java/com/example/model/schedules/SchedulesModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/custom/ScheduleRepositoryCustom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/custom/ScheduleRepositoryCustomImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/jpa/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/common/jpa/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/logging/src/main/java/com/example/logging/MDC/MDCFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/logging/src/main/java/com/example/logging/MDC/MDCFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/logging/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/logging/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/security/src/main/java/com/example/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/src/main/java/com/example/security/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/api/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/api/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/connector/api-Model/src/main/java/com/example/apimodel/auth/RequestRefreshTokenDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/connector/api-Model/src/main/java/com/example/apimodel/auth/RequestRefreshTokenDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/connector/in-connector/src/main/java/com/example/inconnector/auth/AuthInConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/connector/in-connector/src/main/java/com/example/inconnector/auth/AuthInConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/connector/out-connector/src/main/java/com/example/outconnector/auth/AuthOutConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/connector/out-connector/src/main/java/com/example/outconnector/auth/AuthOutConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/RedisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/jwt/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/jwt/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/jwt/JwtTokenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/infrastructure/rdb/src/main/generated/com/example/rdb/member/QMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/infrastructure/rdb/src/main/generated/com/example/rdb/member/QMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/infrastructure/rdb/src/main/java/com/example/rdb/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/infrastructure/rdb/src/main/java/com/example/rdb/member/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/api/src/main/java/com/example/api/schedule/ScheduleManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/api/src/main/java/com/example/api/schedule/ScheduleManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/in-connector/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/in-connector/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/in-connector/src/main/java/com/example/schedules/ScheduleServiceConnectorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/in-connector/src/main/java/com/example/schedules/ScheduleServiceConnectorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/interface/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/interface/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/interface/src/main/java/com/example/schedules/ScheduleServiceConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/interface/src/main/java/com/example/schedules/ScheduleServiceConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/out-connector/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/out-connector/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/connector/out-connector/src/main/java/com/example/schedule/ScheduleOutConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/out-connector/src/main/java/com/example/schedule/ScheduleOutConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/core/service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/core/service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/core/service/src/main/java/com/example/schedule/ScheduleDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/core/service/src/main/java/com/example/schedule/ScheduleDomainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/ScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/ScheduleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/Schedules.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/Schedules.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
