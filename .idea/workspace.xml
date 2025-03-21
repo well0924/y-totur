@@ -4,80 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="- feat : 일정 관련 CRUD&#10;&#10;- 일정기능에 관련된 CRUD기능 &#10;&#10;- 일정 crud 기능 &#10;&#10;- 일정 목록 조회 및 단일 조회시 썸네일 이미지경로를 보여주기.&#10;&#10;- 주기적으로 일정삭제를 스케줄러를 사용해서 주기적으로 삭제.">
-      <change afterPath="$PROJECT_DIR$/domain/attach/api/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/api/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/api/src/main/java/com/example/controller/attach/AttachController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/connector/api-model/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/connector/api-model/src/main/java/com/example/apimodel/attach/AttachApiModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/connector/in-connector/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/connector/in-connector/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/connector/in-connector/src/main/java/com/example/inconnector/attach/AttachInConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/connector/interfaces/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/connector/interfaces/src/main/java/com/example/interfaces/attach/AttachInterfaces.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/connector/out-connector/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/connector/out-connector/src/main/java/com/example/outconnector/attach/AttachOutConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/enumerate/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/dto/AttachErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/dto/AttachErrorDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/exception/AttachCustomExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/exception/src/main/java/com/example/attach/exception/AttachGlobalCustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/model/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/model/src/main/java/com/example/model/attach/AttachModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/service/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/service/src/main/java/com/example/service/attach/AttachService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/core/service/src/main/resources/application-upload.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/infrastructure/rdb/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/infrastructure/rdb/src/main/java/com/example/rdbrepository/Attach.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/attach/infrastructure/rdb/src/main/java/com/example/rdbrepository/AttachRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/api/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/api/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/api/src/main/java/com/example/category/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/connector/api-model/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/connector/api-model/src/main/java/com/example/apimodel/cateogry/CategoryApiModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/connector/in-connector/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/connector/in-connector/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/connector/in-connector/src/main/java/com/example/outconnector/category/CategoryInConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/connector/interface/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/connector/interface/src/main/java/com/example/interfaces/category/CategoryInterfaces.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/connector/out-connector/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/connector/out-connector/src/main/java/com/example/outconnector/category/CategoryOutConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/core/enumerate/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/dto/CategoryErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/dto/CategoryErrorDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/exception/CategoryCustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/core/exception/src/main/java/com/example/category/exception/CategoryGlobalCustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/core/model/src/main/java/com/example/model/category/CategoryModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/core/service/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/core/service/src/main/java/com/example/service/category/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/CategoryRepository.java" afterDir="false" />
+    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="-refactor: 로그인 인증 및 인증 오딧 수정&#10;&#10;- Jpa audit을 시큐리티 인증으로 회원아이디로 작성자,수정자 등록&#10;&#10;- 로그인,로그아웃,재발급 로직 캐싱 수정&#10;&#10;- 회원">
+      <change afterPath="$PROJECT_DIR$/common/jpa/src/main/java/com/example/jpa/config/jpa/AuditorAwareImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/redis/src/main/java/com/example/redis/config/cachekey/CacheKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/member/Core/Enumerate/src/main/java/com/example/enumerate/member/cacheKey/MemberCacheKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/api-client/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/api-client/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/api-client/src/main/java/com/example/schedule/apiclient/config/WebSocketAuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/api-client/src/main/java/com/example/schedule/apiclient/config/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/rdb/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/rdb/src/main/java/com/example/rdbrepository/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/notification/infrastructure/rdb/src/main/java/com/example/rdbrepository/NotificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/enumerate/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/enumerate/src/main/java/com/example/enumerate/schedules/PROGRESS_STATUS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/src/main/java/com/example/exception/schedules/dto/ScheduleErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/src/main/java/com/example/exception/schedules/dto/ScheduleErrorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/src/main/java/com/example/exception/schedules/exception/ScheduleCustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/exception/src/main/java/com/example/exception/schedules/exception/ScheduleCustomGlobalException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/model/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/core/model/src/main/java/com/example/model/schedules/SchedulesModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/custom/ScheduleRepositoryCustom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/custom/ScheduleRepositoryCustomImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/java/com/example/BootStrapApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/java/com/example/BootStrapApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/jpa/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/common/jpa/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/jpa/src/main/java/com/example/jpa/config/base/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/jpa/src/main/java/com/example/jpa/config/base/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/jpa/src/main/java/com/example/jpa/config/jpa/JpaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/jpa/src/main/java/com/example/jpa/config/jpa/JpaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/redis/src/main/java/com/example/redis/config/CacheConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/redis/src/main/java/com/example/redis/config/CacheConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/category/infrastructure/rdb/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/category/infrastructure/rdb/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/category/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/category/CategoryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/exception/MemberCustomExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Core/Exception/src/main/java/com/example/exception/exception/MemberCustomException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/exception/MemberCustomGlobalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/exception/src/main/java/com/example/exception/exception/MemberCustomGlobalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/logging/src/main/java/com/example/logging/MDC/MDCFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/logging/src/main/java/com/example/logging/MDC/MDCFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/logging/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/logging/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/security/src/main/java/com/example/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/security/src/main/java/com/example/security/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/api/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/api/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/connector/api-Model/src/main/java/com/example/apimodel/auth/RequestRefreshTokenDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/connector/api-Model/src/main/java/com/example/apimodel/auth/RequestRefreshTokenDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/connector/in-connector/src/main/java/com/example/inconnector/auth/AuthInConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/connector/in-connector/src/main/java/com/example/inconnector/auth/AuthInConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/connector/out-connector/src/main/java/com/example/outconnector/auth/AuthOutConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/connector/out-connector/src/main/java/com/example/outconnector/auth/AuthOutConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/RedisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/jwt/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/core/service/src/main/java/com/example/service/auth/jwt/JwtTokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/infrastructure/rdb/src/main/generated/com/example/rdb/member/QMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/infrastructure/rdb/src/main/generated/com/example/rdb/member/QMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/member/infrastructure/rdb/src/main/java/com/example/rdb/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/infrastructure/rdb/src/main/java/com/example/rdb/member/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/schedules/api/src/main/java/com/example/api/schedule/ScheduleManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/api/src/main/java/com/example/api/schedule/ScheduleManageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/schedules/connector/in-connector/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/in-connector/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/schedules/connector/in-connector/src/main/java/com/example/schedules/ScheduleServiceConnectorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/connector/in-connector/src/main/java/com/example/schedules/ScheduleServiceConnectorImpl.java" afterDir="false" />
@@ -90,7 +62,6 @@
       <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/ScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/ScheduleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/Schedules.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/schedules/infrastructure/rdb/src/main/java/com/example/rdbrepository/Schedules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,29 +105,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -211,9 +160,11 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BootStrapApplication (1).executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.BootStrapApplication.executor&quot;: &quot;Run&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/well4/OneDrive/바탕 화면/ScheduleManagementProject&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -231,6 +182,11 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\spring_work\workspace\ScheduleManagementProject\domain\notification\infrastructure\api-client" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle ./gradlew dependencies" />
@@ -405,7 +361,13 @@
       <workItem from="1741608235432" duration="344000" />
       <workItem from="1741608639265" duration="350000" />
       <workItem from="1741609131710" duration="142000" />
-      <workItem from="1741609416732" duration="2399000" />
+      <workItem from="1741609416732" duration="9139000" />
+      <workItem from="1741850190773" duration="5220000" />
+      <workItem from="1742460757272" duration="6961000" />
+      <workItem from="1742471303353" duration="11740000" />
+      <workItem from="1742535598750" duration="5379000" />
+      <workItem from="1742554972888" duration="5473000" />
+      <workItem from="1742562848152" duration="6922000" />
     </task>
     <task id="LOCAL-00001" summary="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)">
       <option name="closed" value="true" />
@@ -415,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736861593321</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- feat : 첨부파일 및 카테고리 CRUD&#10;&#10;- 카테고리관련 CRUD&#10;&#10;- 기존의 피드백을 반영해서 카테고리 로직 수정&#10;&#10;- 카테고리 목록 부분에 Redis캐싱을 적용&#10;&#10;- 첨부파일 업로드시 이미지의 경우에는 섬네일로 전환&#10;&#10;- 기타 설정부분수정">
+      <option name="closed" value="true" />
+      <created>1741612219293</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741612219293</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,6 +404,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)" />
+    <MESSAGE value="- feat : 첨부파일 및 카테고리 CRUD&#10;&#10;- 카테고리관련 CRUD&#10;&#10;- 기존의 피드백을 반영해서 카테고리 로직 수정&#10;&#10;- 카테고리 목록 부분에 Redis캐싱을 적용&#10;&#10;- 첨부파일 업로드시 이미지의 경우에는 섬네일로 전환&#10;&#10;- 기타 설정부분수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="- feat : 첨부파일 및 카테고리 CRUD&#10;&#10;- 카테고리관련 CRUD&#10;&#10;- 기존의 피드백을 반영해서 카테고리 로직 수정&#10;&#10;- 카테고리 목록 부분에 Redis캐싱을 적용&#10;&#10;- 첨부파일 업로드시 이미지의 경우에는 섬네일로 전환&#10;&#10;- 기타 설정부분수정" />
   </component>
 </project>

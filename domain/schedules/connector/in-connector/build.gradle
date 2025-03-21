@@ -4,4 +4,10 @@ dependencies {
     implementation project(':domain:schedules:core:enumerate')
     implementation project(':domain:schedules:connector:interface')
     implementation project(':domain:schedules:connector:api-model')
+    implementation project(':domain:attach:core:model')
+    implementation project(':domain:attach:connector:api-model')
+    implementation project(':domain:attach:connector:in-connector')
+    implementation project(':domain:attach:connector:interfaces')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }

@@ -25,6 +25,8 @@ public class QMember extends EntityPathBase<Member> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
+    public final BooleanPath isDeletedUser = createBoolean("isDeletedUser");
+
     public final StringPath password = createString("password");
 
     public final EnumPath<com.example.enumerate.member.Roles> roles = createEnum("roles", com.example.enumerate.member.Roles.class);

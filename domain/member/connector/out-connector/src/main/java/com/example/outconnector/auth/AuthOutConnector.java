@@ -23,7 +23,7 @@ public class AuthOutConnector implements UserDetailsService {
         Member userDetails = memberRepository.findByUserId(username)
                 .orElseThrow(()->new UsernameNotFoundException("회원을 찾을 수 없습니다."));
         MemberModel toModel = toMemberModel(userDetails);
-        return new CustomMemberDetails(toModel);
+        return toAuthModel(toModel);
     }
 
     //entity -> model

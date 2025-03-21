@@ -22,7 +22,6 @@
         <module name="ScheduleManagementProject.domain.category.core.model.main" />
         <module name="ScheduleManagementProject.domain.attach.infrastructure.main" />
         <module name="ScheduleManagementProject.bootstrap.main" />
-        <module name="ScheduleManagementProject.domain.notification.infrastructure.rdb.main" />
         <module name="ScheduleManagementProject.domain.notification.connector.main" />
         <module name="ScheduleManagementProject.domain.category.core.service.main" />
         <module name="ScheduleManagementProject.domain.attach.core.model.main" />
@@ -163,8 +162,10 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mysema.commons/mysema-commons-lang/0.2.4/d09c8489d54251a6c22fbce804bdd4a070557317/mysema-commons-lang-0.2.4.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jdt/ecj/3.26.0/4837be609a3368a0f7e7cf0dc1bdbc7fe94993de/ecj-3.26.0.jar" />
         </processorPath>
-        <module name="ScheduleManagementProject.domain.schedules.infrastructure.rdb.main" />
         <module name="ScheduleManagementProject.domain.schedules.infrastructure.rdb.test" />
+        <module name="ScheduleManagementProject.domain.notification.infrastructure.rdb.main" />
+        <module name="ScheduleManagementProject.domain.schedules.infrastructure.rdb.main" />
+        <module name="ScheduleManagementProject.domain.notification.infrastructure.rdb.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />
