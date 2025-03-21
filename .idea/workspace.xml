@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="feature/{issue-1} 멀티모듈구조 수정 &#10;&#10;- 피드백대로 멀티모듈구조 수정 및 모듈간 의존성 수정&#10;- 설정모듈에 MDC로깅 적용(필터와 aop를 적용)&#10;- MemberController에 로깅 테스트 적용 &#10;- 회원 모델클래스에 적용될 비지니스 로직 작성(어드민여부,아이디 유효성,이메일 유효성,전화번호 유효성)&#10;- 회원 엔티티 컬럼수정 (작성자,수정자 컬럼 추가)">
-      <change afterPath="$PROJECT_DIR$/domain/category/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/category/infrastructure/rdb/src/main/java/com/example/rdbrepository/category/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/resources/main/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/java/com/example/BootStrapApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/java/com/example/BootStrapApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/src/main/java/com/example/outconnector/member/MemberOutConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/member/Connector/Out-Connector/src/main/java/com/example/outconnector/member/MemberOutConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,29 +50,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ScheduleManagementProject" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -279,6 +249,13 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="BootStrapApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ScheduleManagementProject.bootstrap.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.BootStrapApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BootStrapApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="application.yml" />
       <module name="ScheduleManagementProject.bootstrap.main" />
@@ -293,6 +270,7 @@
       <item itemvalue="Gradle.ScheduleManagementProject [javadoc]" />
       <item itemvalue="Gradle.ScheduleManagementProject [build]" />
       <item itemvalue="Gradle.ScheduleManagementProject [clean]" />
+      <item itemvalue="Spring Boot.BootStrapApplication (1)" />
       <item itemvalue="Spring Boot.BootStrapApplication" />
     </list>
     <recent_temporary>
