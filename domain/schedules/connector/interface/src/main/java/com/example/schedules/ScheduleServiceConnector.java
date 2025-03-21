@@ -1,6 +1,36 @@
 package com.example.schedules;
 
+import com.example.apimodel.ScheduleApiModel;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
+
+import static com.example.apimodel.ScheduleApiModel.responseSchedule;
+import static com.example.apimodel.ScheduleApiModel.requestSchedule;
+import static com.example.apimodel.ScheduleApiModel.updateSchedule;
+
+import java.io.IOException;
+import java.util.List;
+
 public interface ScheduleServiceConnector {
 
-    long createSchedule();
+    List<responseSchedule> findAll() throws IOException;
+
+    List<responseSchedule> findAllDeletedSchedules();
+
+    Page<responseSchedule> getSchedulesByUserId(String userId, Pageable pageable) throws IOException;
+
+    Page<responseSchedule> getSchedulesByCategoryName(String categoryId,Pageable pageable) throws IOException;
+
+    ScheduleApiModel.responseSchedule findById(Long scheduleId) throws IOException;
+
+    ScheduleApiModel.responseSchedule saveSchedule(requestSchedule requestSchedule) throws IOException;
+
+    ScheduleApiModel.responseSchedule updateSchedule(Long scheduleId,updateSchedule updateSchedule, List<MultipartFile>files) throws IOException;
+
+    void deleteSchedule(Long scheduleId) throws IOException;
+
+    void deleteOldSchedules();
+
+    Page<responseSchedule> getSchedulesByStatus(String status, String userId,Pageable pageable) throws IOException;
 }
