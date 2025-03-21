@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="-refactor: 로그인 인증 및 인증 오딧 수정&#10;&#10;- Jpa audit을 시큐리티 인증으로 회원아이디로 작성자,수정자 등록&#10;&#10;- 로그인,로그아웃,재발급 로직 캐싱 수정&#10;&#10;- 회원">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1afd8cc7-482b-4014-bba1-4348d62de7ff" name="Changes" comment="-refactor: 로그인 인증 및 인증 오딧 수정&#10;&#10;- Jpa audit을 시큐리티 인증으로 회원아이디로 작성자,수정자 등록&#10;&#10;- 로그인,로그아웃,재발급 로직 캐싱 수정&#10;&#10;- 회원" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
