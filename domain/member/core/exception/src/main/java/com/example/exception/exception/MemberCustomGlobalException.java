@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class MemberCustomGlobalException {
 
-    @ExceptionHandler(value = MemberCustomExceptionHandler.class)
-    protected ResponseEntity<MemberErrorDto> HandleCustomException(MemberCustomExceptionHandler ex) {
+    @ExceptionHandler(value = MemberCustomException.class)
+    protected ResponseEntity<MemberErrorDto> HandleCustomException(MemberCustomException ex) {
         return new ResponseEntity<>(
                 new MemberErrorDto(ex.getMemberErrorCode().getStatus(), ex.getMemberErrorCode().getMessage()), HttpStatus.valueOf(ex.getMemberErrorCode().getStatus()));
     }
