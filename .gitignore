@@ -16,6 +16,7 @@ gradle
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
+bootstrap/**
 
 ### IntelliJ IDEA ###
 .idea/**
