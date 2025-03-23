@@ -52,7 +52,6 @@ public class AttachModel {
     // presigned url 유효성 검사
     public boolean validatePreSignedUrl(String secretKey, long expiration, String signature) throws Exception {
         if (System.currentTimeMillis() > expiration) {
-            System.out.println(expiration);
             return false;
         }
 
@@ -62,8 +61,6 @@ public class AttachModel {
         mac.init(new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
 
         String expectedSignature = Base64.getEncoder().encodeToString(mac.doFinal(dataToSign.getBytes(StandardCharsets.UTF_8)));
-        System.out.println(expectedSignature);
-        System.out.println(signature);
         return expectedSignature.equals(signature);
     }
 
@@ -72,14 +69,12 @@ public class AttachModel {
             // 원본 이미지가 존재하는지 확인
             File originalFile = new File(originalFilePath);
             if (!originalFile.exists()) {
-                System.out.println("원본 파일이 존재하지 않음: " + originalFilePath);
                 return null;
             }
 
             // 원본 이미지가 정상적으로 읽히는지 확인
             BufferedImage originalImage = ImageIO.read(originalFile);
             if (originalImage == null) {
-                System.out.println("원본 이미지를 읽을 수 없음 (지원되지 않는 포맷일 가능성): " + originalFilePath);
                 return null;
             }
 
@@ -95,14 +90,11 @@ public class AttachModel {
 
             // 생성된 파일이 정상적으로 존재하는지 확인
             if (!thumbnailFile.exists()) {
-                System.out.println("썸네일이 정상적으로 생성되지 않음: " + thumbnailPath);
                 return null;
             }
 
-            System.out.println("섬네일 생성 완료: " + thumbnailPath);
             return thumbnailPath;
         } catch (IOException e) {
-            System.out.println("썸네일 생성 오류: " + e.getMessage());
             return null;
         }
     }
@@ -145,7 +137,6 @@ public class AttachModel {
                     if (isImage) {
                         thumbnailPath = createThumbnail(file.getAbsolutePath(), absolutePath, storedFileName);
                         if (thumbnailPath == null) {
-                            System.out.println(" 섬네일 생성 실패: " + file.getAbsolutePath());
                         }
                     }
 
@@ -164,9 +155,7 @@ public class AttachModel {
                     file.setWritable(true);
                     file.setReadable(true);
 
-                    System.out.println("파일 업로드 완료: " + file.getAbsolutePath());
                     if (thumbnailPath != null) {
-                        System.out.println("섬네일 생성 완료: " + thumbnailPath);
                     }
                 }
             }
@@ -203,7 +192,6 @@ public class AttachModel {
             File thumbnailToDelete = new File(this.thumbnailFilePath);
             if (thumbnailToDelete.exists()) {
                 thumbnailToDelete.delete();
-                System.out.println("섬네일 파일 삭제 완료: " + thumbnailToDelete.getAbsolutePath());
             }
         }
     }
