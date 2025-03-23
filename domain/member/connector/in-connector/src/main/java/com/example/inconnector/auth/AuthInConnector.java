@@ -28,7 +28,7 @@ public class AuthInConnector implements AuthInterface {
 
     @Override
     public TokenResponse tokenReissue(RequestRefreshTokenDto refreshTokenDto) {
-        TokenDto reissueResult = authService.tokenReissue(refreshTokenDto.refreshToken());
+        TokenDto reissueResult = authService.tokenReissue(refreshTokenDto.accessToken(), refreshTokenDto.refreshToken());
         return tokenResponse(reissueResult);
     }
 

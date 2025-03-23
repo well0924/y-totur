@@ -1,8 +1,10 @@
 package com.example.service.auth.jwt;
 
+import com.example.outconnector.auth.AuthOutConnector;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,7 +12,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Component
 public class JwtTokenProvider {
 
@@ -29,11 +31,14 @@ public class JwtTokenProvider {
     //refreshToken 7일
     private final static Date refreshTokenExpiredTime = new Date(new Date().getTime() + 86400000*7);
 
+    private final AuthOutConnector outConnector;
+
     private static final Logger logger = LoggerFactory.getLogger(JwtTokenProvider.class);
 
-    public JwtTokenProvider(@Value("${jwt.secret}") String secretKey) {
+    public JwtTokenProvider(@Value("${jwt.secret}") String secretKey,AuthOutConnector authOutConnector) {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         this.key = Keys.hmacShaKeyFor(keyBytes);
+        this.outConnector = authOutConnector;
     }
 
     public TokenDto generateToken(Authentication authentication) {
@@ -60,6 +65,7 @@ public class JwtTokenProvider {
                 .grantType("Bearer")
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
+                .refreshTokenExpiredTime(refreshTokenExpiredTime.getTime())
                 .build();
     }
 
@@ -67,7 +73,7 @@ public class JwtTokenProvider {
     public Authentication getAuthentication(String accessToken) {
         // 토큰 복호화
         Claims claims = parseClaims(accessToken);
-
+        logger.debug(claims.getSubject());
         if (claims.get("auth") == null) {
             throw new RuntimeException("권한 정보가 없는 토큰입니다.");
         }
@@ -79,8 +85,9 @@ public class JwtTokenProvider {
                         .collect(Collectors.toList());
 
         // UserDetails 객체를 만들어서 Authentication 리턴
-        UserDetails principal = new User(claims.getSubject(), "", authorities);
-        return new UsernamePasswordAuthenticationToken(principal, "", authorities);
+        UserDetails principal = outConnector.loadUserByUsername(claims.getSubject());
+        log.debug(principal.getUsername());
+        return new UsernamePasswordAuthenticationToken(principal, accessToken, authorities);
     }
 
     // 토큰 정보를 검증하는 메서드
@@ -110,6 +117,20 @@ public class JwtTokenProvider {
                     .getBody();
         } catch (ExpiredJwtException e) {
             return e.getClaims();
+        }
+    }
+
+    public long getExpiration(String token) {
+        try {
+            Claims claims = Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+            Date expiration = claims.getExpiration();
+            return expiration.getTime();
+        } catch (SignatureException | IllegalArgumentException e) {
+            throw new IllegalArgumentException("Invalid token", e);
         }
     }
 }
