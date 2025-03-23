@@ -1,4 +1,4 @@
-.gradle
+.gradle/**
 build/
 gradle
 !gradle/wrapper/gradle-wrapper.jar
@@ -18,7 +18,7 @@ bin/
 !**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
-.idea
+.idea/**
 *.iws
 *.iml
 *.ipr
