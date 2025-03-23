@@ -1,17 +1,58 @@
 package com.example.rdbrepository;
 
+import com.example.enumerate.schedules.PROGRESS_STATUS;
+import com.example.jpa.config.base.BaseEntity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Entity
-public class Schedules {
+@Builder(toBuilder = true)
+@NoArgsConstructor
+@AllArgsConstructor
+public class Schedules extends BaseEntity {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
+    private String contents;
+
+    private int scheduleMonth;
+
+    private int scheduleDay;
+
+    private Boolean isDeletedScheduled = false;
+    //회원의 번호
+    private Long userId;
+    //카테고리의 번호
+    private Long categoryId;
+    //일정 상태
+    private String progress_status;
+
+    private LocalDateTime startTime;
+
+    private LocalDateTime endTime;
+
+    public void isDeletedScheduled() {
+        this.isDeletedScheduled = true;
     }
 
+    // Enum을 반환하는 Getter 추가
+    public PROGRESS_STATUS getProgressStatusEnum() {
+        return PROGRESS_STATUS.fromString(this.progress_status);
+    }
+
+    // Enum을 받아 String으로 저장하는 Setter 추가
+    public void setProgressStatusEnum(PROGRESS_STATUS progressStatus) {
+        this.progress_status = progressStatus.getValue();
+    }
 }

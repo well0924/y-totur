@@ -37,6 +37,8 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Roles roles;
 
+    private boolean isDeletedUser;
+
     @CreatedBy
     private String createdBy; // 생성자
 
