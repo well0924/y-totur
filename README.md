@@ -7,7 +7,7 @@ Daily Line은 사용자의 행동 패턴과 빈 시간을 분석해 최적의 �
 
 **배포 환경:** AWS EC2 + GitHub Actions
 
-**모니터링:** Grafana · Prometheus · Loki · Tempo
+**모니터링:** Grafana, Prometheus, Loki, OpenTelemetry, Tempo
  
 ---
 
@@ -17,7 +17,7 @@ Daily Line은 사용자의 행동 패턴과 빈 시간을 분석해 최적의 �
 - **Database & Cache:** MySQL 8.0, Redis
 - **Message Broker:** Apache Kafka (KRaft mode, 3-Broker Cluster)
 - **Infra & CI/CD:** AWS EC2 (t3.micro 2GB), GitHub Actions, Docker(Google Jib을 통한 컨테이너 빌드 최적화), Nginx
-- **Observability:** Prometheus, Grafana, Loki, Tempo (LGTM Stack)
+- **Observability:** OpenTelemetry, Prometheus, Grafana, Loki, Tempo,  (LGTM Stack)
 - **Test:** JMeter, TestContainers
 ---
 
