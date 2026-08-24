@@ -10,6 +10,7 @@ import com.example.model.member.MemberModel;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -72,12 +73,14 @@ public class MemberService {
         return createdResult;
     }
 
+    @CacheEvict(value = "user", key = "#memberModel.userId")
     public MemberModel updateMember(Long id, MemberModel memberModel) {
         MemberModel updatedResult = memberRepositoryPort.updateMember(id, memberModel);
         logger.debug("createdResult::"+updatedResult);
         return updatedResult;
     }
 
+    @CacheEvict(value = "user", key = "#result")
     public void deleteMember(Long id) {
         logger.debug("member Deleted");
         memberRepositoryPort.deleteMember(id);
