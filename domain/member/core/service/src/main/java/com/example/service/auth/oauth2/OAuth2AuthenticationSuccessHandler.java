@@ -35,9 +35,11 @@ public class OAuth2AuthenticationSuccessHandler implements AuthenticationSuccess
         refreshTokenCookie.setMaxAge(7 * 24 * 60 * 60); // 7일
         response.addCookie(refreshTokenCookie);
 
+        // refreshToken은 이미 httpOnly 쿠키로 전달되므로 URL에는 싣지 않는다.
+        // accessToken은 쿼리스트링이 아닌 URL 프래그먼트(#)로 전달해,
+        // 서버 액세스 로그·Referer 헤더에 남지 않도록 한다. (프론트에서 location.hash로 파싱 필요)
         String redirectUrl = UriComponentsBuilder.fromUriString(REDIRECT_URI)
-                .queryParam("accessToken", accessToken)
-                .queryParam("refreshToken", refreshToken)
+                .fragment("accessToken=" + accessToken)
                 .build().toUriString();
 
         response.sendRedirect(redirectUrl);

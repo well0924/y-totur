@@ -76,6 +76,7 @@ public class CustomMemberDetails implements UserDetails, OAuth2User {
     }
 
     @Override
+    @JsonIgnore // 캐시(Redis) 직렬화 및 JSON 응답에 비밀번호 해시 노출 방지
     public String getPassword() {
         if (loginType == LoginType.NORMAL) {
             return memberModel.getPassword(); // 일반 로그인이면 비밀번호 리턴

@@ -15,6 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.GenericFilterBean;
+import com.example.service.auth.RedisService;
 
 import java.io.IOException;
 
@@ -23,6 +24,8 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends GenericFilterBean {
 
     private final  JwtTokenProvider jwtTokenProvider;
+
+    private final RedisService redisService;
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -38,6 +41,11 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
 
         if (token != null) {
             if (jwtTokenProvider.validateToken(token)) {
+                if (redisService.isBlacklisted(token)) {
+                    HttpServletResponse blacklistResponse = (HttpServletResponse) response;
+                    blacklistResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "로그아웃된 토큰입니다.");
+                    return;
+                }
                 Authentication authentication = jwtTokenProvider.getAuthentication(token);
                 log.debug("JwtAuthenticationFilter - 인증 성공: {}", authentication.getName());
                 SecurityContextHolder.getContext().setAuthentication(authentication);
