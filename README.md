@@ -55,7 +55,7 @@ App 2대 + Kafka 3-Broker 분산 환경에서 단계적으로 트래픽을 높�
 |-----------|------|------|
 | HikariCP 포화 | 커넥션 풀 2대 합산 100개로 DB 임계치 초과 | 풀 사이즈 하향 + 빠른 회전 전략 |
 | Nginx 로드밸런싱 불균형 | keepalive로 한쪽 서버에만 부하 집중 | least_conn 알고리즘 도입 |
-| 인증 필터 커넥션 선점 | JwtFilter에서 매 요청마다 DB 조회 | Redis 캐싱으로 DB 조회 제거 |
+| 인증 쿼리 미캐싱 | JwtFilter의 DB 조회가 캐싱 없이 반복되며 풀 경합 심화 | Redis 캐싱 도입으로 쿼리 자체 제거 |
 | Nginx FD 한계 | worker_connections 기본값(1024) 초과 | 4096으로 상향 + epoll 적용 |
 
 **50VU 최종 결과: 에러율 0.35%, 처리량 30 req/s**
@@ -116,6 +116,8 @@ spring:
       connection-timeout: 15000 # 3초 → 15초, 정체 구간 끈질기게 버티도록
 ```
 
+> ※ connection-timeout 완화(3초→15초)는 에러율을 낮췄지만 평균 응답시간(856ms→1,225ms)은 늘어난 트레이드오프였습니다. 근본 원인(Tomcat-Hikari 불균형)은 이후 hold-time 축소 작업에서 다룹니다.
+
 | 측정 항목 | 값 | 분석 |
 |-----------|-----|------|
 | 최대 안정 수용력 | 60~70VU | 안정적 트랜잭션 유지 |
@@ -124,10 +126,13 @@ spring:
 | 99% Line Latency | 10,040ms | HikariCP 풀 점유 장기화에 따른 지연 누적 |
 | DLQ Retry Count | 0건 | 붕괴 직전까지 메시지 유실 0건 |
 
+> ※ 위 수치는 단일 API(일정 생성) 반복 호출·think-time 없는 워스트케이스 조건 기준입니다. Mixed-flow 시나리오로 재검증 예정입니다.
+
 > **아키텍처 트레이드오프:**
 > 데이터 정합성을 위해 선택한 Transactional Outbox 패턴이,
 > 역설적으로 고부하에서는 RDB 병목의 주범이 될 수 있다는 것을 데이터로 직접 확인했습니다.
 > 기술 도입 시 장점뿐만 아니라 시스템이 무너질 때 치러야 할 비용까지 계산해야 함을 배웠습니다.
+> 이후 Kafka 콜백 기반 dirty-check 갱신 방식을 **CAS 기반 원자적 UPDATE**로 교체해, 폴링 주기와 콜백 시점 불일치로 인한 재처리 경합 자체를 제거했습니다.
 
 상세 트러블슈팅 기록: [1편](https://codingweb.tistory.com/325) · [2편](https://codingweb.tistory.com/326) · [3편](https://codingweb.tistory.com/328)
 
