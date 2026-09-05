@@ -46,6 +46,7 @@ dependencies {
 	implementation project(':domain:category:core:model')
 	implementation project(':domain:category:core:exception')
 	implementation project(':domain:category:core:enumerate')
+	implementation project(':domain:category:core:mapper')
 	implementation project(':domain:category:infrastructure:rdb')
 	// 첨부파일
 	implementation project(':domain:attach:api:controller')
@@ -195,3 +196,5 @@ tasks.withType(ProcessResources).configureEach {
 //tasks.withType(Test).configureEach {
 //	useJUnitPlatform()
 //}
+// TODO: 테스트 스위트 전반이 CI에서 검증된 적이 없어 다수가 깨져있는 상태(Logback 컨텍스트 부팅 실패,
+// TestContainers 기동 실패, 기존 유닛테스트 자체 버그 3종)임을 확인함. 별도 작업으로 정비 후 재활성화 필요.
