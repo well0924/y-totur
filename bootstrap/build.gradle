@@ -46,6 +46,7 @@ dependencies {
 	implementation project(':domain:category:core:model')
 	implementation project(':domain:category:core:exception')
 	implementation project(':domain:category:core:enumerate')
+	implementation project(':domain:category:core:mapper')
 	implementation project(':domain:category:infrastructure:rdb')
 	// 첨부파일
 	implementation project(':domain:attach:api:controller')
@@ -192,6 +193,6 @@ tasks.withType(ProcessResources).configureEach {
 	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
-//tasks.withType(Test).configureEach {
-//	useJUnitPlatform()
-//}
+tasks.withType(Test).configureEach {
+	useJUnitPlatform()
+}

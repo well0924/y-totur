@@ -7,7 +7,10 @@ import com.example.interfaces.category.CategoryRepositoryPort;
 import com.example.model.category.CategoryModel;
 import com.example.rdb.Category;
 import com.example.rdb.CategoryRepository;
+import com.example.redis.config.cachekey.CacheKey;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -35,6 +38,9 @@ public class CategoryOutConnector implements CategoryRepositoryPort {
         }
     }
 
+    // 파라미터 이름(#categoryId) 대신 위치(#a0)로 참조한다 - 컴파일러의 -parameters
+    // 플래그(디버그 파라미터명 보존) 적용 여부에 영향받지 않도록 하기 위함.
+    @Cacheable(value = CacheKey.CATEGORY_KEY, key = "'id:' + #a0")
     public CategoryModel findById(Long categoryId) {
         return categoryEntityMapper.toEntity(getCategoryById(categoryId));
     }
@@ -52,6 +58,7 @@ public class CategoryOutConnector implements CategoryRepositoryPort {
         return categoryEntityMapper.toEntity(categoryRepository.save(newCategory));
     }
 
+    @CacheEvict(value = CacheKey.CATEGORY_KEY, key = "'id:' + #a0")
     public CategoryModel updateCategory(Long categoryId,String name,Long parentId,Long depth) {
         Category category = getCategoryById(categoryId);
 
@@ -70,6 +77,7 @@ public class CategoryOutConnector implements CategoryRepositoryPort {
         return categoryEntityMapper.toEntity(categoryRepository.save(category));
     }
 
+    @CacheEvict(value = CacheKey.CATEGORY_KEY, key = "'id:' + #a0")
     public void deleteCategory(Long categoryId) {
         Category category = getCategoryById(categoryId);
         //삭제 여부 true로 변경.
