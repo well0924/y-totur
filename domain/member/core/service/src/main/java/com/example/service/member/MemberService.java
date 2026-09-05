@@ -5,6 +5,8 @@ import com.example.events.enums.AggregateType;
 import com.example.events.enums.EventType;
 import com.example.events.kafka.MemberSignUpKafkaEvent;
 import com.example.events.outbox.OutboxEventService;
+import com.example.exception.dto.MemberErrorCode;
+import com.example.exception.exception.MemberCustomException;
 import com.example.interfaces.member.MemberRepositoryPort;
 import com.example.model.member.MemberModel;
 import lombok.AllArgsConstructor;
@@ -51,9 +53,9 @@ public class MemberService {
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public MemberModel createMember(MemberModel memberModel) {
-        memberModel.isValidEmail();
-        memberModel.isValidPhoneNumber();
-        memberModel.isValidUserId();
+        if (!memberModel.isValidEmail()) throw new MemberCustomException(MemberErrorCode.INVALID_EMAIL_FORMAT);
+        if (!memberModel.isValidPhoneNumber()) throw new MemberCustomException(MemberErrorCode.INVALID_PHONE_FORMAT);
+        if (!memberModel.isValidUserId()) throw new MemberCustomException(MemberErrorCode.INVALID_USERID_LENGTH);
         MemberModel createdResult = memberRepositoryPort.createMember(memberModel);
         logger.debug("createdResult::"+createdResult);
 

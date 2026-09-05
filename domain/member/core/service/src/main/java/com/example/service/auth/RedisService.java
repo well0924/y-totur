@@ -43,6 +43,12 @@ public class RedisService {
         redisTemplate.opsForValue().set(key, status, Duration.ofMillis(expirationMillis));
     }
 
+    // AccessToken 블랙리스트(로그아웃) 여부 확인
+    public boolean isBlacklisted(String accessToken) {
+        String key = generateBlacklistKey(accessToken);
+        return Boolean.TRUE.equals(redisTemplate.hasKey(key));
+    }
+
     // 블랙리스트 키 생성
     private String generateBlacklistKey(String accessToken) {
         return "blacklist:" + accessToken;

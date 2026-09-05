@@ -10,11 +10,13 @@ import com.example.model.member.MemberModel;
 import com.example.rdb.member.Member;
 import com.example.rdb.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.CacheManager;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -25,6 +27,8 @@ public class MemberOutConnector implements MemberRepositoryPort {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     private final MemberEntityMapper entityMapper;
+
+    private final CacheManager cacheManager;
 
     public Page<MemberModel> findAll(Pageable pageable) {
         Page<MemberModel> memberModelPage = memberRepository
@@ -75,15 +79,26 @@ public class MemberOutConnector implements MemberRepositoryPort {
         Member memberEntity = memberRepository.findById(id)
                 .orElseThrow(() -> new MemberCustomException(MemberErrorCode.NOT_USER));
 
+        // 캐시 키(username)로 쓰이는 값이라, 변경 전(구) 아이디로 evict해야 함
+        String oldUserId = memberEntity.getUserId();
+
         memberEntity.update(memberModel.getUserId(),
                 memberModel.getUserEmail(),
                 memberModel.getUserPhone());
 
-        return entityMapper.toEntity(memberRepository.save(memberEntity));
+        MemberModel result = entityMapper.toEntity(memberRepository.save(memberEntity));
+        evictUserCache(oldUserId);
+        return result;
     }
 
     public void deleteMember(Long id) {
+        memberRepository.findById(id).ifPresent(member -> evictUserCache(member.getUserId()));
         memberRepository.deleteById(id);
+    }
+
+    // AuthOutConnector.loadUserByUsername()의 "user" 캐시 무효화
+    private void evictUserCache(String userId) {
+        Optional.ofNullable(cacheManager.getCache("user")).ifPresent(cache -> cache.evict(userId));
     }
 
     public boolean existsById(Long id) {

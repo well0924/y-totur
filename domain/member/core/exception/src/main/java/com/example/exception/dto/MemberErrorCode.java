@@ -15,7 +15,10 @@ public enum MemberErrorCode implements BaseErrorCode {
     NOT_FIND_USERID(HttpStatus.NOT_FOUND,40003,"회원아이디를 찾을 수가 없습니다."),
     NOT_SEARCH_USER(HttpStatus.NOT_FOUND,4006,"검색된 회원이 없습니다."),
     NOT_USER(HttpStatus.NOT_FOUND,4007,"회원이 존재하지 않습니다."),
-    NOT_PASSWORD_MATCH(HttpStatus.NOT_FOUND,4008,"비밀번호가 일치하지 않습니다.");
+    NOT_PASSWORD_MATCH(HttpStatus.NOT_FOUND,4008,"비밀번호가 일치하지 않습니다."),
+    INVALID_EMAIL_FORMAT(HttpStatus.BAD_REQUEST,4009,"이메일 형식이 올바르지 않습니다."),
+    INVALID_PHONE_FORMAT(HttpStatus.BAD_REQUEST,4010,"전화번호 형식이 올바르지 않습니다."),
+    INVALID_USERID_LENGTH(HttpStatus.BAD_REQUEST,4011,"아이디는 5자 이상이어야 합니다.");
 
     private final HttpStatus httpStatus;
 

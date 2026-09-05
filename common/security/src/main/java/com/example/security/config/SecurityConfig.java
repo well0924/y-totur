@@ -6,6 +6,7 @@ import com.example.service.auth.jwt.JwtAccessDeniedHandler;
 import com.example.service.auth.jwt.JwtAuthenticationEntryPoint;
 import com.example.service.auth.jwt.JwtAuthenticationFilter;
 import com.example.service.auth.jwt.JwtTokenProvider;
+import com.example.service.auth.RedisService;
 import com.example.service.auth.oauth2.OAuth2AuthenticationFailureHandler;
 import com.example.service.auth.oauth2.OAuth2AuthenticationSuccessHandler;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +40,8 @@ import java.util.List;
 public class SecurityConfig {
 
     private final JwtTokenProvider jwtTokenProvider;
+
+    private final RedisService redisService;
 
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
@@ -99,7 +102,7 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, redisService), UsernamePasswordAuthenticationFilter.class)
                 .addFilterAfter(new MDCFilter(), JwtAuthenticationFilter.class)
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry
                         -> authorizationManagerRequestMatcherRegistry
