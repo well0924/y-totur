@@ -44,6 +44,15 @@ spring:
           starttls:
             enable: true
 
+# application-push.yml이 .gitignore로 CI에 존재하지 않아 webpush.* 값이 정의되지 않으면
+# WebPushConfig의 @Value 주입 자체가 실패한다. 실제 발송에 쓰이지 않는 테스트 전용
+# 더미 VAPID 키쌍(로컬에서 openssl로 새로 생성, 실제 서비스와 무관)이다.
+webpush:
+  vapid:
+    public: BP9H3_anKH1ybHo_bR_gzDWoq-COlbOinTBdXUop_-9fMRLF5BE66iTkksj0vcG7Szf2PyzK2duCC-eL8wuIQSI
+    private: cOod4IkRUKz64TVpIY2fxqt3-9XzOAW5uLbdlaYHFFY
+  subject: mailto:test@example.com
+
 cloud:
   aws:
     s3:
