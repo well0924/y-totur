@@ -35,6 +35,7 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
 import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.DefaultErrorHandler;
+import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.test.context.ActiveProfiles;
@@ -135,10 +136,12 @@ public class DlqRetrySchedulerTest {
             props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
             props.put(JsonDeserializer.VALUE_DEFAULT_TYPE, MemberSignUpKafkaEvent.class.getName());
 
+            // DefaultErrorHandler는 리스너 메서드가 던진 예외만 처리할 수 있고,
+            // 역직렬화 단계에서 나는 SerializationException은 그대로 컨슈머 스레드를 죽인다.
             ConsumerFactory<String, MemberSignUpKafkaEvent> cf =
                     new DefaultKafkaConsumerFactory<>(props,
                             new StringDeserializer(),
-                            new JsonDeserializer<>(MemberSignUpKafkaEvent.class, false));
+                            new ErrorHandlingDeserializer<>(new JsonDeserializer<>(MemberSignUpKafkaEvent.class, false)));
 
             ConcurrentKafkaListenerContainerFactory<String, MemberSignUpKafkaEvent> factory =
                     new ConcurrentKafkaListenerContainerFactory<>();
@@ -188,7 +191,7 @@ public class DlqRetrySchedulerTest {
             ConsumerFactory<String, NotificationEvents> cf =
                     new DefaultKafkaConsumerFactory<>(props,
                             new StringDeserializer(),
-                            new JsonDeserializer<>(NotificationEvents.class, false));
+                            new ErrorHandlingDeserializer<>(new JsonDeserializer<>(NotificationEvents.class, false)));
 
             ConcurrentKafkaListenerContainerFactory<String, NotificationEvents> factory =
                     new ConcurrentKafkaListenerContainerFactory<>();

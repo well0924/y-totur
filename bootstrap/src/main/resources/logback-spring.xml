@@ -5,47 +5,47 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg [eventId=%X{eventId}, requestId=%X{requestId}] %n</pattern>
         </encoder>
     </appender>
-    <!-- Json 파일 로깅용 (테스트 프로파일에서는 /var/log 쓰기 권한이 없는 CI 환경을 고려해 제외) -->
-    <springProfile name="!test">
-        <appender name="FILE_JSON" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <file>/var/log/schedule-backend/app.log</file>
+    <!-- Json 파일 로깅용 (test 프로파일에서는 /var/log 권한이 없는 CI 환경을 고려해
+         경로 자체를 안전한 상대경로로 바꾼다. <springProfile>은 <root>/<appender> 내부에
+         중첩할 수 없으므로, appender-ref를 조건부로 빼는 대신 경로를 프로퍼티로 분기한다. -->
+    <springProperty scope="context" name="LOG_FILE_PATH" source="logging.file.path" defaultValue="/var/log/schedule-backend"/>
 
-            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <fileNamePattern>/var/log/schedule-backend/app.%d{yyyy-MM-dd}.log</fileNamePattern>
-                <maxHistory>7</maxHistory>
-            </rollingPolicy>
+    <appender name="FILE_JSON" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE_PATH}/app.log</file>
 
-            <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
-                <providers>
-                    <timestamp>
-                        <fieldName>timestamp</fieldName>
-                    </timestamp>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE_PATH}/app.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <fieldName>timestamp</fieldName>
+                </timestamp>
+                <pattern>
                     <pattern>
-                        <pattern>
-                            {
-                            "level": "%level",
-                            "thread": "%thread",
-                            "logger": "%logger",
-                            "message": "%message",
-                            "eventId": "%X{eventId}",
-                            "requestId": "%X{requestId}",
-                            "traceId": "%X{traceId:-}",
-                            "spanId": "%X{spanId:-}"
-                            }
-                        </pattern>
+                        {
+                        "level": "%level",
+                        "thread": "%thread",
+                        "logger": "%logger",
+                        "message": "%message",
+                        "eventId": "%X{eventId}",
+                        "requestId": "%X{requestId}",
+                        "traceId": "%X{traceId:-}",
+                        "spanId": "%X{spanId:-}"
+                        }
                     </pattern>
-                    <stackTrace>
-                        <fieldName>stack_trace</fieldName>
-                    </stackTrace>
-                </providers>
-            </encoder>
-        </appender>
-    </springProfile>
+                </pattern>
+                <stackTrace>
+                    <fieldName>stack_trace</fieldName>
+                </stackTrace>
+            </providers>
+        </encoder>
+    </appender>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
-        <springProfile name="!test">
-            <appender-ref ref="FILE_JSON"/>
-        </springProfile>
+        <appender-ref ref="FILE_JSON"/>
     </root>
 </configuration>
