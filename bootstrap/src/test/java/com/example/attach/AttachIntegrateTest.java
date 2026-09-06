@@ -64,7 +64,9 @@ public class AttachIntegrateTest {
             .withStartupAttempts(3);
 
     @Container
-    static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.3.0"));
+    static KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.3.0"))
+            .withStartupTimeout(java.time.Duration.ofMinutes(3))
+            .withStartupAttempts(3);
 
 
     @DynamicPropertySource

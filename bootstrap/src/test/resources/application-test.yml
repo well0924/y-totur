@@ -43,6 +43,23 @@ spring:
           auth: true
           starttls:
             enable: true
+  # application-oauth2.yml이 .gitignore로 CI에 존재하지 않아 registration 설정이
+  # 전혀 없으면, Spring Security의 ClientRegistrationRepository 빈이 아예 생성되지
+  # 않아 SecurityConfig의 oauth2Login() 설정이 NoSuchBeanDefinitionException으로 실패한다.
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:test-google-client-id}
+            client-secret: ${GOOGLE_CLIENT_SECRET:test-google-client-secret}
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - email
+              - profile
+        provider:
+          google:
+            user-name-attribute: sub
 
 # application-push.yml이 .gitignore로 CI에 존재하지 않아 webpush.* 값이 정의되지 않으면
 # WebPushConfig의 @Value 주입 자체가 실패한다. 실제 발송에 쓰이지 않는 테스트 전용
