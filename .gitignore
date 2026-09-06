@@ -19,6 +19,7 @@ out/
 *.class
 **/build/
 *.log
+*.hprof
 
 # 환경 설정 파일
 .env

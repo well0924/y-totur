@@ -1,9 +1,9 @@
 spring:
   mail:
-    host: ${MAIL_TEST_HOST}
-    port: ${MAIL_TEST_PORT}
-    username: ${MAIL_TEST_USERNAME}
-    password: ${MAIL_TEST_PASSWORD}
+    host: ${MAIL_TEST_HOST:localhost}
+    port: ${MAIL_TEST_PORT:2525}
+    username: ${MAIL_TEST_USERNAME:test}
+    password: ${MAIL_TEST_PASSWORD:test}
     properties:
       mail:
         smtp:

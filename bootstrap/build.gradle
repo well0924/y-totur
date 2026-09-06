@@ -198,4 +198,10 @@ tasks.withType(Test).configureEach {
 	// TODO: Kafka 통합 흐름의 비동기 타이밍 이슈로 아직 불안정 - 별도로 안정화 후 제외 해제
 	exclude '**/KafkaIntegrationTest*'
 	exclude '**/DlqRetrySchedulerTest*'
+	// application.yml의 spring.profiles.include로 email 프로필이 항상 포함되어
+	// 테스트 컨텍스트 로딩 시에도 MAIL_TEST_* placeholder가 해석되어야 함
+	environment 'MAIL_TEST_HOST', findProperty('MAIL_TEST_HOST') ?: 'localhost'
+	environment 'MAIL_TEST_PORT', findProperty('MAIL_TEST_PORT') ?: '2525'
+	environment 'MAIL_TEST_USERNAME', findProperty('MAIL_TEST_USERNAME') ?: 'test'
+	environment 'MAIL_TEST_PASSWORD', findProperty('MAIL_TEST_PASSWORD') ?: 'test'
 }

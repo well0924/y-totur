@@ -71,7 +71,10 @@ public class AttachIntegrateTest {
         registry.add("spring.datasource.username", mysql::getUsername);
         registry.add("spring.datasource.password", mysql::getPassword);
         registry.add("spring.datasource.driver-class-name", mysql::getDriverClassName);
-        registry.add("spring.jpa.hibernate.ddl-auto", () -> "create-drop");
+        // 컨테이너가 테스트 종료 후 통째로 사라지므로 종료 시점 DROP이 불필요하다.
+        // create-drop을 쓰면 컨텍스트가 캐시되어 있다가 컨테이너가 먼저 내려간 뒤에
+        // Hibernate가 DROP을 시도해 30초 커넥션 타임아웃이 발생한다.
+        registry.add("spring.jpa.hibernate.ddl-auto", () -> "create");
         registry.add("spring.jpa.database-platform", () -> "org.hibernate.dialect.MySQL8Dialect");
         registry.add("spring.data.redis.host", redis::getHost);
         registry.add("spring.data.redis.port", () -> redis.getMappedPort(6379));

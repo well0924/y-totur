@@ -20,6 +20,7 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
@@ -45,6 +46,7 @@ import static org.mockito.Mockito.when;
         CacheConfig.class,
         CategoryCacheTest.RedisTestConfig.class
 })
+@ActiveProfiles("test")
 class CategoryCacheTest {
 
     @Container

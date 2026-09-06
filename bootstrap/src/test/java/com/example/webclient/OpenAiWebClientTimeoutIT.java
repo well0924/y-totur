@@ -15,6 +15,7 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -31,6 +32,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 
 @SpringBootTest(classes = { OpenAiWebClientConfig.class, OpenAiWebClient.class ,TestSupportConfig.class})
+@ActiveProfiles("test")
 public class OpenAiWebClientTimeoutIT {
 
     static WireMockServer wm;
