@@ -40,6 +40,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.util.backoff.FixedBackOff;
 import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
@@ -56,6 +57,9 @@ import java.util.concurrent.ExecutionException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// 이 테스트가 자체 정의한 lockProvider 빈이 운영용 ShedLock 설정과 이름이 겹쳐
+// BeanDefinitionOverrideException이 발생하므로, 테스트 쪽 정의가 우선하도록 허용한다.
+@TestPropertySource(properties = "spring.main.allow-bean-definition-overriding=true")
 @Testcontainers
 @SpringBootTest
 @ActiveProfiles("test")

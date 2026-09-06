@@ -15,8 +15,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+// KafkaIntegrationTest에서만 정의되는 testMemberKafkaTemplate을 참조하므로,
+// 그 테스트에서만 활성화되도록 좁힌다.
 @Slf4j
-@Profile("test")
+@Profile("test & kafka-dlq-test")
 @Component
 public class MemberSignUpDlqRetryTestScheduler {
 

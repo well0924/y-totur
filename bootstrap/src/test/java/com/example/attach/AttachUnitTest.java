@@ -1,26 +1,24 @@
 package com.example.attach;
 
-
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
+import com.amazonaws.HttpMethod;
 import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.amazonaws.services.s3.model.S3Object;
 import com.example.attach.exception.AttachCustomExceptionHandler;
+import com.example.events.spring.AttachCreatedEvent;
 import com.example.model.attach.AttachModel;
+import com.example.outbound.attach.AmazonS3OutConnector;
 import com.example.outbound.attach.AttachOutConnector;
+import com.example.outbound.attach.FailedThumbnailOutConnector;
 import com.example.s3.utile.FileUtile;
 import com.example.service.attach.AttachService;
 import com.example.service.attach.ThumbnailService;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationEventPublisher;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -33,11 +31,15 @@ import java.net.URL;
 import java.util.List;
 import java.util.Random;
 
-
-import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.eq;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
+/**
+ * AttachService/ThumbnailService는 raw AWS SDK(AmazonS3)가 아니라 자체 포트
+ * (AmazonS3Port / 구현체 AmazonS3OutConnector)를 통해 S3와 통신하도록 리팩터링되어 있다.
+ * mock 타입/메서드명을 실제 포트 시그니처에 맞춰 전면 재작성한다.
+ */
 @ExtendWith(MockitoExtension.class)
 public class AttachUnitTest {
 
@@ -50,18 +52,25 @@ public class AttachUnitTest {
     @Mock
     private AttachOutConnector attachOutConnector;
 
+    // AmazonS3OutConnector가 AmazonS3Port를 구현하므로, mock 하나로
+    // AttachService(AmazonS3Port 필드)와 ThumbnailService(AmazonS3OutConnector 필드) 둘 다 주입된다.
     @Mock
-    private AmazonS3 amazonS3;
+    private AmazonS3OutConnector amazonS3;
 
-    @Value("${cloud.aws.s3.bucket}")
-    private String bucketName = "test-bucket";
+    @Mock
+    private FailedThumbnailOutConnector failedThumbnailOutConnector;
+
+    @Mock
+    private ApplicationEventPublisher eventPublisher;
+
+    private final String bucketName = "test-bucket";
 
     @BeforeEach
     void setUp() throws Exception {
         // bucketName 필드 리플렉션 주입
         Field bucketField = AttachService.class.getDeclaredField("bucketName");
         bucketField.setAccessible(true);
-        bucketField.set(attachService, "test-bucket");
+        bucketField.set(attachService, bucketName);
 
         // 썸네일 크기 값도 설정해주자 (디폴트 없으면 NPE 날 수 있음)
         Field widthField = AttachService.class.getDeclaredField("thumbnailWidth");
@@ -71,6 +80,17 @@ public class AttachUnitTest {
         Field heightField = AttachService.class.getDeclaredField("thumbnailHeight");
         heightField.setAccessible(true);
         heightField.set(attachService, 200);
+
+        // ThumbnailService도 동일하게 @Value 필드가 있는데, 순수 Mockito 테스트라
+        // 스프링 컨텍스트 없이는 주입되지 않아 기본값(0)으로 남아 Thumbnails.size(0,0)에서
+        // 예외가 나던 부분 - 여기도 리플렉션으로 값을 넣어준다.
+        Field thumbWidthField = ThumbnailService.class.getDeclaredField("thumbnailWidth");
+        thumbWidthField.setAccessible(true);
+        thumbWidthField.set(thumbnailService, 200);
+
+        Field thumbHeightField = ThumbnailService.class.getDeclaredField("thumbnailHeight");
+        thumbHeightField.setAccessible(true);
+        thumbHeightField.set(thumbnailService, 200);
     }
 
     @Test
@@ -102,102 +122,68 @@ public class AttachUnitTest {
                 .storedFileName(storedFileName)
                 .build();
 
-        // S3에서 객체 가져오기 mocking
         BufferedImage dummyImage = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ImageIO.write(dummyImage, "jpg", baos);
         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
 
-        S3Object s3Object = new S3Object();
-        s3Object.setObjectContent(bais);
-
-        when(amazonS3.getObject(bucketName, storedFileName)).thenReturn(s3Object);
-        when(amazonS3.getUrl(eq(bucketName), ArgumentMatchers.anyString()))
-                .thenReturn(new URL("https://dummy-url.com/thumb_test-image.jpg"));
+        when(amazonS3.getObjectInputStream(storedFileName)).thenReturn(bais);
+        when(amazonS3.getFileUrl(anyString())).thenReturn("https://dummy-url.com/thumb_test-image.jpg");
 
         // when
         thumbnailService.createAndUploadThumbnail(attachModel);
 
         // then
-        verify(amazonS3, times(1)).putObject(eq(bucketName), startsWith("thumb_"), any(InputStream.class), any(ObjectMetadata.class));
+        verify(amazonS3, times(1)).upload(startsWith("thumb_"), any(InputStream.class), any(ObjectMetadata.class));
         verify(attachOutConnector, times(1)).updateAttach(eq(1L), any(AttachModel.class));
     }
 
-
     @Test
-    @DisplayName("비동기 병렬 썸네일 생성 테스트")
-    void createAttachThumbNailCreateTest() throws Exception {
+    @DisplayName("createAttach 성공 - S3 복사/URL 발급/저장 및 이벤트 발행")
+        // 참고: 썸네일 생성은 이제 createAttach()가 발행하는 이벤트를 구독하는 별도 리스너가
+        // 비동기로 처리하므로(여기선 eventPublisher가 mock이라 실제 발행되지 않음),
+        // createAttach() 자체의 책임(S3 복사/URL/사이즈/저장/이벤트 발행)만 검증한다.
+    void createAttachTest() {
         // given
         List<String> uploadedFiles = List.of("temp/test1.jpg", "temp/test2.jpg");
 
-        // S3 mocking
         for (String tempFile : uploadedFiles) {
             String finalFile = tempFile.replaceFirst("^temp/", "final/");
-            ObjectMetadata metadata = new ObjectMetadata();
-            metadata.setContentLength(123L);
-
-            when(amazonS3.getObjectMetadata("test-bucket", finalFile)).thenReturn(metadata);
-            when(amazonS3.getUrl("test-bucket", finalFile)).thenReturn(new URL("https://dummy.com/" + finalFile));
+            when(amazonS3.fileSize(finalFile)).thenReturn(123L);
+            when(amazonS3.getFileUrl(finalFile)).thenReturn("https://dummy.com/" + finalFile);
         }
 
-        // attach 저장 mocking
         when(attachOutConnector.createAttach(any())).thenAnswer(invocation -> {
             AttachModel model = invocation.getArgument(0);
             model.setId(new Random().nextLong());
             return model;
         });
 
-        // 1번 이미지용 S3Object
-        ByteArrayOutputStream baos1 = new ByteArrayOutputStream();
-        ImageIO.write(new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB), "jpg", baos1);
-        S3Object s3Object1 = new S3Object();
-        s3Object1.setObjectContent(new ByteArrayInputStream(baos1.toByteArray()));
-
-        // 2번 이미지용 S3Object
-        ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
-        ImageIO.write(new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB), "jpg", baos2);
-        S3Object s3Object2 = new S3Object();
-        s3Object2.setObjectContent(new ByteArrayInputStream(baos2.toByteArray()));
-
-        // getObject mocking: 각 파일명별로 다르게 리턴
-        when(amazonS3.getObject("test-bucket", "final/test1.jpg")).thenReturn(s3Object1);
-        when(amazonS3.getObject("test-bucket", "final/test2.jpg")).thenReturn(s3Object2);
-        when(amazonS3.getUrl(eq("test-bucket"), startsWith("thumb_")))
-                .thenReturn(new URL("https://dummy.com/thumb"));
-
         // when
         List<AttachModel> result = attachService.createAttach(uploadedFiles);
 
         // then
-        Assert.assertEquals(2, result.size());
-
-        // S3 동작 검증
+        assertEquals(2, result.size());
         for (String tempFile : uploadedFiles) {
             String finalFile = tempFile.replaceFirst("^temp/", "final/");
-            verify(amazonS3).copyObject("test-bucket", tempFile, "test-bucket", finalFile);
-            verify(amazonS3).deleteObject("test-bucket", tempFile);
-            verify(amazonS3).getObjectMetadata("test-bucket", finalFile);
+            verify(amazonS3).copy(tempFile, finalFile);
+            verify(amazonS3).delete(tempFile);
+            verify(amazonS3).fileSize(finalFile);
         }
-
-        // attach 저장 호출 확인
         verify(attachOutConnector, times(2)).createAttach(any());
-        verify(attachOutConnector, times(2)).updateAttach(anyLong(), any());
-
-        // 썸네일 S3 putObject 호출도 2회
-        verify(amazonS3, timeout(1000).times(2))
-                .putObject(eq("test-bucket"), startsWith("thumb_"), any(), any());
+        // publishEvent가 오버로드(ApplicationEvent/Object) 메서드라, 타입을 명시해야
+        // Mockito가 실제 호출된 오버로드를 정확히 매칭한다.
+        verify(eventPublisher, times(2)).publishEvent(any(AttachCreatedEvent.class));
     }
 
     @Test
     @DisplayName("PreSignedUrl 발급 테스트")
-    void generatePreSignedUrlTest() {
+    void generatePreSignedUrlTest() throws Exception {
         // given
         List<String> fileNames = List.of("test1.jpg", "test2.jpg");
 
-        when(amazonS3.generatePresignedUrl(any())).thenAnswer(invocation -> {
-            GeneratePresignedUrlRequest req = invocation.getArgument(0);
-            return new URL("https://dummy.com/" + req.getKey());
-        });
+        when(amazonS3.generatePresignedUrl(anyString(), eq(HttpMethod.PUT), anyLong()))
+                .thenAnswer(invocation -> new URL("https://dummy.com/" + invocation.getArgument(0)));
 
         // when
         List<String> result = attachService.generatePreSignedUrls(fileNames);
@@ -223,8 +209,8 @@ public class AttachUnitTest {
         attachService.deleteAttachAndFile(1L);
 
         // then
-        verify(amazonS3).deleteObject("test-bucket", "final/test-image.jpg");
-        verify(amazonS3).deleteObject("test-bucket", "thumb_final/test-image.jpg");
+        verify(amazonS3).delete("final/test-image.jpg");
+        verify(amazonS3).delete("thumb_final/test-image.jpg");
         verify(attachOutConnector).deleteAttach(1L);
     }
 
@@ -234,13 +220,11 @@ public class AttachUnitTest {
         // given
         List<String> files = List.of("temp/test1.jpg");
         // S3 복사 단계에서 예외 발생 유도
-        when(amazonS3.copyObject(anyString(), anyString(), anyString(), anyString()))
-                .thenThrow(new RuntimeException("S3 복사 실패"));
+        doThrow(new RuntimeException("S3 복사 실패"))
+                .when(amazonS3).copy(anyString(), anyString());
 
         // when & then
-        assertThrows(AttachCustomExceptionHandler.class, () -> {
-            attachService.createAttach(files);
-        });
+        assertThrows(AttachCustomExceptionHandler.class, () -> attachService.createAttach(files));
     }
 
     @Test
@@ -249,11 +233,9 @@ public class AttachUnitTest {
         // given
         String fileName = "final/test.jpg";
         doThrow(new RuntimeException("S3 삭제 실패"))
-                .when(amazonS3).deleteObject("test-bucket", fileName);
+                .when(amazonS3).delete(fileName);
 
         // when & then
-        assertThrows(RuntimeException.class, () -> {
-            attachService.deleteFileFromS3(fileName);
-        });
+        assertThrows(RuntimeException.class, () -> attachService.deleteFileFromS3(fileName));
     }
 }

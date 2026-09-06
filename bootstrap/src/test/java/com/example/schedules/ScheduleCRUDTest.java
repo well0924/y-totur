@@ -5,13 +5,18 @@ import com.example.enumerate.schedules.RepeatType;
 import com.example.enumerate.schedules.RepeatUpdateType;
 import com.example.enumerate.schedules.ScheduleType;
 import com.example.events.enums.NotificationChannel;
-import com.example.events.kafka.NotificationEvents;
+import com.example.events.enums.ScheduleActionType;
 import com.example.events.outbox.OutboxEventService;
+import com.example.interfaces.notification.notification.NotificationInterfaces;
 import com.example.model.schedules.SchedulesModel;
 import com.example.outbound.schedule.NotificationChannelResolver;
 import com.example.outbound.schedule.ScheduleOutConnector;
 import com.example.security.config.SecurityUtil;
+import com.example.service.schedule.domainService.ScheduleCreateService;
+import com.example.service.schedule.domainService.ScheduleDeleteService;
 import com.example.service.schedule.domainService.ScheduleDomainService;
+import com.example.service.schedule.domainService.ScheduleQueryService;
+import com.example.service.schedule.domainService.ScheduleUpdateService;
 import com.example.service.schedule.domainService.guard.ScheduleGuard;
 import com.example.service.schedule.domainService.repeat.create.RepeatScheduleFactory;
 import com.example.service.schedule.domainService.repeat.delete.RepeatDeleteRegistry;
@@ -35,7 +40,16 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes = { ScheduleDomainService.class })
+// ScheduleDomainService는 실제로는 4개 하위 도메인 서비스(Query/Create/Update/Delete)에
+// 위임하는 구조라, 이들도 실제 빈으로 함께 로드해야 한다. 그 아래 협력자(out, guard 등)는
+// 계속 @MockBean으로 대체된다.
+@SpringBootTest(classes = {
+        ScheduleDomainService.class,
+        ScheduleQueryService.class,
+        ScheduleCreateService.class,
+        ScheduleUpdateService.class,
+        ScheduleDeleteService.class
+})
 public class ScheduleCRUDTest {
 
     @Autowired
@@ -50,6 +64,8 @@ public class ScheduleCRUDTest {
     OutboxEventService outboxEventService;
     @MockBean
     AttachBinder attach;
+    @MockBean
+    NotificationInterfaces notificationInterfaces;
     @MockBean
     ScheduleGuard guard;
     @MockBean
@@ -81,10 +97,8 @@ public class ScheduleCRUDTest {
                     .repeatType(RepeatType.NONE) .build();
 
             when(classifier.classify(any())).thenReturn(ScheduleType.SINGLE_DAY);
-            when(attach.hasAttachFiles(req)).thenReturn(false);
-
-            // save 전 검증 호출만 하고
-            doNothing().when(out).validateScheduleConflict(any());
+            // 벌크 충돌 체크(현재 구현은 findOverlappingSchedulesInRange를 사용)
+            when(out.findOverlappingSchedulesInRange(anyLong(), any(), any())).thenReturn(0L);
 
             // save 결과 리턴
             SchedulesModel saved = req
@@ -96,22 +110,18 @@ public class ScheduleCRUDTest {
 
             // when
             when(notificationChannelResolver.resolveChannel(100L)).thenReturn(NotificationChannel.WEB);
-            when(out.saveSchedule(any())).thenReturn(saved);
+            when(out.saveAll(anyList())).thenReturn(List.of(saved));
             SchedulesModel result = svc.saveSchedule(req);
 
             // then
             assertThat(result.getId()).isEqualTo(999L);
             assertThat(result.getMemberId()).isEqualTo(100L);
             assertThat(result.getScheduleType()).isEqualTo(ScheduleType.SINGLE_DAY);
-            verify(out).validateScheduleConflict(any(SchedulesModel.class));
-            verify(out).saveSchedule(any(SchedulesModel.class));
+            verify(out).saveAll(anyList());
             verify(attach, never()).bindToSchedule(anyList(), anyLong());
-            verify(outboxEventService, times(1)).saveEvent(
-                    any(NotificationEvents.class),
-                    eq("SCHEDULE"),
-                    eq("999"),
-                    eq("SCHEDULE_CREATED")
-            );
+            // 실제 Outbox 저장은 도메인 이벤트를 구독하는 별도 리스너가 담당하므로,
+            // 여기서는 이벤트 발행 자체(대상/타입)만 검증한다.
+            verify(events).publish(anyList(), eq(ScheduleActionType.SCHEDULE_CREATED));
         }
     }
 
@@ -157,37 +167,31 @@ public class ScheduleCRUDTest {
 
             when(repeatCreate.generateRepeatedSchedules(base)).thenReturn(generated);
 
-            // 분류 + 충돌검사 + 저장 스텁
+            // 분류 + 충돌검사 스텁
             when(classifier.classify(any())).thenReturn(ScheduleType.SINGLE_DAY);
-            doNothing().when(out).validateScheduleConflict(any());
+            when(out.findOverlappingSchedulesInRange(anyLong(), any(), any())).thenReturn(0L);
 
-            // saveSchedule 이 호출될 때마다 id 증가해서 리턴
+            // saveAll이 한 번에 3건을 넘겨받아 id를 부여해 리턴 (개별 saveSchedule 호출이 아님)
             final long[] idSeq = new long[]{1};
-            when(out.saveSchedule(any()))
-                    .thenAnswer(inv -> { SchedulesModel arg = inv.getArgument(0);
-            return arg
-                    .toBuilder()
-                    .id(idSeq[0]++)
-                    .memberId(100L)
-                    .scheduleType(ScheduleType.SINGLE_DAY)
-                    .build();
-                    });
+            when(out.saveAll(anyList())).thenAnswer(inv -> {
+                List<SchedulesModel> arg = inv.getArgument(0);
+                return arg.stream()
+                        .map(m -> m.toBuilder()
+                                .id(idSeq[0]++)
+                                .memberId(100L)
+                                .scheduleType(ScheduleType.SINGLE_DAY)
+                                .build())
+                        .toList();
+            });
             // when
-            when(attach.hasAttachFiles(any())).thenReturn(false);
             when(notificationChannelResolver.resolveChannel(100L)).thenReturn(NotificationChannel.WEB);
             SchedulesModel firstSaved = svc.saveSchedule(base);
             // then
             assertThat(firstSaved.getId()).isEqualTo(1L);
             assertThat(firstSaved.getMemberId()).isEqualTo(100L);
-            // 3건 저장 호출 확인
-            verify(out, times(3)).saveSchedule(any(SchedulesModel.class));
-            // 이벤트 1회(최초 스케줄 기준) 발행 확인
-            verify(outboxEventService, times(1)).saveEvent(
-                    any(NotificationEvents.class),
-                    eq("SCHEDULE"),
-                    eq("1"),
-                    eq("SCHEDULE_CREATED")
-            );
+            // 3건이 한 번의 saveAll 호출로 저장됐는지 확인 (개별 saveSchedule 3회가 아님)
+            verify(out, times(1)).saveAll(anyList());
+            verify(events).publish(anyList(), eq(ScheduleActionType.SCHEDULE_CREATED));
         }
     }
 
@@ -207,11 +211,13 @@ public class ScheduleCRUDTest {
                     .build();
 
             when(classifier.classify(any())).thenReturn(ScheduleType.ALL_DAY);
-            doNothing().when(out).validateScheduleConflict(any());
-            when(out.saveSchedule(any())).thenAnswer(inv -> ((SchedulesModel)inv.getArgument(0))
-                    .toBuilder().id(500L).memberId(777L).scheduleType(ScheduleType.ALL_DAY).build());
+            when(out.findOverlappingSchedulesInRange(anyLong(), any(), any())).thenReturn(0L);
+            when(out.saveAll(anyList())).thenAnswer(inv -> {
+                List<SchedulesModel> arg = inv.getArgument(0);
+                return List.of(arg.get(0).toBuilder()
+                        .id(500L).memberId(777L).scheduleType(ScheduleType.ALL_DAY).build());
+            });
 
-            when(attach.hasAttachFiles(req)).thenReturn(false);
             when(notificationChannelResolver.resolveChannel(777L)).thenReturn(NotificationChannel.WEB);
             SchedulesModel saved = svc.saveSchedule(req);
 
@@ -239,8 +245,8 @@ public class ScheduleCRUDTest {
             when(out.findById(10L)).thenReturn(target);
             doNothing().when(guard).assertOwnerOrAdmin(target);
 
-            // 레지스트리는 SINGLE일 때 내부에서 out.deleteSchedule을 호출하도록 시뮬레이션
-            doAnswer(inv -> { out.deleteSchedule(10L); return null; })
+            // 레지스트리는 SINGLE일 때 내부에서 out.deleteSchedule을 호출하고, 삭제 대상 목록을 리턴하도록 시뮬레이션
+            doAnswer(inv -> { out.deleteSchedule(10L); return List.of(target); })
                     .when(repeatDelete).dispatch(eq(DeleteType.SINGLE), eq(target));
             // when
             when(notificationChannelResolver.resolveChannel(100L)).thenReturn(NotificationChannel.WEB);
@@ -248,12 +254,7 @@ public class ScheduleCRUDTest {
             // then
             verify(repeatDelete).dispatch(DeleteType.SINGLE, target);
             verify(out).deleteSchedule(10L);
-            verify(outboxEventService, times(1)).saveEvent(
-                    any(NotificationEvents.class),
-                    eq("SCHEDULE"),
-                    eq("10"),
-                    eq("SCHEDULE_DELETE")
-            );
+            verify(events).publish(anyList(), eq(ScheduleActionType.SCHEDULE_DELETE));
         }
     }
 
@@ -276,7 +277,7 @@ public class ScheduleCRUDTest {
             doNothing().when(guard).assertOwnerOrAdmin(target);
 
             // 레지스트리가 내부에서 groupId 기준 일괄 삭제를 트리거한다고 가정
-            doAnswer(inv -> { out.markAsDeletedByRepeatGroupId("RG"); return null; })
+            doAnswer(inv -> { out.markAsDeletedByRepeatGroupId("RG"); return List.of(target); })
                     .when(repeatDelete).dispatch(eq(DeleteType.ALL_REPEAT), eq(target));
 
             // when
@@ -286,12 +287,7 @@ public class ScheduleCRUDTest {
             // then
             verify(repeatDelete).dispatch(DeleteType.ALL_REPEAT, target);
             verify(out).markAsDeletedByRepeatGroupId("RG");
-            verify(outboxEventService, times(1)).saveEvent(
-                    any(NotificationEvents.class),
-                    eq("SCHEDULE"),
-                    eq("20"),
-                    eq("SCHEDULE_DELETE")
-            );
+            verify(events).publish(anyList(), eq(ScheduleActionType.SCHEDULE_DELETE));
         }
     }
 
@@ -311,19 +307,14 @@ public class ScheduleCRUDTest {
 
             when(out.findById(30L)).thenReturn(target);
             doNothing().when(guard).assertOwnerOrAdmin(target);
-            doAnswer(inv -> { out.markAsDeletedAfter("GRP", st); return null; })
+            doAnswer(inv -> { out.markAsDeletedAfter("GRP", st); return List.of(target); })
                     .when(repeatDelete).dispatch(eq(DeleteType.AFTER_THIS), eq(target));
             when(notificationChannelResolver.resolveChannel(300L)).thenReturn(NotificationChannel.WEB);
             svc.deleteSchedule(30L, DeleteType.AFTER_THIS);
 
             verify(repeatDelete).dispatch(DeleteType.AFTER_THIS, target);
             verify(out).markAsDeletedAfter("GRP", st);
-            verify(outboxEventService, times(1)).saveEvent(
-                    any(NotificationEvents.class),
-                    eq("SCHEDULE"),
-                    eq("30"),
-                    eq("SCHEDULE_DELETE")
-            );
+            verify(events).publish(anyList(), eq(ScheduleActionType.SCHEDULE_DELETE));
         }
     }
 
@@ -343,7 +334,6 @@ public class ScheduleCRUDTest {
                     .build();
 
             when(out.findById(1L)).thenReturn(existing);
-            doNothing().when(out).validateScheduleConflict(existing);
             doNothing().when(guard).assertOwnerOrAdmin(existing);
 
             SchedulesModel patch = existing.toBuilder().contents("new").build();
@@ -356,10 +346,7 @@ public class ScheduleCRUDTest {
 
             assertThat(result.getContents()).isEqualTo("new");
             verify(repeatUpdate).dispatch(RepeatUpdateType.SINGLE, existing, patch);
-            verify(outboxEventService).saveEvent(any(NotificationEvents.class),
-                    eq("SCHEDULE"),
-                    eq("1"),
-                    eq("SCHEDULE_UPDATE"));
+            verify(events).publish(anyList(), eq(ScheduleActionType.SCHEDULE_UPDATE));
         }
     }
 
@@ -377,7 +364,6 @@ public class ScheduleCRUDTest {
                 .build();
 
         when(out.findById(2L)).thenReturn(existing);
-        doNothing().when(out).validateScheduleConflict(existing);
         doNothing().when(guard).assertOwnerOrAdmin(existing);
 
         SchedulesModel patch = existing.toBuilder().contents("p").build();
@@ -390,10 +376,7 @@ public class ScheduleCRUDTest {
 
         assertThat(result.getContents()).isEqualTo("p");
         verify(repeatUpdate).dispatch(RepeatUpdateType.AFTER_THIS, existing, patch);
-        verify(outboxEventService).saveEvent(any(NotificationEvents.class),
-                eq("SCHEDULE"),
-                eq("2"),
-                eq("SCHEDULE_UPDATE"));
+        verify(events).publish(anyList(), eq(ScheduleActionType.SCHEDULE_UPDATE));
     }
 
     @Test
@@ -410,7 +393,6 @@ public class ScheduleCRUDTest {
                 .build();
 
         when(out.findById(3L)).thenReturn(existing);
-        doNothing().when(out).validateScheduleConflict(existing);
         doNothing().when(guard).assertOwnerOrAdmin(existing);
 
         SchedulesModel patch = existing.toBuilder().contents("ALL").build();

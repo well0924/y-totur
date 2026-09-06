@@ -1,11 +1,13 @@
 package com.example.chatbot;
 
+import com.example.events.process.ProcessedEventService;
 import com.example.events.spring.ChatCompletedEvent;
 import com.example.inbound.consumer.chatbot.ChatHistorySaveConsumer;
 import com.example.inbound.schedules.ChatHistoryPort;
 import com.example.inbound.schedules.ScheduleRecommendationCachePort;
 import com.example.model.schedules.ChatHistoryModel;
 import com.example.outbound.openai.dto.ChatMessage;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,6 +20,7 @@ import java.time.LocalDateTime;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,8 +35,17 @@ public class ChatHistorySaveConsumerTest {
     @Mock
     private Acknowledgment ack;
 
+    // handle()이 제일 먼저 호출하는 의존성인데 기존 테스트엔 없어서 NPE가 나던 부분
+    @Mock
+    private ProcessedEventService processedEventService;
+
     @InjectMocks
     private ChatHistorySaveConsumer consumer;
+
+    @BeforeEach
+    void setUp() {
+        when(processedEventService.isAlreadyProcessed(anyString())).thenReturn(false);
+    }
 
     @Test
     @DisplayName("정상 소비 - DB 저장 + Redis 갱신 + ack 커밋")

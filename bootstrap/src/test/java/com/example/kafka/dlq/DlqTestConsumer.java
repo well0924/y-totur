@@ -14,7 +14,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Profile("test")
+// "test" 프로파일이 활성화된 모든 테스트에서 이 빈이 뜨는데, 여기서 참조하는
+// testMemberKafkaListenerFactory/testNotificationKafkaListenerFactory는
+// KafkaIntegrationTest의 @TestConfiguration에서만 정의되므로, 다른 전체-컨텍스트
+// 테스트(BootStrapApplicationTest, AttachIntegrateTest 등)에서는 빈 생성이 실패했다.
+// kafka-dlq-test 프로파일과 AND 조건으로 좁혀서 KafkaIntegrationTest에서만 활성화한다.
+@Profile("test & kafka-dlq-test")
 @Component
 @AllArgsConstructor
 public class DlqTestConsumer {

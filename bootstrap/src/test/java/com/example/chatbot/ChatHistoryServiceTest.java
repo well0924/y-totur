@@ -10,7 +10,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(MockitoExtension.class)
 public class ChatHistoryServiceTest {
@@ -31,7 +31,8 @@ public class ChatHistoryServiceTest {
     @DisplayName("대화 이력 초기화 - cachePort.clearChatHistory 호출 확인")
     void clearHistory_callsCachePort() {
         Long memberId = 1L;
-        String expectedKey = "chat:history:" + memberId;
+        // 실제 프리픽스는 CacheKey.CHAT_HISTORY.getKey() == "chat_history" (콜론이 아니라 언더스코어)
+        String expectedKey = "chat_history:" + memberId;
 
         // when
         chatHistoryService.clearChatHistory(memberId);

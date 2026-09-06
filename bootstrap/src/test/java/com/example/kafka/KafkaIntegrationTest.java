@@ -82,7 +82,9 @@ import static org.mockito.Mockito.verify;
 
 @Slf4j
 @SpringBootTest
-@ActiveProfiles("test")
+// kafka-dlq-test: DlqTestConsumer/TestFailingConsumer/*DlqRetryTestScheduler가
+// 이 테스트에서만 정의되는 test* Kafka 빈들을 참조하므로, 이 테스트에서만 활성화한다.
+@ActiveProfiles({"test", "kafka-dlq-test"})
 @Import(KafkaIntegrationTest.KafkaTestConfig.class)
 @ContextConfiguration(classes = {KafkaIntegrationTest.KafkaTestConfig.class})
 @Testcontainers
