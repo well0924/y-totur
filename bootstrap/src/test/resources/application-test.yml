@@ -1,0 +1,82 @@
+logging:
+  file:
+    path: ./build/logs   # /var/log는 CI/로컬 테스트 환경에 권한이 없어 안전한 상대경로로 대체
+
+spring:
+  scheduling:
+    enabled: false
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+  kafka:
+    listener:
+      auto-startup: false
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/schedule?characterEncoding=UTF-8&serverTimezone=Asia/Seoul}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
+  data:
+    redis:
+      port: 6379
+      host: ${SPRING_DATA_REDIS_HOST:redis}
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 5
+          min-idle: 1
+          max-wait: 2000ms
+  mail:
+    host: localhost
+    port: 2525
+    username: test
+    password: test
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+cloud:
+  aws:
+    s3:
+      bucket: ${BUCKET:test-bucket}
+    region:
+      static: ${STATIC:ap-northeast-2}
+    credentials:
+      access-key: ${ACCESS_KEY:test-access-key}
+      secret-key: ${SECRET_KEY:test-secret-key}
+    stack:
+      auto: false
+openai:
+  base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
+  secret-key: ${OPENAI_SECRET_KEY:test-openai-key}
+  model: ${MODEL:gpt-4o}
+  timeout:
+    connect: 3000   # ms
+    read: 10000     # ms
+    write: 10000    # ms
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      openAiClient:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 3
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 50
+jwt:
+  secret: ${JWT_SECRET:dGVzdC1qd3Qtc2VjcmV0LWZvci10ZXN0LXByb2ZpbGUtb25seS1kby1ub3QtdXNlLWluLXByb2Q=}
+  access-token-validity-in-seconds: ${ACCESS_TOKEN_VALIDATING_SECONDS:43200}
+  refresh-token-validity-in-seconds: ${REFRESH_TOKEN_VALIDATING_SECONDS:1209600}
+
+slack:
+  webhook-url: ${SLACK_WEB_HOOK:https://hooks.slack.com/services/test/test/test}

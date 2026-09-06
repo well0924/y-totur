@@ -29,6 +29,8 @@ out/
 # YML 설정파일
 *.yml
 **.yml
+# CI에서 테스트 실행 시 필요한 프로필 설정 - 실제 운영 시크릿은 넣지 말 것
+!bootstrap/src/test/resources/application-test.yml
 *.env
 # STS 관련
 .apt_generated
