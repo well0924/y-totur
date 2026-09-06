@@ -53,7 +53,9 @@ public class AttachIntegrateTest {
     static MySQLContainer<?> mysql = new MySQLContainer<>("mysql:8.0")
             .withDatabaseName("test_db")
             .withUsername("testuser")
-            .withPassword("testpw");
+            .withPassword("testpw")
+            .withStartupTimeout(java.time.Duration.ofMinutes(3))
+            .withStartupAttempts(3);
 
     @Container
     static final RedisContainer redis = new RedisContainer(DockerImageName.parse("redis:7.0"))
