@@ -3,19 +3,22 @@ package com.example.inbound.consumer.chatbot;
 import com.example.events.process.ProcessedEventService;
 import com.example.events.spring.ChatCompletedEvent;
 import com.example.inbound.schedules.ScheduleRecommendationCachePort;
+import com.example.inbound.schedules.ScheduleRepositoryPort;
+import com.example.interfaces.category.CategoryRepositoryPort;
 import com.example.interfaces.notification.kafka.KafkaEventConsumer;
 import com.example.logging.MDC.KafkaMDCUtil;
+import com.example.model.schedules.CategoryFrequency;
 import io.micrometer.core.annotation.Counted;
 import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Slf4j
 @Component
@@ -24,6 +27,8 @@ public class PatternAnalysisConsume implements KafkaEventConsumer<ChatCompletedE
 
 
     private final ScheduleRecommendationCachePort scheduleRecommendationCachePort;
+    private final ScheduleRepositoryPort scheduleRepositoryPort;
+    private final CategoryRepositoryPort categoryRepositoryPort;
     private final ProcessedEventService processedEventService;
 
     @Timed(value = "kafka.consumer.chat.pattern.time", description = "사용자 패턴 분석 소요 시간")
@@ -57,9 +62,6 @@ public class PatternAnalysisConsume implements KafkaEventConsumer<ChatCompletedE
 
             ack.acknowledge();
 
-        } catch (DataIntegrityViolationException e) {
-            // 이미 처리된 이벤트라면 무시
-            log.warn("이벤트 중복 저장 시도 감지됨: {}", event.getEventId());
         } catch (Exception e) {
             log.error("[ChatPatternAnalysisConsumer] 실패: {}", e.getMessage(), e);
             throw e;
@@ -83,11 +85,23 @@ public class PatternAnalysisConsume implements KafkaEventConsumer<ChatCompletedE
     private void analyzeMessageContext(Long memberId, String message) {
         String key = "pattern:interest:" + memberId;
 
-        // TODO: 이후 NLP(자연어 처리) 라이브러리나 외부 API 연동 지점
-        if (message.contains("운동") || message.contains("헬스")) {
-            scheduleRecommendationCachePort.increment(key, "health", 1);
-        } else if (message.contains("공부") || message.contains("독서")) {
-            scheduleRecommendationCachePort.increment(key, "study", 1);
+        // 사용자가 실제 쓰는 카테고리 이름이 메시지에 등장하면 해당 카테고리를 관심사로 누적
+        // (카테고리 이름 조회는 CategoryOutConnector에서 이미 캐싱되어 있어 매번 DB를 타지 않음)
+        List<CategoryFrequency> frequencies = scheduleRepositoryPort.countByCategoryForMember(memberId);
+        for (CategoryFrequency frequency : frequencies) {
+            String categoryName = resolveCategoryName(frequency.categoryId());
+            if (categoryName != null && message.contains(categoryName)) {
+                scheduleRecommendationCachePort.increment(key, categoryName, 1);
+            }
+        }
+    }
+
+    private String resolveCategoryName(Long categoryId) {
+        try {
+            return categoryRepositoryPort.findById(categoryId).getName();
+        } catch (Exception e) {
+            log.warn("[PatternAnalysisConsume] 카테고리 조회 실패, 건너뜀 - categoryId={}, reason={}", categoryId, e.getMessage());
+            return null;
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.rdbrepository;
 
+import com.example.model.schedules.CategoryFrequency;
 import com.example.rdbrepository.custom.ScheduleRepositoryCustom;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -125,4 +126,14 @@ public interface ScheduleRepository extends JpaRepository<Schedules, Long>, Sche
     List<Long> findOwnedIds(@Param("me") Long me ,@Param("ids") List<Long> ids);
 
     List<Schedules> findAllByIdIn(List<Long> ids);
+
+    // 회원의 카테고리별 일정 생성 빈도 (챗봇 추천용)
+    @Query("""
+        SELECT new com.example.model.schedules.CategoryFrequency(s.categoryId, COUNT(s))
+        FROM Schedules s
+        WHERE s.memberId = :memberId AND s.isDeletedScheduled = false
+        GROUP BY s.categoryId
+        ORDER BY COUNT(s) DESC
+    """)
+    List<CategoryFrequency> countByCategoryForMember(@Param("memberId") Long memberId);
 }

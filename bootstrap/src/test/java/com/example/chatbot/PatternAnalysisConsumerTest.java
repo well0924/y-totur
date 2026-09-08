@@ -4,6 +4,10 @@ import com.example.events.process.ProcessedEventService;
 import com.example.events.spring.ChatCompletedEvent;
 import com.example.inbound.consumer.chatbot.PatternAnalysisConsume;
 import com.example.inbound.schedules.ScheduleRecommendationCachePort;
+import com.example.inbound.schedules.ScheduleRepositoryPort;
+import com.example.interfaces.category.CategoryRepositoryPort;
+import com.example.model.category.CategoryModel;
+import com.example.model.schedules.CategoryFrequency;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,6 +18,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.kafka.support.Acknowledgment;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -27,16 +32,20 @@ import static org.mockito.Mockito.when;
  * PatternAnalysisConsume.handle()은 두 가지를 한다:
  * 1) analyzeTimePreference: 메시지 내용과 무관하게 event.createdAt()의 "시각"으로
  *    morning/afternoon을 나눠 "pattern:time:{memberId}" 키에 increment
- * 2) analyzeMessageContext: 메시지 키워드(운동/헬스 -> health, 공부/독서 -> study)로
- *    "pattern:interest:{memberId}" 키에 increment
- * 기존 테스트는 존재하지 않는 cachePort.set()을 검증하고, 시간대 판정도 메시지 키워드로
- * 오해하고 있어 실제 구현과 맞지 않았다.
+ * 2) analyzeMessageContext: 이 회원이 실제 쓰는 카테고리 이름이 메시지에 등장하면
+ *    "pattern:interest:{memberId}" 키에 해당 카테고리 이름으로 increment
  */
 @ExtendWith(MockitoExtension.class)
 public class PatternAnalysisConsumerTest {
 
     @Mock
     private ScheduleRecommendationCachePort cachePort;
+
+    @Mock
+    private ScheduleRepositoryPort scheduleRepositoryPort;
+
+    @Mock
+    private CategoryRepositoryPort categoryRepositoryPort;
 
     @Mock
     private Acknowledgment ack;
@@ -57,6 +66,8 @@ public class PatternAnalysisConsumerTest {
     @DisplayName("오전 시간대 채팅 - time 패턴에 morning 누적")
     void handle_morningHour_incrementsMorningPattern() {
         // given
+        when(scheduleRepositoryPort.countByCategoryForMember(1L)).thenReturn(List.of());
+
         ChatCompletedEvent event = ChatCompletedEvent.builder()
                 .memberId(1L)
                 .userMessage("일정 보여줘")
@@ -76,6 +87,8 @@ public class PatternAnalysisConsumerTest {
     @DisplayName("오후 시간대 채팅 - time 패턴에 afternoon 누적")
     void handle_afternoonHour_incrementsAfternoonPattern() {
         // given
+        when(scheduleRepositoryPort.countByCategoryForMember(1L)).thenReturn(List.of());
+
         ChatCompletedEvent event = ChatCompletedEvent.builder()
                 .memberId(1L)
                 .userMessage("일정 보여줘")
@@ -92,9 +105,14 @@ public class PatternAnalysisConsumerTest {
     }
 
     @Test
-    @DisplayName("운동 키워드 포함 - interest 패턴에 health 누적")
-    void handle_exerciseKeyword_incrementsHealthPattern() {
+    @DisplayName("사용자가 쓰는 카테고리 이름이 메시지에 포함 - interest 패턴에 해당 카테고리 누적")
+    void handle_messageContainsUserCategory_incrementsCategoryPattern() {
         // given
+        when(scheduleRepositoryPort.countByCategoryForMember(1L))
+                .thenReturn(List.of(new CategoryFrequency(10L, 5L)));
+        when(categoryRepositoryPort.findById(10L))
+                .thenReturn(CategoryModel.builder().id(10L).name("운동").build());
+
         ChatCompletedEvent event = ChatCompletedEvent.builder()
                 .memberId(1L)
                 .userMessage("운동 일정 잡아줘")
@@ -106,14 +124,19 @@ public class PatternAnalysisConsumerTest {
         consumer.handle(event, ack);
 
         // then
-        verify(cachePort).increment(eq("pattern:interest:1"), eq("health"), eq(1L));
+        verify(cachePort).increment(eq("pattern:interest:1"), eq("운동"), eq(1L));
         verify(ack).acknowledge();
     }
 
     @Test
-    @DisplayName("관련 키워드 없을 때 - interest 패턴은 저장 안 됨")
-    void handle_noKeyword_noInterestPatternSaved() {
+    @DisplayName("메시지에 사용자 카테고리 이름이 없을 때 - interest 패턴은 저장 안 됨")
+    void handle_messageWithoutUserCategory_noInterestPatternSaved() {
         // given
+        when(scheduleRepositoryPort.countByCategoryForMember(1L))
+                .thenReturn(List.of(new CategoryFrequency(10L, 5L)));
+        when(categoryRepositoryPort.findById(10L))
+                .thenReturn(CategoryModel.builder().id(10L).name("운동").build());
+
         ChatCompletedEvent event = ChatCompletedEvent.builder()
                 .memberId(1L)
                 .userMessage("일정 보여줘")
@@ -125,7 +148,7 @@ public class PatternAnalysisConsumerTest {
         consumer.handle(event, ack);
 
         // then: 시간대 패턴은 메시지 내용과 무관하게 항상 누적되지만,
-        // interest 패턴은 키워드가 없으면 호출되지 않는다.
+        // interest 패턴은 메시지에 카테고리 이름이 없으면 호출되지 않는다.
         verify(cachePort, never()).increment(eq("pattern:interest:1"), any(), anyLong());
         verify(ack).acknowledge();
     }

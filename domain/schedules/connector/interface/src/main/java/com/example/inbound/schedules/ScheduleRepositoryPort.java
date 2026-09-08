@@ -1,6 +1,7 @@
 package com.example.inbound.schedules;
 
 import com.example.enumerate.schedules.PROGRESS_STATUS;
+import com.example.model.schedules.CategoryFrequency;
 import com.example.model.schedules.SchedulesModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -55,4 +56,7 @@ public interface ScheduleRepositoryPort {
     List<SchedulesModel> saveAll(List<SchedulesModel> models);
 
     List<SchedulesModel> findAllByIds(List<Long>ids);
+
+    // 회원의 카테고리별 일정 생성 빈도 (챗봇 추천용)
+    List<CategoryFrequency> countByCategoryForMember(Long memberId);
 }

@@ -12,7 +12,6 @@ import io.micrometer.core.annotation.Counted;
 import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
@@ -76,9 +75,6 @@ public class ChatHistorySaveConsumer implements KafkaEventConsumer<ChatCompleted
 
             ack.acknowledge();  // 수동 커밋
 
-        } catch (DataIntegrityViolationException e) {
-            // 이미 처리된 이벤트라면 무시
-            log.warn("이벤트 중복 저장 시도 감지됨: {}", event.getEventId());
         } catch (Exception e) {
             log.error("[ChatHistorySaveConsumer] 실패: {}", e.getMessage(), e);
             throw e;  // DLQ로 이동

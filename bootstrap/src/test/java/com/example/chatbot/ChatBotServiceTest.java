@@ -3,6 +3,7 @@ package com.example.chatbot;
 import com.example.events.spring.ChatCompletedEvent;
 import com.example.inbound.schedules.ScheduleRecommendationCachePort;
 import com.example.inbound.schedules.ScheduleRepositoryPort;
+import com.example.interfaces.category.CategoryRepositoryPort;
 import com.example.interfaces.notification.chatbot.ChatEventPort;
 import com.example.outbound.openai.config.OpenAiWebClient;
 import com.example.outbound.openai.dto.ChatMessage;
@@ -40,6 +41,9 @@ public class ChatBotServiceTest {
 
     @Mock
     private ScheduleRepositoryPort scheduleRepositoryPort;
+
+    @Mock
+    private CategoryRepositoryPort categoryRepositoryPort;
 
     @Mock
     private OpenAiWebClient openAiWebClient;

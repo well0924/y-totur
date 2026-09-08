@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -78,5 +79,17 @@ public class ScheduleRecommendCacheService implements ScheduleRecommendationCach
     public void increment(String key, String hashKey, long delta) {
         redisTemplate.opsForHash().increment(key, hashKey, delta);
         redisTemplate.expire(key, PATTERN_TTL);
+    }
+
+    @Override
+    public Map<String, Long> getHash(String key) {
+        Map<Object, Object> raw = redisTemplate.opsForHash().entries(key);
+        if (raw == null || raw.isEmpty()) return Map.of();
+
+        return raw.entrySet().stream()
+                .collect(Collectors.toMap(
+                        e -> String.valueOf(e.getKey()),
+                        e -> Long.parseLong(String.valueOf(e.getValue()))
+                ));
     }
 }
