@@ -9,6 +9,7 @@ import com.example.exception.exception.MemberCustomException;
 import com.example.exception.schedules.dto.ScheduleErrorCode;
 import com.example.exception.schedules.exception.ScheduleCustomException;
 import com.example.inbound.schedules.ScheduleRepositoryPort;
+import com.example.model.schedules.CategoryFrequency;
 import com.example.model.schedules.SchedulesModel;
 import com.example.rdb.CategoryRepository;
 import com.example.rdb.member.MemberRepository;
@@ -239,6 +240,10 @@ public class ScheduleOutConnector implements ScheduleRepositoryPort {
                 .stream()
                 .map(scheduleEntityMapper::toModel)
                 .collect(Collectors.toList());
+    }
+
+    public List<CategoryFrequency> countByCategoryForMember(Long memberId) {
+        return scheduleRepository.countByCategoryForMember(memberId);
     }
 
 

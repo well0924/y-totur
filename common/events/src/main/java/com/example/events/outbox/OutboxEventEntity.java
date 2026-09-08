@@ -51,6 +51,7 @@ public class OutboxEventEntity {
         return switch (this.aggregateType) {
             case "MEMBER" -> "member-signup-events";
             case "SCHEDULE" -> "notification-events";
+            case "CHAT" -> "chat-history";
             default -> throw new CustomExceptionHandler(ErrorCode.INVALID_AGGREGATE_TYPE);
         };
     }
