@@ -27,7 +27,9 @@ import java.time.LocalDateTime;
                 // [반복/그룹 조작] repeat_group_id + user_id (+ start_time >= ?)
                 @Index(name = "idx_sched_group_user_start", columnList = "repeatGroupId, memberId, startTime"),
                 // [상태별 조회]
-                @Index(name = "idx_sched_user_status", columnList = "memberId, progressStatus")
+                @Index(name = "idx_sched_user_status", columnList = "memberId, progressStatus"),
+                // [오래된 삭제표시 일정 정리 스케줄러]
+                @Index(name = "idx_sched_deleted_endtime", columnList = "isDeletedScheduled, endTime")
         }
 )
 @NoArgsConstructor

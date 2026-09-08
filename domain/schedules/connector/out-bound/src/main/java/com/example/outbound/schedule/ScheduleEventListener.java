@@ -14,7 +14,9 @@ import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Component
@@ -34,9 +36,15 @@ public class ScheduleEventListener {
         List<String> aggregateIds = new ArrayList<>();
         List<String> eventTypes = new ArrayList<>();
 
+        // 대량삭제/반복일정 수정 등으로 targets에 여러 건이 들어와도, 소유권 검증(assertOwnerOrAdmin/
+        // findOwnedIds)을 거치기 때문에 항상 같은 memberId다. 매번 다시 조회하지 않도록 요청 1건
+        // 안에서만 memberId별로 1회 캐싱한다.
+        Map<Long, NotificationChannel> channelByMember = new HashMap<>();
+
         for (SchedulesModel model : targets) {
             // 1. 유저별 알림 채널 동적 결정 (웹알림 우선 혹은 푸시 우선)
-            NotificationChannel channel = notificationChannelResolver.resolveChannel(model.getMemberId());
+            NotificationChannel channel = channelByMember.computeIfAbsent(
+                    model.getMemberId(), notificationChannelResolver::resolveChannel);
 
             // 2. 외부 카프카로 전송될 공통 Notification 구조체 래핑
             NotificationEvents kafkaEvent = NotificationEvents.of(ScheduleEvents.builder()

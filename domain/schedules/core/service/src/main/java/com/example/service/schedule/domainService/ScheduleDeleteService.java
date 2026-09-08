@@ -13,6 +13,7 @@ import com.example.service.schedule.domainService.repeat.delete.RepeatDeleteRegi
 import com.example.service.schedule.domainService.support.DomainEventPublisher;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -52,7 +53,10 @@ public class ScheduleDeleteService {
         domainEventPublisher.publish(targets, ScheduleActionType.SCHEDULE_DELETE);
     }
 
+    // lockAtMostFor: 서버 장애로 락이 안 풀려도 10분 뒤엔 자동 해제 (Deadlock 방지)
+    // lockAtLeastFor: 최소 1분은 락을 유지해 인스턴스 간 실행 시각 오차로 인한 중복 실행 방지
     @Scheduled(cron = "0 0 0 * * ?")
+    @SchedulerLock(name = "deleteOldSchedules", lockAtMostFor = "PT10M", lockAtLeastFor = "PT1M")
     public void deleteOldSchedules() {
         LocalDateTime thresholdDate = LocalDateTime.now().minusMonths(1);
         scheduleRepositoryPort.deleteOldSchedules(thresholdDate);

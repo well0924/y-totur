@@ -11,6 +11,7 @@ import com.example.rdb.member.Member;
 import com.example.rdb.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -94,6 +95,7 @@ public class MemberOutConnector implements MemberRepositoryPort {
     public void deleteMember(Long id) {
         memberRepository.findById(id).ifPresent(member -> evictUserCache(member.getUserId()));
         memberRepository.deleteById(id);
+        evictExistsCache(id);
     }
 
     // AuthOutConnector.loadUserByUsername()의 "user" 캐시 무효화
@@ -101,6 +103,12 @@ public class MemberOutConnector implements MemberRepositoryPort {
         Optional.ofNullable(cacheManager.getCache("user")).ifPresent(cache -> cache.evict(userId));
     }
 
+    // existsById()의 "memberExists" 캐시 무효화 - 실제로 row가 삭제되는 유일한 경로라 여기서만 필요
+    private void evictExistsCache(Long id) {
+        Optional.ofNullable(cacheManager.getCache("memberExists")).ifPresent(cache -> cache.evict(id));
+    }
+
+    @Cacheable(value = "memberExists", key = "#id")
     public boolean existsById(Long id) {
         return memberRepository.existsById(id);
     }

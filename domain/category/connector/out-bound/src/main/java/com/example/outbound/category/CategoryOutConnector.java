@@ -96,6 +96,9 @@ public class CategoryOutConnector implements CategoryRepositoryPort {
         }
     }
 
+    // 카테고리는 소프트 삭제만 하고 row 자체는 지우지 않아서, existsById 결과는 true->false로
+    // 뒤집힐 일이 없다 - 무효화 훅 없이 캐싱해도 안전
+    @Cacheable(value = "categoryExists", key = "#id")
     public boolean existsById(Long id) {
         return categoryRepository.existsById(id);
     }

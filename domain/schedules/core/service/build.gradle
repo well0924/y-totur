@@ -24,6 +24,8 @@ dependencies {
     implementation project(':domain:category:core:model')
     implementation project(':domain:category:core:exception')
 
+    implementation 'net.javacrumbs.shedlock:shedlock-spring:5.9.0'
+
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
