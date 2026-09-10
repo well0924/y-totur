@@ -4,6 +4,9 @@ import com.example.exception.dto.ErrorCode;
 import com.example.exception.global.CustomExceptionHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.micrometer.core.instrument.Gauge;
+import io.micrometer.core.instrument.MeterRegistry;
+import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
@@ -25,6 +28,16 @@ public class OutboxEventService {
 
     private final OutboxEventRepository outboxEventRepository;
     private final ObjectMapper objectMapper;
+    private final MeterRegistry meterRegistry;
+
+    // outbox.pending.count: sent=false 백로그 크기. poller(fixedDelay=3000, limit=100)가
+    // 실제 쓰기 속도를 못 따라가는지 확인하려고 추가 (2026-09-10, CAS 회귀 재테스트용)
+    @PostConstruct
+    public void registerPendingBacklogGauge() {
+        Gauge.builder("outbox.pending.count", outboxEventRepository, OutboxEventRepository::countBySentFalse)
+                .description("Outbox 미발행(sent=false) 이벤트 백로그 크기")
+                .register(meterRegistry);
+    }
 
     @Transactional(readOnly = true)
     public List<OutboxEventEntity> getPendingEvents(int limit) {

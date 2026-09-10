@@ -15,6 +15,9 @@ public interface OutboxEventRepository extends JpaRepository<OutboxEventEntity,S
     @Query("SELECT e FROM OutboxEventEntity e WHERE e.sent = false ORDER BY e.retryCount ASC, e.createdAt ASC")
     List<OutboxEventEntity> findPendingEvents(Pageable pageable);
 
+    // 미발행(sent=false) 이벤트 백로그 크기 - poller 드레인 속도 모니터링용
+    long countBySentFalse();
+
     /**
      * 발행이 성공(sent=true)하고 특정 보관 기간(threshold)이 지난 데이터를 물리 삭제합니다.
      * @param threshold 삭제 기준 시간 (예: LocalDateTime.now().minusDays(3))
