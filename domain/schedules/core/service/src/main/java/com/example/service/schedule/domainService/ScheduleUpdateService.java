@@ -4,7 +4,6 @@ import com.example.enumerate.schedules.PROGRESS_STATUS;
 import com.example.enumerate.schedules.RepeatUpdateType;
 import com.example.events.enums.ScheduleActionType;
 import com.example.inbound.schedules.ScheduleRepositoryPort;
-import com.example.interfaces.notification.notification.NotificationInterfaces;
 import com.example.model.schedules.SchedulesModel;
 import com.example.service.schedule.domainService.guard.ScheduleGuard;
 import com.example.service.schedule.domainService.repeat.update.RepeatUpdateRegistry;
@@ -26,7 +25,6 @@ public class ScheduleUpdateService {
     private final ScheduleRepositoryPort scheduleRepositoryPort;
     private final ScheduleGuard scheduleGuard;
     private final RepeatUpdateRegistry repeatUpdateRegistry;
-    private final NotificationInterfaces notificationInterfaces;
     private final DomainEventPublisher domainEventPublisher;
 
     public SchedulesModel updateSchedule(Long scheduleId, SchedulesModel model, RepeatUpdateType updateType) {
@@ -36,7 +34,7 @@ public class ScheduleUpdateService {
         RepeatUpdateType t = Optional.ofNullable(updateType).orElse(RepeatUpdateType.SINGLE);
         List<SchedulesModel> result = repeatUpdateRegistry.dispatch(t, existing, model);
 
-        notificationInterfaces.createReminder(result.get(0));
+        // 리마인드 알림은 ScheduleEventListener의 AFTER_COMMIT 단계에서 처리 (2026-09-11)
         domainEventPublisher.publish(result, ScheduleActionType.SCHEDULE_UPDATE);
         return result.get(0);
     }

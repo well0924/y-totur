@@ -2,10 +2,12 @@ package com.example.outbound.schedule;
 
 import com.example.events.enums.AggregateType;
 import com.example.events.enums.NotificationChannel;
+import com.example.events.enums.ScheduleActionType;
 import com.example.events.kafka.NotificationEvents;
 import com.example.events.outbox.OutboxEventService;
 import com.example.events.spring.ScheduleDomainEvent;
 import com.example.events.spring.ScheduleEvents;
+import com.example.interfaces.notification.notification.NotificationInterfaces;
 import com.example.model.schedules.SchedulesModel;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +25,7 @@ public class ScheduleEventListener {
 
     private final NotificationChannelResolver notificationChannelResolver;
     private final OutboxEventService outboxEventService;
+    private final NotificationInterfaces notificationInterfaces;
 
     @TransactionalEventListener(phase = TransactionPhase.BEFORE_COMMIT)
     public void handleScheduleDomainEvent(ScheduleDomainEvent event) {
@@ -63,6 +66,29 @@ public class ScheduleEventListener {
                     eventTypes
             );
             log.info("[Outbox 적재 완료] 동일 트랜잭션 내 Outbox 데이터 세팅 완료");
+        }
+    }
+
+    // 리마인더는 outbox처럼 원자성이 필요하지 않은 부가 기능이라 AFTER_COMMIT으로 분리
+    // (메인 트랜잭션의 커넥션 점유시간 단축 목적, 2026-09-11).
+    // 트레이드오프: 커밋 이후 실패하면 자동 재시도가 없다 - 실패 시 로그로만 추적한다.
+    // 기존 direct-call 동작과 동일하게 첫 번째 스케줄에 대해서만 리마인더를 생성한다.
+    @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
+    public void handleReminderRegistration(ScheduleDomainEvent event) {
+        if (event.actionType() != ScheduleActionType.SCHEDULE_CREATED
+                && event.actionType() != ScheduleActionType.SCHEDULE_UPDATE) {
+            return;
+        }
+        if (event.schedules().isEmpty()) {
+            return;
+        }
+
+        SchedulesModel target = event.schedules().get(0);
+        try {
+            notificationInterfaces.createReminder(target);
+        } catch (Exception e) {
+            log.error("[리마인더 생성 실패] AFTER_COMMIT이라 자동 재시도 없음 - scheduleId={}, memberId={}, error={}",
+                    target.getId(), target.getMemberId(), e.getMessage(), e);
         }
     }
 
