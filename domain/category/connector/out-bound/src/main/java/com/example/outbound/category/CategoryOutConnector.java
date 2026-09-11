@@ -10,6 +10,7 @@ import com.example.rdb.CategoryRepository;
 import com.example.redis.config.cachekey.CacheKey;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
@@ -77,7 +78,10 @@ public class CategoryOutConnector implements CategoryRepositoryPort {
         return categoryEntityMapper.toEntity(categoryRepository.save(category));
     }
 
-    @CacheEvict(value = CacheKey.CATEGORY_KEY, key = "'id:' + #a0")
+    @Caching(evict = {
+            @CacheEvict(value = CacheKey.CATEGORY_KEY, key = "'id:' + #a0"),
+            @CacheEvict(value = CacheKey.CATEGORY_KEY, key = "'exists:' + #a0")
+    })
     public void deleteCategory(Long categoryId) {
         Category category = getCategoryById(categoryId);
         //삭제 여부 true로 변경.
@@ -96,6 +100,8 @@ public class CategoryOutConnector implements CategoryRepositoryPort {
         }
     }
 
+    // 스케줄 생성 트랜잭션에서 매 요청 조회되는 값 - 캐싱으로 커넥션 점유시간 단축 (2026-09-11)
+    @Cacheable(value = CacheKey.CATEGORY_KEY, key = "'exists:' + #a0")
     public boolean existsById(Long id) {
         return categoryRepository.existsById(id);
     }

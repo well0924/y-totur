@@ -5,7 +5,6 @@ import com.example.events.enums.ScheduleActionType;
 import com.example.exception.schedules.dto.ScheduleErrorCode;
 import com.example.exception.schedules.exception.ScheduleCustomException;
 import com.example.inbound.schedules.ScheduleRepositoryPort;
-import com.example.interfaces.notification.notification.NotificationInterfaces;
 import com.example.model.schedules.SchedulesModel;
 import com.example.security.config.SecurityUtil;
 import com.example.service.schedule.domainService.guard.ScheduleGuard;
@@ -33,7 +32,6 @@ public class ScheduleCreateService {
     private final ScheduleClassifier scheduleClassifier;
     private final ScheduleGuard scheduleGuard;
     private final AttachBinder attachBinder;
-    private final NotificationInterfaces notificationInterfaces;
     private final DomainEventPublisher domainEventPublisher;
 
     public SchedulesModel saveSchedule(SchedulesModel model) {
@@ -72,8 +70,7 @@ public class ScheduleCreateService {
                     .build();
         }
 
-        // 리마인드 알림 및 이벤트 발행.
-        notificationInterfaces.createReminder(firstSchedule);
+        // 리마인드 알림은 ScheduleEventListener의 AFTER_COMMIT 단계에서 처리 (2026-09-11)
         domainEventPublisher.publish(List.of(firstSchedule), ScheduleActionType.SCHEDULE_CREATED);
         return firstSchedule;
     }
